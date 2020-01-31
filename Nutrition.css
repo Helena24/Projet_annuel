@@ -1,0 +1,173 @@
+/*police*/
+
+@font-face {
+font-family: "barlow";
+src: url('/Users/helenaadiduyulmus/Library/Fonts/BarlowCondensed-Bold.otf');
+}
+
+
+/*page de connexion*/
+  
+  
+#logo
+{
+position: absolute;
+left:15px;
+top:0;
+}
+
+header
+{
+     background: black;
+	 position: relative;
+     height: 150px;
+     width: 100%;
+     margin: 0;
+	 text-align:center;
+	 font-family: 'Barlow Condensed', bold;
+}
+h1
+{
+	text-align:center;
+	font-family: 'Barlow Condensed', bold;
+	color:white;
+	margin:0;
+}
+h2
+{
+	text-align:center;
+	font-family: 'Barlow Condensed', bold;
+	color:black;
+	margin:0;
+}
+body
+{
+    background-color:lightcyan; 
+	font-family: 'Barlow Condensed', bold; 
+}
+/*formulaire connexion*/
+.center-color {
+     position: absolute;
+	 text-align: center;
+	 font-family: 'Barlow Condensed', bold;
+     margin: auto;
+	 padding: 20px;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     width: 400px;
+     height: 100px;
+	 color:black;
+}
+/*bouton connexion*/
+.center{
+     margin: auto;
+	 text-align: center;
+	 font-family: 'Barlow Condensed', bold;
+	 padding: 280px;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     width: 400px;
+     height: 00px;
+}
+.styled {
+    border: 0;
+	list-style-type: none;
+	font-family: 'Barlow Condensed', bold;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    background-color: black;
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: #05b2b5;
+	color:black;
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+/*accueil*/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color:black;
+  background-color: #05b2b5;
+  border:2px solid black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 20px 51.5px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+	color:black;
+  background-color: black;
+}
+
+#menu-deroulant, #menu-deroulant ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+#menu-deroulant {
+/* on centre le menu dans la page */
+    text-align: center;
+}
+#menu-deroulant li {
+/* on place les liens du menu horizontalement */
+    display: inline-block;
+}
+#menu-deroulant ul li {
+/* on enlève ce comportement pour les liens du sous menu */
+    display: inherit;
+}
+#menu-deroulant a {
+    text-decoration: none;
+    display: block;
+	color:black;
+}
+#menu-deroulant li a:hover {
+/* Au survol des li du menu on replace les sous menus */
+    left: auto;
+	color:white;
+}
+#menu-deroulant ul {
+    position: absolute;
+/* on cache les sous menus complètement sur la gauche */
+    left: -999em;
+    text-align: left;
+    z-index: 1000;
+}
+#menu-deroulant li:hover ul {
+/* Au survol des li du menu on replace les sous menus */
+    left: auto;
+	color:black;
+}
