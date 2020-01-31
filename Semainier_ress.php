@@ -3,7 +3,7 @@
 
 <?php include("entete.php"); ?>
 
-<h2>Semainier nutritionnel</h2>
+<h2>Semainier des ressentis</h2>
 
 <body>
     <table border=1 cellspacing=4 cellpadding=4 class="semainier">
