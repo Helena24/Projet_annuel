@@ -42,7 +42,7 @@ catch(PDOException $e)
 //     $telUser=$_POST['telUser'];
 //     $adresseUser=$_POST['adresseUser'];
 
-// 		$Requete = $bdd->prepare("INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT) VALUES(?,?,?,?,?,?)");
+// 		$Requete = $connection->prepare("INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT) VALUES(?,?,?,?,?,?)");
 // 		$Requete->bindValue(1,$nomUser, PDO::PARAM_STR);
 // 		$Requete->bindValue(2,$prenomUser, PDO::PARAM_STR);
 // 		$Requete->bindValue(3,$datenaissanceUser, PDO::PARAM_INT);
@@ -61,8 +61,8 @@ if(isset($_POST['add']))
     $telUser=$_POST['telUser'];
     $adresseUser=$_POST['adresseUser'];
 
-	$Requete = $bdd->prepare("INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT) 
-    VALUES(:nomUser, :prenomUser, :datenaissanceUser, :emailUser, :telUser, :adresseUser)");
+	$Requete = $connection->prepare('INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT) 
+    VALUES(:nomUser, :prenomUser, :datenaissanceUser, :emailUser, :telUser, :adresseUser)');
 	$Requete->bindValue(":nomUser",$nomUser, PDO::PARAM_STR);
 	$Requete->bindValue(":prenomUser",$prenomUser, PDO::PARAM_STR);
     $Requete->bindValue(":datenaissanceUser",$datenaissanceUser, PDO::PARAM_STR);
