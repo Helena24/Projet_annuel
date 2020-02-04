@@ -32,19 +32,24 @@ catch(PDOException $e)
 
 // Ajout des champs dans la table Clients 
 
-if (isset ($_POST['add'])){
-    //On récupère les valeurs entrées :
+
+if(isset($_POST['add']))
+{		
     $nomUser=$_POST['nomUser'];
-    $prenomUser=$_POST["prenomUser"];
-    $datenaissanceUser=$_POST["datenaissanceUser"];
+    $prenomUser=$_POST['prenomUser'];
+    $datenaissanceUser=$_POST['datenaissanceUser'];
     $emailUser=$_POST['emailUser'];
-    $telUser=$_POST["telUser"];
-    $adresseUser=$_POST["adresseUser"];
+    $telUser=$_POST['telUser'];
+    $adresseUser=$_POST['adresseUser'];
 
-$connection->exec ('INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT)
-                   VALUES("'.$nomUser.'", "'.$prenomUser.'","'.$datenaissanceUser.'","'.$emailUser.'","'.$telUser.'","'.$adresseUser.'")');
-
-echo 'Le client a bien été ajouté !';
+		$Requete = $bdd->prepare("INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT) VALUES(?,?,?,?,?,?)");
+		$Requete->bindValue(1,$nomUser, PDO::PARAM_STR);
+		$Requete->bindValue(2,$prenomUser, PDO::PARAM_STR);
+		$Requete->bindValue(3,$datenaissanceUser, PDO::PARAM_INT);
+		$Requete->bindValue(4,$emailUser, PDO::PARAM_STR);
+		$Requete->bindValue(5,$telUser, PDO::PARAM_STR);
+		$Requete->bindValue(6,$adresseUser, PDO::PARAM_STR);
+		$Requete->execute();
 }
 ?>
 
