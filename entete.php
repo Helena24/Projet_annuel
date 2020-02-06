@@ -31,7 +31,7 @@
 <li><a href="#">Ma progression</a>
 		<ul>
 			<li><a href="Mensurations.html">Saisie des mensurations</a></li>
-			<li><a href="#">Saisie des informations balances</a></li>
+			<li><a href="Mesures.html">Saisie des informations balances</a></li>
 			<li><a href="#">Visualiser mes progrès</a></li>
 		</ul>
 	</li>
