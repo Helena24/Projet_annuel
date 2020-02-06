@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="Nutrition.css" />
+    <title>Nutrition</title>
+</head>
+	<header>
+		<br>
+		<h1>Mes Mensurations</h1>
+		<a href="entete.php" title='Mon image' target='_blank'><img src='https://nsa40.casimages.com/img/2020/01/31/mini_20013102493697038.png' alt='Mon image' height="140" width="100" id="logo" /></a>
+    </header>
+    
+<ul id="menu-deroulant">
+    <li><a href="#">Mes semainiers</a>
+        <ul>
+            <li><input type="date" placeholder="mm/dd/yy"></li>
+            <li><a href="#">Créer un semainier des ressentis</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Alimentation</a>
+        <ul>
+            <li><a href="#">Mes demandes</a></li>
+            <li><a href="#">Equivalence</a></li>
+            <li><a href="#">Aliments non souhaités</a></li>
+            <li><a href="#">Demandes</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Ma progression</a>
+        <ul>
+            <li><a href="Mensurations.html">Saisie des mensurations</a></li>
+            <li><a href="#">Saisie des informations balances</a></li>
+            <li><a href="#">Visualiser mes progrès</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Mon profil</a>
+        <ul>
+            <li><a href="Page de connexion.php">Connexion / Inscription</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Contact</a>
+    </li>
+    </ul>
+
+
+<h2>Veuillez remplir chacun des champs ci dessous</h2>
+<form method="POST" action= "Add.mensurations.php" enctype="multipart/form-data"></form>
+<fieldset>
+    Date                        <input name="Date" required ><br>
+    Taille (en cm)              <input name="Taille" required ><br>
+    Poids (en kg)               <input name="Poids" required ><br>
+    Tour d'épaules (en cm)      <input name="epaules" required ><br>
+    Tour de bras (en cm)        <input name="bras" required ><br>
+    Tour de poitrine (en cm)    <input name="poitrine" required ><br>
+    Tour de poignet (en cm)     <input name="poignet" required ><br>
+    Tour de taille (en cm)      <input name="tourtaille" required ><br>
+    Tour de hanche (en cm)      <input name="hanche" required ><br>
+    Tour de mollet (en cm)      <input name="mollet" required ><br>
+
+    <br> <input name="add" type="submit" value="Envoyer au Nutritionniste"/>
+</fieldset>
+</form>
+</body>
+</html>
