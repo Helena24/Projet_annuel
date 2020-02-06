@@ -9,7 +9,7 @@
 	<header>
 		<br>
 		<h1>Bienvenue</h1>
-		<a href='https://www.casimages.com/i/20013102493697038.png.html' title='Mon image' target='_blank'><img src='https://nsa40.casimages.com/img/2020/01/31/mini_20013102493697038.png' alt='Mon image' height="140" width="100" id="logo" /></a>
+		<a href="entete.php" title='Mon image' target='_blank'><img src='https://nsa40.casimages.com/img/2020/01/31/mini_20013102493697038.png' alt='Mon image' height="140" width="100" id="logo" /></a>
 	</header>
 
 
