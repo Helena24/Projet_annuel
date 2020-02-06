@@ -10,7 +10,7 @@
 		<br>
 		<h1>Bienvenue</h1>
 		<!-- Changer le chemin du logo pour qu'il s'affiche -->
-		<a href='https://www.casimages.com/i/20013102493697038.png.html' title='Mon image' target='_blank'><img src='https://nsa40.casimages.com/img/2020/01/31/mini_20013102493697038.png' alt='Mon image' height="140" width="100" id="logo" /></a>
+		<a href="entete.php" title='Mon image' target='_blank'><img src='https://nsa40.casimages.com/img/2020/01/31/mini_20013102493697038.png' alt='Mon image' height="140" width="100" id="logo" /></a>
 	</header>
 
 <ul id="menu-deroulant">
@@ -28,13 +28,20 @@
 			<li><a href="#">Demandes</a></li>
 		</ul>
 	</li>
-	<li><a href="#">Ma progression</a>
+<li><a href="#">Ma progression</a>
+		<ul>
+			<li><a href="Mensurations.php">Saisie des mensurations</a></li>
+			<li><a href="Mesures.php">Saisie des informations balances</a></li>
+			<li><a href="#">Visualiser mes progrès</a></li>
+		</ul>
+	</li>
+<li><a href="#">Mon profil</a>
+		<ul>
+			<li><a href="Add.form.html">Connexion / Inscription</a></li>
+		</ul>
 	</li>
 	</li>
-	<li><a href="#">Mon profil</a>
-	</li>
-	</li>
-	<li><a href="#">Contact</a>
+<li><a href="#">Contact</a>
 	</li>
 </ul>
 

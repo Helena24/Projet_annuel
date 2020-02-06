@@ -44,8 +44,6 @@ if(isset($_POST['add']))
 
 	$Requete->execute();
 }
-
-
 ?>
 </body> 
 </html> 
