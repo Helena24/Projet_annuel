@@ -33,7 +33,7 @@
 					<td><input class="favorite styled" type="button" value="Se connecter"></td>
 				</tr>
 				<tr>
-					<td><input class="favorite styled" type="button" value="S'inscrire"><a href="Add.form.php"></a></td>
+					<a href="Add.form.php"></a><td><input class="favorite styled" type="button" value="S'inscrire"></td>
 				</tr>
 			</table>
 		</form>
