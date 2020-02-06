@@ -38,7 +38,13 @@ if(isset($_POST['add']))
 
 
 
-?>
+?>  
+
+        <ul>
+            <li><a href="Page de connexion.php">Déjà inscrit ? Connectez-vous</a></li>
+        </ul>
 
 </body> 
+
+
 </html> 
