@@ -14,7 +14,7 @@
 
 
 
-<h2>Des informations à venir ...  bientot zieflkzekjf victor</h2>
+<h2>Des informations à venir ... </h2>
 
 		<form>
 			<table class="center-color"> 
