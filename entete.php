@@ -29,9 +29,15 @@
 		</ul>
 	</li>
 	<li><a href="#">Ma progression</a>
+			<ul><a href="Mensurations.html">Saisie des mensurations</a></li>
+			<ul><a href="#">Saisie des informations balances</a></li>
+			<ul><a href="#">Visualiser mes progrès</a></li>
 	</li>
 	</li>
 	<li><a href="#">Mon profil</a>
+			<ul>
+				<li><a href="Page de connexion.php">Connexion / Inscription</a></li>
+			<ul>
 	</li>
 	</li>
 	<li><a href="#">Contact</a>
