@@ -32,7 +32,7 @@
 		<ul>
 			<li><a href="Mensurations.php">Saisie des mensurations</a></li>
 			<li><a href="Mesures.php">Saisie des informations balances</a></li>
-			<li><a href="#">Visualiser mes progrès</a></li>
+			<li><a href="VisualisationGraph.php">Visualiser mes progrès</a></li>
 		</ul>
 	</li>
 <li><a href="#">Mon profil</a>
