@@ -12,14 +12,15 @@
 </ul>
 -->
 <h2> Veuillez renseigner les champs suivants : </h2>
+
 <form method="POST" action= "Add.form.php" enctype="multipart/form-data">
     <fieldset>
-        Nom                     <input name="nomUser" required ><br>
-        Prénom                  <input name="prenomUser" required > <br>
-        Date de naissance       <input name="datenaissanceUser" type="date" required > <br>
-        Adresse Mail            <input name="emailUser" required > <br>
-        Numéro de téléphone     <input name="telUser" maxlength="10" required > <br>
-        Adresse postale         <input name="adresseUser" required > <br>
+        <label>Nom              <input name="nomUser" required ><br></label>
+        <label>Prénom                  <input name="prenomUser" required > <br></label>
+        <label>Date de naissance       <input name="datenaissanceUser" type="date" required > <br></label>
+        <label>Adresse Mail            <input name="emailUser" required > <br></label>
+        <label>Numéro de téléphone     <input name="telUser" maxlength="10" required > <br></label>
+        <label>Adresse postale         <input name="adresseUser" required > <br></label>
         <!--Mot de passe            <input name="passUser" type="password"/><br> -->
 
         <br> <input name="add" type="submit" value="Soumettre"/>
