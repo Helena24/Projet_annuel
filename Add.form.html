@@ -12,19 +12,47 @@
 </ul>
 -->
 <h2> Veuillez renseigner les champs suivants : </h2>
+<center method="POST" action= "Add.form.php" enctype="multipart/form-data">
 
-<form method="POST" action= "Add.form.php" enctype="multipart/form-data">
-    <fieldset>
-        <div id="form">div>Nom :                     <input name="nomUser" required >
-       Prénom :                 <input name="prenomUser" required >
-        Date de naissance :      <input name="datenaissanceUser" type="date" required >
-        Adresse Mail :            <input name="emailUser" required >
-        Numéro de téléphone :     <input name="telUser" maxlength="10" required >
-        Adresse postale :        <input name="adresseUser" required ></div>
+    <center>
+        <table>
+        <tr>
+        <td><label>Nom :</label></td>
+        <td> <input name="nomUser" required > </td>
+        </tr>
+
+        <tr>
+            <td><label>Prénom :</label></td>
+            <td> <input name="prenomUser" required > </td>
+        </tr>
+
+        <tr>
+            <td><label>Date de naissance :</label></td>
+            <td> <input name="datenaissanceUser" type="date" required > </td>
+        </tr>
+        <tr>
+            <td><label>Adresse Mail :</label></td>
+            <td> <input name="emailUser" required > </td>
+        </tr>
+        <tr>
+            <td><label>Numéro de téléphone</label></td>
+            <td> <input name="telUser" required > </td>
+        </tr>
+        <tr>
+            <td><label>Adresse postale</label></td>
+            <td> <input name="adresseUser" required > </td>
+        </tr>
+        <tr>
+            <td><a href="Accueil.php"><button>Annuler</button></a></td>
+            <td><input name="add" type="submit" value="Enregistrer"/></td>
+        </tr>
+
         <!--Mot de passe            <input name="passUser" type="password"/><br> -->
-
-        <br> <input name="add" type="submit" value="Soumettre"/>
-    </fieldset>
+   
+        
+    </table>
+    
+    </center>
 </form>
 </body>
 </html> 
