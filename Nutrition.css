@@ -189,13 +189,14 @@ table {
 }
 tr, td {
     padding: 10px;
-    border: 2px solid black;
+    /*border: 2px solid black*/;
     text-align: center;
 }
 th {
     padding: 10px;
-    border: 2px solid black;
-    background-color: black;
+    /*border: 2px solid black;
+    background-color: black*/;
     color:#05b2b5;
     text-align: center;
 }
+
