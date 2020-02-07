@@ -9,6 +9,8 @@
 
 <?php
 Include 'Connect.php';
+
+
 session_start();
 
 if(isset($_POST['modifier'])){
@@ -29,6 +31,10 @@ if(isset($_POST['modifier'])){
         $Requete->bindValue(2,$ancien_mdp, PDO::PARAM_STR);
         $Requete->execute();
 
+    }
+    else {
+
+        echo 'Erreur';
     }
 }
 ?>

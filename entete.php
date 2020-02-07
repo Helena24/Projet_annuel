@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
+
 <html>
 
     <head>
@@ -11,6 +13,7 @@
 		<h1>Bienvenue</h1>
 		<!-- Changer le chemin du logo pour qu'il s'affiche -->
 		<a href="entete.php" title='Mon image' target='_blank'><img src='https://nsa40.casimages.com/img/2020/01/31/mini_20013102493697038.png' alt='Mon image' height="140" width="100" id="logo" /></a>
+		
 	</header>
 
 <ul id="menu-deroulant">
@@ -37,7 +40,7 @@
 	</li>
 <li><a href="#">Mon profil</a>
 		<ul>
-			<li><a href="Add.form.html">Connexion / Inscription</a></li>
+			<li><a href="Update.mdp.php">Modification mdp</a></li>
 		</ul>
 	</li>
 	</li>

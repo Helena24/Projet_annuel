@@ -1,4 +1,7 @@
 <!DOCTYPE HTML>
+<?php include("entete.php"); ?>
+
+
 <html>
     <head>
     <meta charset="UTF8" />
