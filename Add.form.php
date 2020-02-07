@@ -23,7 +23,7 @@ function motDePasse($longueur=5) {
 }
 
 
-if(isset($_POST['add']))
+if(isset($_POST['Enregistrer']))
 {
     $nomUser=$_POST['nomUser'];
     $prenomUser=$_POST['prenomUser'];

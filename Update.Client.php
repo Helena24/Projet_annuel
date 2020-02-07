@@ -23,12 +23,11 @@ if(isset($_POST['modifier'])){
     if ($new_mdp1==$new_mdp2){
         
         $new_mdp3=$new_mdp2;
-        $salt = "@|-°+==00001ddQ";
-        $mdpUser=md5($new_mdp3.$salt );
+        //$salt = "@|-°+==00001ddQ";
+        $mdpUser=md5($new_mdp3);
 
-        $Requete =$connect->prepare("UPDATE CLIENTS SET MDP_CLIENT='$mdpUser' WHERE ID_CLIENT='$id' AND MDP_CLIENT='$ancien_mdp' "); 
+        $Requete =$connect->query("UPDATE CLIENTS SET MDP_CLIENT='$mdpUser' WHERE ID_CLIENT='$id' "); 
         $Requete->bindValue(1,$mdpUser, PDO::PARAM_STR);
-        $Requete->bindValue(2,$ancien_mdp, PDO::PARAM_STR);
         $Requete->execute();
 
     }
