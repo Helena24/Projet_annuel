@@ -9,8 +9,9 @@
 </head>
 
 
-<h3>Veuillez remplir attentivement chacun des champs ci dessous</h3>
 <center>
+<h3>Veuillez remplir attentivement chacun des champs ci dessous</h3>
+
 <form method="POST" action= "Add.mensurations.php" enctype="multipart/form-data"></form>
 <fieldset>
     Date :                      <input name="DateM" type="date" required ><br>

@@ -12,18 +12,47 @@
 </ul>
 -->
 <h2> Veuillez renseigner les champs suivants : </h2>
-<form method="POST" action= "Add.form.php" enctype="multipart/form-data">
-    <fieldset>
-        Nom                     <input name="nomUser" required ><br>
-        Prénom                  <input name="prenomUser" required > <br>
-        Date de naissance       <input name="datenaissanceUser" type="date" required > <br>
-        Adresse Mail            <input name="emailUser" required > <br>
-        Numéro de téléphone     <input name="telUser" required > <br>
-        Adresse postale         <input name="adresseUser" required > <br>
-        <!--Mot de passe            <input name="passUser" type="password"/><br> -->
+<center method="POST" action= "Add.form.php" enctype="multipart/form-data">
 
-        <br> <input name="add" type="submit" value="Soumettre"/>
-    </fieldset>
+    <center>
+        <table>
+        <tr>
+        <td><label>Nom :</label></td>
+        <td> <input name="nomUser" required > </td>
+        </tr>
+
+        <tr>
+            <td><label>Prénom :</label></td>
+            <td> <input name="prenomUser" required > </td>
+        </tr>
+
+        <tr>
+            <td><label>Date de naissance :</label></td>
+            <td> <input name="datenaissanceUser" type="date" required > </td>
+        </tr>
+        <tr>
+            <td><label>Adresse Mail :</label></td>
+            <td> <input name="emailUser" required > </td>
+        </tr>
+        <tr>
+            <td><label>Numéro de téléphone</label></td>
+            <td> <input name="telUser" required > </td>
+        </tr>
+        <tr>
+            <td><label>Adresse postale</label></td>
+            <td> <input name="adresseUser" required > </td>
+        </tr>
+        <tr>
+            <td><a href="Accueil.php"><button>Annuler</button></a></td>
+            <td><input name="add" type="submit" value="Enregistrer"/></td>
+        </tr>
+
+        <!--Mot de passe            <input name="passUser" type="password"/><br> -->
+   
+        
+    </table>
+    
+    </center>
 </form>
 </body>
 </html> 
