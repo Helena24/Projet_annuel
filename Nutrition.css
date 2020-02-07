@@ -177,9 +177,9 @@ li a:hover {
     font-family: 'Barlow Condensed', bold;
     margin: auto;
 }
-table {
+/*table {
     border-collapse:collapse;
-}
+}*/
 tr, td {
     padding: 10px;
     border: 2px solid black;
@@ -193,6 +193,3 @@ th {
     text-align: center;
 }
 
-#tableau {
-    text-align: center;
-}
