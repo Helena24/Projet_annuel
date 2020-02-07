@@ -10,8 +10,7 @@
 
 <?php
 include("Connect.php");
-include("entete.php"); 
-include("police.php"); 
+
 
 //Fonction qui permet de générer une chaine de charactères 
 function motDePasse($longueur=5) {
