@@ -6,7 +6,7 @@ $dbname = "nutritionniste";
 
 try 
 {
-    $connect = new PDO ("mysql:host=$servername;port=3606;dbname=$dbname", $username, $password); 
+    $connect = new PDO ("mysql:host=$servername;port=3306;dbname=$dbname", $username, $password); 
     $connect -> setAttribute (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Statut connexion : reussie"; 
 
