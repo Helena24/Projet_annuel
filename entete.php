@@ -37,7 +37,7 @@
 	</li>
 <li><a href="#">Mon profil</a>
 		<ul>
-			<li><a href="Add.form.html">Connexion / Inscription</a></li>
+			<li><a href="Add.form.php">Connexion / Inscription</a></li>
 		</ul>
 	</li>
 	</li>
