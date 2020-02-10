@@ -7,3 +7,7 @@
     <title>Visualisation de l'évolution de mes mesures balances</title>
 </head>
 
+<?php
+
+$Requete = $connect->prepare('SELECT ')
+
