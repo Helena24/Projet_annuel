@@ -12,20 +12,17 @@
 </ul>
 -->
 <h2> Veuillez renseigner les champs suivants : </h2>
-<center method="POST" action= "Add.form.php" enctype="multipart/form-data">
-
-    <center>
-        <table>
+<form method="POST" action= "Add.form.php" enctype="multipart/form-data">
+<fieldset> 
+     <table>
         <tr>
-        <td><label>Nom :</label></td>
-        <td> <input name="nomUser" required > </td>
+            <td><label>Nom :</label></td>
+            <td> <input type="text" name="nomUser" required > </td>
         </tr>
-
         <tr>
             <td><label>Prénom :</label></td>
-            <td> <input name="prenomUser" required > </td>
+            <td> <input type="text" name="prenomUser" required > </td>
         </tr>
-
         <tr>
             <td><label>Date de naissance :</label></td>
             <td> <input name="datenaissanceUser" type="date" required > </td>
@@ -44,15 +41,10 @@
         </tr>
         <tr>
             <td><a href="Accueil.php"><button>Annuler</button></a></td>
-            <td><input name="add" type="submit" value="Enregistrer"/></td>
+            <td><input name="Enregistrer" type="submit" value="Enregistrer"/></td>
         </tr>
-
-        <!--Mot de passe            <input name="passUser" type="password"/><br> -->
-   
-        
     </table>
-    
-    </center>
+</fieldset>
 </form>
 </body>
 </html> 
