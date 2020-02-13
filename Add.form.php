@@ -23,6 +23,8 @@ function motDePasse($longueur=5) {
 }
 
 
+
+
 if(isset($_POST['Enregistrer']))
 {
     $nomUser=$_POST['nomUser'];
@@ -32,6 +34,22 @@ if(isset($_POST['Enregistrer']))
     $telUser=$_POST['telUser'];
     $adresseUser=$_POST['adresseUser'];
     $mdpUser= motDePasse(7);
+
+    //Fonction qui permet d'envoyer le mdp et identifiant par mail 
+    
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    $message = "Voici votre mot de passe :";
+    $subject = "Vos identifiants"; 
+    $from = "victor.janneteau@laposte.net"; 
+    $headers = 'From: '.$from."\r\n".
+        'Reply-To: '.$from."\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+
+    $to = "helena.adi@live.fr";
+    mail($to,$subject,$message,$headers);
+    echo"mail envoyé"; 
 
 	$Requete = $connect->prepare('INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT,MDP_CLIENT) 
     VALUES(:nomUser, :prenomUser, :datenaissanceUser, :emailUser, :telUser, :adresseUser, :mdpUser)');
@@ -43,7 +61,8 @@ if(isset($_POST['Enregistrer']))
     $Requete->bindValue(":adresseUser",$adresseUser, PDO::PARAM_STR);
     $Requete->bindValue(":mdpUser",$mdpUser, PDO::PARAM_STR);
 
-	$Requete->execute();
+    $Requete->execute();
+    echo"client ajouté"; 
 }
 ?>
 </body> 
