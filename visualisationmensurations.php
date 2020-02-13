@@ -135,6 +135,6 @@ $p3->SetLegend('Line 3');*/
 $graph->legend->SetFrameWeight(1);
 
 // Output line
-//$graph->Stroke();
+$graph->Stroke();
 
 ?>
