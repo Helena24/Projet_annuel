@@ -10,13 +10,12 @@
     </head>
 <body>
 
-<h1>Modification mot de passe</h1>
 <form method="POST" action="Update.Client.php">
 <!-- Affichage des champs textes -->
-<p>Ancien mot de passe :</p><input type="text" name="ancien_mdp"><br/><br/>
+<p>Mot de passe actuel :</p><input type="text" name="ancien_mdp"><br/><br/>
 
 <p>Nouveau mot de passe :</p><input type="text" name="nouveau_mdp1"><br/><br/>
-<p>Nouveau mot de passe :</p><input type="text" name="nouveau_mdp2"><br/><br/>
+<p>Confirmation :</p><input type="text" name="nouveau_mdp2"><br/><br/>
 
 <!-- Affichage d'un bouton "Modifier" -->
 <input type="submit" name="modifier" value="Modifier" ></td>
