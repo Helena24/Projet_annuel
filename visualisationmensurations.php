@@ -13,10 +13,11 @@
 
 <?php
 
+$id=$_SESSION['id_client'];
 
 
-$Requete1 = $connect->prepare('SELECT `DATE_MENSURATION`, `TAILLE_CLIENT`, `POIDS_CLIENT`, `TOUR_EPAULE_CLIENT`, `TOUR_BRAS_CLIENT`, `TOUR_POIGNET_CLIENT`, `TOUR_HANCHE_CLIENT`, `TOUR_MOLLET_CLIENT`, `TOUR_POITRINE_CLIENT`, `TOUR_TAILLE_CLIENT` FROM `mensurations` WHERE `ID_MENSURATION`=1');
-$Date1=$_POST['DATE_MENSURATION'];
+$Requete1 = $connect->prepare('SELECT `DATE_MENSURATION`, `TAILLE_CLIENT`, `POIDS_CLIENT`, `TOUR_EPAULE_CLIENT`, `TOUR_BRAS_CLIENT`, `TOUR_POIGNET_CLIENT`, `TOUR_HANCHE_CLIENT`, `TOUR_MOLLET_CLIENT`, `TOUR_TAILLE_CLIENT`, `TOUR_POITRINE_CLIENT`, `ID_CLIENT` FROM `mensurations` WHERE `ID_CLIENT`=$id');
+bindValue("DATE_MENSURATION",$Date1, PDO::PARAM_STR];
 $tailleClient1=$_POST['TAILLE_CLIENT'];
 $poidsClient1=$_POST['POIDS_CLIENT'];
 $tourepaule=$_POST['TOUR_EPAULE_CLIENT'];
@@ -30,7 +31,7 @@ $tourtaille=$_POST['TOUR_TAILLE_CLIENT'];
 
 //$datay1 = array($Date1,$tailleClient,$poidsClient,$tourepaule,$tourbras,$tourpoignet,$tourhanche,$tourmollet,$tourpoitrine,$tourtaille);
 
-$Requete2 = $connect->prepare('SELECT `DATE_MENSURATION`, `TAILLE_CLIENT`, `POIDS_CLIENT`, `TOUR_EPAULE_CLIENT`, `TOUR_BRAS_CLIENT`, `TOUR_POIGNET_CLIENT`, `TOUR_HANCHE_CLIENT`, `TOUR_MOLLET_CLIENT`, `TOUR_POITRINE_CLIENT`, `TOUR_TAILLE_CLIENT` FROM `mensurations` WHERE `ID_MENSURATION`=2');
+/* $Requete2 = $connect->prepare('SELECT `DATE_MENSURATION`, `TAILLE_CLIENT`, `POIDS_CLIENT`, `TOUR_EPAULE_CLIENT`, `TOUR_BRAS_CLIENT`, `TOUR_POIGNET_CLIENT`, `TOUR_HANCHE_CLIENT`, `TOUR_MOLLET_CLIENT`, `TOUR_POITRINE_CLIENT`, `TOUR_TAILLE_CLIENT` FROM `mensurations` WHERE `ID_MENSURATION`=2');
 $Date2=$_POST['DATE_MENSURATION'];
 $tailleClient2=$_POST['TAILLE_CLIENT'];
 $poidsClient2=$_POST['POIDS_CLIENT'];
@@ -40,11 +41,11 @@ $tourpoignet=$_POST['TOUR_POIGNET_CLIENT'];
 $tourhanche=$_POST['TOUR_HANCHE_CLIENT'];
 $tourmollet=$_POST['TOUR_MOLLET_CLIENT'];
 $tourpoitrine=$_POST['TOUR_POITRINE_CLIENT'];
-$tourtaille=$_POST['TOUR_TAILLE_CLIENT'];
+$tourtaille=$_POST['TOUR_TAILLE_CLIENT']; */
 //$datay2 = array($Date2,$tailleClient,$poidsClient,$tourepaule,$tourbras,$tourpoignet,$tourhanche,$tourmollet,$tourpoitrine,$tourtaille);*/
 
 $data1 = array($tailleClient1,$tailleClient2);
-echo($tailleClient1);
+echo($Date1);
 $data2 = array($poidsClient1,$poidsClient2);
 /*
 // Setup the graph
