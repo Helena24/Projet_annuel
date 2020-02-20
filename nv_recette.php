@@ -8,25 +8,13 @@
 </head> 
 <body>
 
-<script>
-    $(document).ready(function () {
-        $('#txtCountry').typeahead({
-            source: function (query, result) {
-                $.ajax({
-                    url: "Add.recette.php",
-					data: 'query=' + query,            
-                    dataType: "json",
-                    type: "POST",
-                    success: function (data) {
-						result($.map(data, function (item) {
-							return item;
-                        }));
-                    }
-                });
-            }
+<p><label>Nom : </label>
+<input type="text" id="NOM_ALIMENT" placeholder="Veuillez taper un nom">
+      <script>
+        $( '#NOM_ALIMENT' ).autocomplete({
+          source : 'Add.recette.php'
         });
-    });
-</script>
+      </script>
 
 
 </body>
