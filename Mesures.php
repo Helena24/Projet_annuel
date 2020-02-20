@@ -11,16 +11,24 @@
 <h3>Veuillez remplir attentivement chacun des champs ci dessous</h3>
 <form method="POST" action= "Add.mesures.php">
 <fieldset>
-    Date :                                         <input name="DateB" type="date" required ><br>
-    Pourcentage de masse graisseuse :              <input name="PourcentMG" required ><br>
-    Poids (en kg) :                                <input name="Masse" required ><br>
-    Pourcentage d'eau dans le corps :              <input name="PourcentH2O" required ><br>
-    Graisse viscérale :                            <input name="GV" required ><br>
-    Masse musculaire :                             <input name="Massemuscu" required ><br>
-    Indice d'effort physique :                     <input name="Indiceeffort" required ><br>
-    Masse osseuse :                                <input name="Masseosseuse" required ><br>
-    Impédance du corps :                           <input name="Impedance" required ><br>
-    
+    <label for="DateB">Date :</label><br>
+    <input type="date" name="DateB" required /><br>
+    <label for="PourcentMG">Pourcentage de masse graisseuse :</label><br>
+    <input name="PourcentMG" required /><br>
+    <label for="Masse">Poids (en kg) :</label><br>
+    <input name="Masse" required /><br>
+    <label for="PourcentH2O">Pourcentage d'eau dans le corps (F : entre 45 et 60% / H : entre 50 et 65%) :</label><br>
+    <input name="PourcentH2O" required/><br>
+    <label for="GV">Graisse viscérale (1-12 : Normal / 13-59 : Excessif) :</label><br>
+    <input name="GV" required /><br>
+    <label for="Massemuscu">Masse musculaire :</label><br>
+    <input name="Massemuscu" required /><br>
+    <label for="Indiceeffort">Indice d'effort physique (Entre 1 et 9) :</label><br>
+    <input name="Indiceeffort" required /><br>
+    <label for="Masseosseuse">Masse osseuse :</label><br>
+    <input name="Masseosseuse" required /><br>
+    <label for="Impedance">Impédance du corps :</label><br>
+    <input name="Impedance" required /><br>
 
     <br> <input type="submit"  name="envoyer"  value="Envoyer au Nutritionniste"/>
 </fieldset>

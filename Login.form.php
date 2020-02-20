@@ -16,11 +16,13 @@
     {
         $emailUser=$_POST['emailUser'];
         $mdpUser=$_POST['mdpUser'];
-        $mdpUser1=md5($mdpUser);
+        $mdpUser1=password_hash($mdpUser);
+
+        
                 
         $Requete= $connect->prepare("SELECT * from CLIENTS WHERE MAIL_CLIENT='$emailUser' AND MDP_CLIENT='$mdpUser1' ");
         $Requete->bindValue(1,$emailUser, PDO::PARAM_STR);
-        $Requete->bindValue(2,$mdpUser, PDO::PARAM_STR);
+        $Requete->bindValue(2,$mdpUser1, PDO::PARAM_STR);
         $Requete->execute();
         $resultat=$Requete->fetch();
                        
