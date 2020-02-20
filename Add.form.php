@@ -14,12 +14,18 @@ include("Connect.php");
 
 //Fonction qui permet de générer une chaine de charactères 
 function motDePasse($longueur=5) {
-    $Chaine = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //$Chaine = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     // on mélange la chaine avec la fonction str_shuffle()
-    $Chaine = str_shuffle($Chaine);
+    //$Chaine = str_shuffle($Chaine);
     // ensuite on coupe à la longueur voulue avec la fonction substr()
-    $Chaine = substr($Chaine,0,$longueur);
+    //$Chaine = substr($Chaine,0,$longueur);
+    //return $Chaine;
+
+    //le temps de tester avant d'être sur un serveur 
+    $Chaine = "ABCDE";
     return $Chaine;
+
+
 }
 
 
@@ -52,9 +58,6 @@ if(isset($_POST['Enregistrer']))
 
 
    // Permet de hasher la chaine de characteres avant de la stocker 
-   
-
-
    $mdpUserHash= password_hash($mdpUser, PASSWORD_DEFAULT);
    echo $mdpUserHash; 
 
@@ -66,11 +69,13 @@ if(isset($_POST['Enregistrer']))
     $Requete->bindValue(":emailUser",$emailUser, PDO::PARAM_STR);
     $Requete->bindValue(":telUser",$telUser, PDO::PARAM_STR);
     $Requete->bindValue(":adresseUser",$adresseUser, PDO::PARAM_STR);
-    echo"client ajouté";
+    echo "client ajouté";
     $Requete->bindValue(":mdpUserHash",$mdpUserHash);
-
+    echo "client ajouté1";
+    
     $Requete->execute();
-    echo"client ajouté"; 
+    echo "client ajouté2";
+    
 }
 ?>
 </body> 

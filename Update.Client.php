@@ -11,23 +11,23 @@
 </ul>
 
 <?php
+//Connexion a la base de donnée
 Include 'Connect.php';
-
-
 session_start();
 
-if(isset($_POST['modifier'])){
-	$ancien_mdp=password_hash($_POST['ancien_mdp1']);
+if(isset($_POST['Modifier'])){
+
+    $ancien_mdp=$_POST['ancien_mdp'];
 	$new_mdp1=$_POST['nouveau_mdp1'];
     $new_mdp2=$_POST['nouveau_mdp2'];
     $id=$_SESSION['ID_CLIENT'];
     $mdp=$_SESSION['MDP_CLIENT'];  
 
-    if($ancien_mdp==$mdp){
-       
+    //verification du mot de passe entré a ce qui est crypté dans la BDD
+    if (password_verify($ancien_mdp, $mdp))
+    {
         if ($new_mdp1=$new_mdp2){
     
-            
             $mdpUser=password_hash($new_mdp2, PASSWORD_DEFAULT);
 
             $Requete=$connect->query("UPDATE CLIENTS SET MDP_CLIENT='$mdpUser' WHERE ID_CLIENT='$id'");
@@ -35,14 +35,15 @@ if(isset($_POST['modifier'])){
             $Requete->execute();
             header('Location: Accueil.php');
         }
-        else{
-            echo strlen("Erreur dans votre saisie");
-            
-
+        else
+        {
+            echo "Erreur dans votre saisie";
         }
+        echo"Modification effectuée";
     }
-    else{
-        echo strlen("Ancien mot de passe incorrect");
+    else
+    {
+        echo "Ancien mot de passe incorrect";
     }
 
 
