@@ -5,6 +5,9 @@
 <title> Ajout Client</title>
 <!--  <link rel="stylesheet" media="screen" href="Style.css"> -->
 </head>
+SMTP = mail.zend.com
+smtp_port = 25
+sendmail_from = helena.adi@live.fr
 <body>
      
 
@@ -39,6 +42,8 @@ if(isset($_POST['Enregistrer']))
     
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
+    ini_set("SMTP", "mail.zend.com");
+    ini_set("smtp_port","25");
     $message = "Voici votre mot de passe :";
     $subject = "Vos identifiants"; 
     $from = "victor.janneteau@laposte.net"; 
@@ -48,6 +53,7 @@ if(isset($_POST['Enregistrer']))
 
 
     $to = "helena.adi@live.fr";
+   
     mail($to,$subject,$message,$headers);
     echo"mail envoyé"; 
 
