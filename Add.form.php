@@ -43,29 +43,9 @@ if(isset($_POST['Enregistrer']))
     $telUser=$_POST['telUser'];
     $adresseUser=$_POST['adresseUser'];
     $mdpUser= motDePasse(7);
-    
-    //password_hash($mdpUser);
+   
 
     //Fonction qui permet d'envoyer le mdp et identifiant par mail 
-<<<<<<< HEAD
-    
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
-    ini_set("SMTP", "mail.zend.com");
-    ini_set("smtp_port","25");
-    $message = "Voici votre mot de passe :";
-    $subject = "Vos identifiants"; 
-    $from = "victor.janneteau@laposte.net"; 
-    $headers = 'From: '.$from."\r\n".
-        'Reply-To: '.$from."\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-
-
-    $to = "helena.adi@live.fr";
-   
-    mail($to,$subject,$message,$headers);
-    echo"mail envoyé"; 
-=======
     //ini_set('display_errors', 1);
    // error_reporting(E_ALL);
    // $message = "Voici votre mot de passe :".$mdpUser;
@@ -80,10 +60,8 @@ if(isset($_POST['Enregistrer']))
 
 
    // Permet de hasher la chaine de characteres avant de la stocker 
-   $mdpUserHash= password_hash($mdpUser, PASSWORD_DEFAULT);
-   echo $mdpUserHash; 
->>>>>>> 733a18f283cb072f3a2a1ed01e694f5e796786bb
-
+    $mdpUserHash= password_hash($mdpUser, PASSWORD_DEFAULT);
+  
 	$Requete = $connect->prepare('INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT,MDP_CLIENT) 
     VALUES(:nomUser, :prenomUser, :datenaissanceUser, :emailUser, :telUser, :adresseUser, :mdpUserHash)');
 	$Requete->bindValue(":nomUser",$nomUser, PDO::PARAM_STR);
@@ -92,12 +70,9 @@ if(isset($_POST['Enregistrer']))
     $Requete->bindValue(":emailUser",$emailUser, PDO::PARAM_STR);
     $Requete->bindValue(":telUser",$telUser, PDO::PARAM_STR);
     $Requete->bindValue(":adresseUser",$adresseUser, PDO::PARAM_STR);
-    echo "client ajouté";
     $Requete->bindValue(":mdpUserHash",$mdpUserHash);
-    echo "client ajouté1";
-    
     $Requete->execute();
-    echo "client ajouté2";
+    echo "client ajouté";
     
 }
 ?>
