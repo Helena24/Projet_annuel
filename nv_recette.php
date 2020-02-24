@@ -8,22 +8,13 @@
 </head> 
 <body>
 
-<h2> Pour ajouter une recette remplissez les champs suivants : </h2>
 <p><label>Nom : </label>
-<input type="text" id="nom" placeholder="Veuillez taper un nom">
-<script>
-var liste = [
-    "Draggable",
-    "Droppable",
-    "Resizable",
-    "Selectable",
-    "Sortable"
-];
-
-$('#nom').autocomplete({
-    source : liste
-});
-</script>
+<input type="text" id="NOM_ALIMENT" placeholder="Veuillez taper un nom">
+      <script>
+        $( '#NOM_ALIMENT' ).autocomplete({
+          source : 'Add.recette.php'
+        });
+      </script>
 
 
 </body>

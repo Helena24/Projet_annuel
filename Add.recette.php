@@ -1,8 +1,8 @@
-<?php include("Connect.php") ?>
+<?php include("Connect.php"); ?>
 <?php
     $term = $_GET['term'];
      
-    $requete = $mysqli->prepare('SELECT NOM_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT LIKE :term');
+    $requete = $connect->prepare('SELECT * FROM ALIMENTS WHERE NOM_ALIMENT LIKE :term');
     $requete->execute(array('term' => '%' .$term. '%'));
      
     $array = array();

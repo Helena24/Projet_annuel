@@ -18,7 +18,7 @@
 <p>Confirmation :</p><input type="text" name="nouveau_mdp2"><br/><br/>
 
 <!-- Affichage d'un bouton "Modifier" -->
-<input type="submit" name="modifier" value="Modifier" ></td>
+<input type="submit" name="Modifier" value="Modifier" ></td>
 
 </form>
 </body>

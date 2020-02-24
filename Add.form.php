@@ -5,6 +5,9 @@
 <title> Ajout Client</title>
 <!--  <link rel="stylesheet" media="screen" href="Style.css"> -->
 </head>
+SMTP = mail.zend.com
+smtp_port = 25
+sendmail_from = helena.adi@live.fr
 <body>
      
 
@@ -14,12 +17,18 @@ include("Connect.php");
 
 //Fonction qui permet de générer une chaine de charactères 
 function motDePasse($longueur=5) {
-    $Chaine = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    //$Chaine = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     // on mélange la chaine avec la fonction str_shuffle()
-    $Chaine = str_shuffle($Chaine);
+    //$Chaine = str_shuffle($Chaine);
     // ensuite on coupe à la longueur voulue avec la fonction substr()
-    $Chaine = substr($Chaine,0,$longueur);
+    //$Chaine = substr($Chaine,0,$longueur);
+    //return $Chaine;
+
+    //le temps de tester avant d'être sur un serveur 
+    $Chaine = "ABCDE";
     return $Chaine;
+
+
 }
 
 
@@ -34,8 +43,7 @@ if(isset($_POST['Enregistrer']))
     $telUser=$_POST['telUser'];
     $adresseUser=$_POST['adresseUser'];
     $mdpUser= motDePasse(7);
-    
-    //password_hash($mdpUser);
+   
 
     //Fonction qui permet d'envoyer le mdp et identifiant par mail 
     //ini_set('display_errors', 1);
@@ -52,12 +60,8 @@ if(isset($_POST['Enregistrer']))
 
 
    // Permet de hasher la chaine de characteres avant de la stocker 
-   
-
-
-   $mdpUserHash= password_hash($mdpUser, PASSWORD_DEFAULT);
-   echo $mdpUserHash; 
-
+    $mdpUserHash= password_hash($mdpUser, PASSWORD_DEFAULT);
+  
 	$Requete = $connect->prepare('INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT,MDP_CLIENT) 
     VALUES(:nomUser, :prenomUser, :datenaissanceUser, :emailUser, :telUser, :adresseUser, :mdpUserHash)');
 	$Requete->bindValue(":nomUser",$nomUser, PDO::PARAM_STR);
@@ -66,11 +70,10 @@ if(isset($_POST['Enregistrer']))
     $Requete->bindValue(":emailUser",$emailUser, PDO::PARAM_STR);
     $Requete->bindValue(":telUser",$telUser, PDO::PARAM_STR);
     $Requete->bindValue(":adresseUser",$adresseUser, PDO::PARAM_STR);
-    echo"client ajouté";
     $Requete->bindValue(":mdpUserHash",$mdpUserHash);
-
     $Requete->execute();
-    echo"client ajouté"; 
+    echo "client ajouté";
+    
 }
 ?>
 </body> 

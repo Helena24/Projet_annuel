@@ -16,48 +16,90 @@
     {
         $emailUser=$_POST['emailUser'];
         $mdpUser=$_POST['mdpUser'];
-        $mdpUser1=md5($mdpUser);
-                
-        $Requete= $connect->prepare("SELECT * from CLIENTS WHERE MAIL_CLIENT='$emailUser' AND MDP_CLIENT='$mdpUser1' ");
+
+        $Requete= $connect->prepare("SELECT * from CLIENTS WHERE MAIL_CLIENT='$emailUser'");
         $Requete->bindValue(1,$emailUser, PDO::PARAM_STR);
-        $Requete->bindValue(2,$mdpUser, PDO::PARAM_STR);
         $Requete->execute();
         $resultat=$Requete->fetch();
                        
             if(!$resultat)
             {
-                echo 'Identifiants incorrects';
+                echo 'Identifiant incorrect (mail)';
             }
             else 
             {
-                
-                session_start();
-                $_SESSION['ID_CLIENT']=$resultat['ID_CLIENT'];
-                $_SESSION['NOM_CLIENT']=$resultat['NOM_CLIENT'];
-                $_SESSION['PRENOM_CLIENT']=$resultat['PRENOM_CLIENT'];
-                $_SESSION['MAIL_CLIENT']=$resultat['MAIL_CLIENT'];
-                $_SESSION['TEL_CLIENT']=$resultat['TEL_CLIENT'];
-                $_SESSION['ADRESSE_POSTALE_CLIENT']=$resultat['ADRESSE_POSTALE_CLIENT'];
-                $_SESSION['DATE_NAISSANCE_CLIENT']=$resultat['DATE_NAISSANCE_CLIENT'];
-                
+                $mdp=$resultat['MDP_CLIENT'];
+                if (password_verify($mdpUser, $mdp)) 
+                {
+                    session_start();
+                    $_SESSION['ID_CLIENT']=$resultat['ID_CLIENT'];
+                    $_SESSION['NOM_CLIENT']=$resultat['NOM_CLIENT'];
+                    $_SESSION['PRENOM_CLIENT']=$resultat['PRENOM_CLIENT'];
+                    $_SESSION['MAIL_CLIENT']=$resultat['MAIL_CLIENT'];
+                    $_SESSION['TEL_CLIENT']=$resultat['TEL_CLIENT'];
+                    $_SESSION['ADRESSE_POSTALE_CLIENT']=$resultat['ADRESSE_POSTALE_CLIENT'];
+                    $_SESSION['DATE_NAISSANCE_CLIENT']=$resultat['DATE_NAISSANCE_CLIENT'];
+                    $_SESSION['MDP_CLIENT']=$resultat['MDP_CLIENT'];
 
+                    header('Location: Accueil.php');
+                }
+                else
+                {
+                    echo 'Le mot de passe est invalide.';
+                }
 
-                header('Location: Accueil.php');
-
-
-                
             }
-        }
+    }
+
+      
+    // permet la deconnexion de l'utilisateur 
+    if(isset($_POST['Deconnexion'])){ 	
+        session_destroy();
+        header('location: Login.form.html');
+    }    
+        
+    
+    // $mdpUser1=password_hash($mdpUser);
+
+        
+                
+        //$Requete= $connect->prepare("SELECT * from CLIENTS WHERE MAIL_CLIENT='$emailUser' AND MDP_CLIENT='$mdpUser1' ");
+        //$Requete->bindValue(1,$emailUser, PDO::PARAM_STR);
+        //$Requete->bindValue(2,$mdpUser1, PDO::PARAM_STR);
+        //$Requete->execute();
+        //$resultat=$Requete->fetch();
+                       
+        //    if(!$resultat)
+        //    {
+        //        echo 'Identifiants incorrects';
+        //    }
+        //    else 
+        //    {
+                
+        //        session_start();
+        //        $_SESSION['ID_CLIENT']=$resultat['ID_CLIENT'];
+        //        $_SESSION['NOM_CLIENT']=$resultat['NOM_CLIENT'];
+        //        $_SESSION['PRENOM_CLIENT']=$resultat['PRENOM_CLIENT'];
+        //        $_SESSION['MAIL_CLIENT']=$resultat['MAIL_CLIENT'];
+        //        $_SESSION['TEL_CLIENT']=$resultat['TEL_CLIENT'];
+        //        $_SESSION['ADRESSE_POSTALE_CLIENT']=$resultat['ADRESSE_POSTALE_CLIENT'];
+        //        $_SESSION['DATE_NAISSANCE_CLIENT']=$resultat['DATE_NAISSANCE_CLIENT'];
+                
+
+
+        //        header('Location: Accueil.php');
+
+
+                
+        //    }
+        //}
       
             
                  
 
-    ?> 
+        ?> 
                  
        <!-- <META http-equiv="refresh" content="3; URL=http://localhost/PROJET_ANNUEL/Projet_annuel/Projet_annuel/Accueil.php">-->
 
         </body>
 </html>
-
-
-
