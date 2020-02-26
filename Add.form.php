@@ -41,7 +41,10 @@ if(isset($_POST['Enregistrer']))
     $datenaissanceUser=$_POST['datenaissanceUser'];
     $emailUser=$_POST['emailUser'];
     $telUser=$_POST['telUser'];
-    $adresseUser=$_POST['adresseUser'];
+    $numRueUser=$_POST['numRueUser'];
+    $nomRueUser=$_POST['nomRueUser'];
+    $codePostalUser=$_POST['codePostalUser'];
+    $villeUser=$_POST['villeUser'];
     $mdpUser= motDePasse(7);
    
 
@@ -62,18 +65,25 @@ if(isset($_POST['Enregistrer']))
    // Permet de hasher la chaine de characteres avant de la stocker 
     $mdpUserHash= password_hash($mdpUser, PASSWORD_DEFAULT);
   
-	$Requete = $connect->prepare('INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,ADRESSE_POSTALE_CLIENT,MDP_CLIENT) 
-    VALUES(:nomUser, :prenomUser, :datenaissanceUser, :emailUser, :telUser, :adresseUser, :mdpUserHash)');
+	$Requete = $connect->prepare('INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,MDP_CLIENT) 
+    VALUES(:nomUser, :prenomUser, :datenaissanceUser, :emailUser, :telUser, :mdpUserHash)');
 	$Requete->bindValue(":nomUser",$nomUser, PDO::PARAM_STR);
 	$Requete->bindValue(":prenomUser",$prenomUser, PDO::PARAM_STR);
     $Requete->bindValue(":datenaissanceUser",$datenaissanceUser, PDO::PARAM_STR);
     $Requete->bindValue(":emailUser",$emailUser, PDO::PARAM_STR);
     $Requete->bindValue(":telUser",$telUser, PDO::PARAM_STR);
-    $Requete->bindValue(":adresseUser",$adresseUser, PDO::PARAM_STR);
     $Requete->bindValue(":mdpUserHash",$mdpUserHash);
     $Requete->execute();
     echo "client ajouté";
-    
+
+    $RequeteA = $connect->prepare('INSERT INTO ADRESSE (ID_CLIENT,NUMERO_RUE,NOM_RUE,CODE_POSTAL,VILLE) 
+    VALUES((SELECT ID_CLIENT FROM CLIENTS WHERE MAIL_CLIENT="'.$emailUser.'"),:numRueUser, :nomRueUser, :codePostalUser, :villeUser)');
+    $RequeteA->bindValue(":numRueUser",$numRueUser, PDO::PARAM_STR);
+    $RequeteA->bindValue(":nomRueUser",$nomRueUser, PDO::PARAM_STR);
+    $RequeteA->bindValue(":codePostalUser",$codePostalUser, PDO::PARAM_STR);
+    $RequeteA->bindValue(":villeUser",$villeUser, PDO::PARAM_STR);
+    $RequeteA->execute();
+    echo "adresse ajoutée";
 }
 ?>
 </body> 
