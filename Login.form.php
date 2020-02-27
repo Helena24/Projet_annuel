@@ -29,7 +29,7 @@
             else 
             {
                 $mdp=$resultat['MDP_CLIENT'];
-                if (password_verify($mdpUser, $mdp)) 
+                if (password_verify($mdpUser, $mdp)) //verifie le cryptage 
                 {
                     session_start();
                     $_SESSION['ID_CLIENT']=$resultat['ID_CLIENT'];
@@ -40,6 +40,27 @@
                     $_SESSION['ADRESSE_POSTALE_CLIENT']=$resultat['ADRESSE_POSTALE_CLIENT'];
                     $_SESSION['DATE_NAISSANCE_CLIENT']=$resultat['DATE_NAISSANCE_CLIENT'];
                     $_SESSION['MDP_CLIENT']=$resultat['MDP_CLIENT'];
+                    
+                    
+                    $id=$_SESSION['ID_CLIENT']; 
+                    $Requete=$connect->prepare("SELECT ADRESSE.ID_CLIENT, ADRESSE.NUMERO_RUE, ADRESSE.NOM_RUE, ADRESSE.CODE_POSTAL, ADRESSE.VILLE, CLIENTS.ID_CLIENT FROM ADRESSE NATURAL JOIN CLIENTS WHERE ADRESSE.ID_CLIENT='$id' ");
+                    $Requete->bindValue(1,$id, PDO::PARAM_STR);
+                    $Requete->execute();
+                    $resultat=$Requete->fetch();
+                    
+                    if($resultat)
+                    {
+                     $_SESSION['NUMERO_RUE']=$resultat['NUMERO_RUE'];
+                    
+                    }
+
+
+
+
+
+
+
+
 
                     header('Location: Accueil.php');
                 }
@@ -53,11 +74,12 @@
 
       
     // permet la deconnexion de l'utilisateur 
-    if(isset($_POST['Deconnexion'])){ 	
-        session_destroy();
-        header('location: Login.form.html');
-    }    
-        
+   
+        if(isset($_POST['Deconnexion'])){ 	
+            session_destroy();
+            header('location: Login.form.html');
+        }    
+
     
     // $mdpUser1=password_hash($mdpUser);
 

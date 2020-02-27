@@ -5,9 +5,7 @@
 <title> Ajout Client</title>
 <!--  <link rel="stylesheet" media="screen" href="Style.css"> -->
 </head>
-SMTP = mail.zend.com
-smtp_port = 25
-sendmail_from = helena.adi@live.fr
+
 <body>
      
 

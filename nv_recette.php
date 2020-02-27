@@ -8,14 +8,14 @@
 </head>
 <body>
 
-<script type="text/javascript" src='jquery-3.4.1.min.js'></script>
+<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
 
 <form>
       <input type="text" name="NOM_ALIMENT" id="NOM_ALIMENT" />
 </form>
 
-
-
+</body>
+</html>
 
 <script>
       $('#NOM_ALIMENT').autocomplete({
@@ -25,8 +25,8 @@
       )};
 </script>
 
-</body>
-</html>
+
+
 
 
 

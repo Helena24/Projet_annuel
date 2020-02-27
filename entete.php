@@ -19,10 +19,7 @@
 		echo $_SESSION['NOM_CLIENT']."<br/>\n"; 
 		echo $_SESSION['PRENOM_CLIENT']; ?></h1>
 
-		<!-- Deconnexion de l'utilisateur (redirection vers la page de connexion) -->
-		<a href= "Login.form.html">
-		<input type="submit" value="Deconnexion" name="Deconnexion"/>
-		</a>
+		
 		
 	
 
@@ -52,7 +49,15 @@
 	</li>
 <li><a href="#">Mon profil</a>
 		<ul>
+			<li><a href="Profil.php">Mon Profil</a></li>
 			<li><a href="Update.mdp.php">Modification mdp</a></li>
+			
+			<!-- Deconnexion de l'utilisateur (redirection vers la page de connexion) -->
+	
+		<a href= "Login.form.html">
+		<input type="submit" value="Deconnexion" name="Deconnexion"/>
+		</a>
+
 		</ul>
 	</li>
 	</li>
