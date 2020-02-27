@@ -25,10 +25,32 @@
         <td> <?php echo $_SESSION['TEL_CLIENT'] ?> </td> 
     </tr>
     <tr> 
-        <td> Adresse postale </td>
-        <td> <?php echo $_SESSION['NUMERO_RUE'] ?> </td> 
+        <td> Adresse Postale </td>
+        <td> 
+            <table>
+            <tr> 
+                <td> Numéro de rue</td>
+                <td> <?php echo $_SESSION['NUMERO_RUE'] ?> </td>
+            </tr> 
+            <tr> 
+                <td> Nom de rue</td>
+                <td> <?php echo $_SESSION['NOM_RUE'] ?> </td>
+            </tr> 
+            <tr> 
+                <td> Code Postal</td>
+                <td> <?php echo $_SESSION['CODE_POSTAL'] ?> </td>
+            </tr> 
+            <tr> 
+                <td> Ville</td>
+                <td> <?php echo $_SESSION['VILLE'] ?> </td>
+            </tr> 
+            </table>
+        </td>   
     </tr>
-
+    <tr> 
+        <td> Mot de passe </td>
+        <td> echo bouton changer mdp ou pas ?? </td> 
+    </tr>
 
 
 
