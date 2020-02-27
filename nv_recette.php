@@ -1,20 +1,32 @@
-<!DOCTYPE html>
 <html>
-<?php include("entete.php"); ?>
-<?php include("police.php"); ?>
-<?php include("Connect.php"); ?>
-<head>
-<title> Ajout Recette</title>
-</head> 
+  <?php include("entete.php"); ?>
+  <?php include("police.php"); ?>
+  <?php include("Connect.php"); ?>
+
+<head> 
+
+</head>
 <body>
 
-<p><label>Nom : </label>
-<input type="text" id="NOM_ALIMENT" placeholder="Veuillez taper un nom">
-      <script>
-        $( '#NOM_ALIMENT' ).autocomplete({
-          source : 'Add.recette.php'
-        });
-      </script>
+<script type="text/javascript" src='jquery-3.4.1.min.js'></script>
 
+<form>
+      <input type="text" name="NOM_ALIMENT" id="NOM_ALIMENT" />
+</form>
+
+
+
+
+<script>
+      $('#NOM_ALIMENT').autocomplete({
+          source: 'Add.recette.php',
+          autoFocus : true,
+          minLength: 1,
+      )};
+</script>
 
 </body>
+</html>
+
+
+
