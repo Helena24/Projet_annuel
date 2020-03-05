@@ -16,7 +16,6 @@ if(isset($_POST['envoyer']))
 {
     $DateB=$_POST['DateB'];
     $PourcentMG=$_POST['PourcentMG'];
-    $Masse=$_POST['Masse'];
     $PourcentH2O=$_POST['PourcentH2O'];
     $GV=$_POST['GV'];
     $Massemuscu=$_POST['Massemuscu'];
@@ -30,7 +29,6 @@ if(isset($_POST['envoyer']))
     VALUES (:DateB, :PourcentMG, :Masse, :PourcentH2O, :GV, :Massemuscu, :Indiceeffort, :Masseosseuse, :Impedance, :id_client');
 	$Requete->bindValue(":DateB",$DateB, PDO::PARAM_STR);
 	$Requete->bindValue(":PourcentMG",$PourcentMG, PDO::PARAM_STR);
-    $Requete->bindValue(":Masse",$Masse, PDO::PARAM_STR);
     $Requete->bindValue(":PourcentH2O",$PourcentH2O, PDO::PARAM_STR);
     $Requete->bindValue(":GV",$GV, PDO::PARAM_STR);
     $Requete->bindValue(":Massemuscu",$Massemuscu, PDO::PARAM_STR);
