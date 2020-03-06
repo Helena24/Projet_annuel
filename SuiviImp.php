@@ -33,7 +33,7 @@ print_r($Requeteok);
 ?>
 
 
-<h2>Evolution de l'impédance du corps</h2>
+<h2>Evolution de l'age métabolique</h2>
 
 <center>
 <div style="width: 75%">
