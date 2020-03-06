@@ -23,15 +23,16 @@
 <input type="button" onclick="window.location.href = 'SuiviImp.php';" value="Suivi de l'impédance du corps"/>
 </center>
 
-<<!-- ?php 
-Include 'Connect.php';
+<?php
+$Requete = $connect->prepare("SELECT DATE_MESURES,POURCENTAGE_MASSE_GRAISSEUSE FROM mesures WHERE ID_CLIENT=1 ");
+$Requete->execute();
+$Requeteok = $Requeteok->fetchAll();
+print_r($Requeteok);
 
-session_start();
+//DATEDIFF();
+?>
 
-$Requete = $connect->prepare('SELECT `POURCENTAGE_MASSE_GRAISSEUSE`,`ID_MESURES` FROM `mesures` WHERE `ID_CLIENT`=1 ')
 
-echo($Requete);
-? -->>
 
 <div style="width: 75%">
 
