@@ -32,8 +32,9 @@ print_r($Requeteok);
 //DATEDIFF();
 ?>
 
+<h2>Evolution du tour d'épaule</h2>
 
-
+<center>
 <div style="width: 75%">
 
 <canvas id="MyChart"></canvas>
@@ -57,5 +58,6 @@ var chart = new Chart(ctx, {
 	options: {}
 });
 </script>
+</center>
 </body>
 </html>

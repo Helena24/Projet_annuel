@@ -24,16 +24,18 @@
 </center>
 
 <?php
-$Requete = $connect->prepare("SELECT DATE_MESURES,POURCENTAGE_MASSE_GRAISSEUSE FROM mesures WHERE ID_CLIENT=1 ");
+/*$Requete = $connect->prepare("SELECT DATE_MESURES,POURCENTAGE_MASSE_GRAISSEUSE FROM mesures WHERE ID_CLIENT=1 ");
 $Requete->execute();
 $Requeteok = $Requeteok->fetchAll();
 print_r($Requeteok);
 
-//DATEDIFF();
+//DATEDIFF();*/
 ?>
 
 
+<h2>Evolution du pourcentage de graisse viscérale</h2>
 
+<center>
 <div style="width: 75%">
 
 <canvas id="MyChart"></canvas>
@@ -57,5 +59,6 @@ var chart = new Chart(ctx, {
 	options: {}
 });
 </script>
+</center>
 </body>
 </html>

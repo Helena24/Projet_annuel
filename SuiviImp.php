@@ -33,7 +33,9 @@ print_r($Requeteok);
 ?>
 
 
+<h2>Evolution de l'impédance du corps</h2>
 
+<center>
 <div style="width: 75%">
 
 <canvas id="MyChart"></canvas>
@@ -57,5 +59,6 @@ var chart = new Chart(ctx, {
 	options: {}
 });
 </script>
+</center>
 </body>
 </html>
