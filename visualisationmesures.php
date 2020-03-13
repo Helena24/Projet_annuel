@@ -19,6 +19,6 @@
 <input type="button" onclick="window.location.href = 'SuiviMM.php';" value="Suivi de la masse musculaire"/>
 <input type="button" onclick="window.location.href = 'SuiviIE.php';" value="Suivi de de l'indice d'effort"/>
 <input type="button" onclick="window.location.href = 'SuiviMO.php';" value="Suivi de la masse osseuse"/>
-<input type="button" onclick="window.location.href = 'SuiviImp.php';" value="Suivi de l'age métabolique"/>
+<input type="button" onclick="window.location.href = 'SuiviAge.php';" value="Suivi de l'age métabolique"/>
 </center>
 
