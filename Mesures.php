@@ -25,10 +25,10 @@
     <input name="Indiceeffort" required /><br>
     <label for="Masseosseuse">Masse osseuse :</label><br>
     <input name="Masseosseuse" required /><br>
-    <label for="Impedance">Impédance du corps :</label><br>
-    <input name="Impedance" required /><br>
+    <label for="Age Métabolique">Impédance du corps :</label><br>
+    <input name="Agemetabolique" required /><br>
 
-    <br> <input type="submit"  name="envoyer"  value="Envoyer au Nutritionniste"/>
+    <br> <input type="submit"  name="enregistrer"  value="Enregistrer"/>
 </fieldset>
 </form>
 </center>

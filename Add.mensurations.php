@@ -12,7 +12,7 @@ Include 'Connect.php';
 
 session_start();
 
-if(isset($_POST['envoyer']))
+if(isset($_POST['enregistrer']))
 {
     $DateM=$_POST['DateM'];
     $Taille=$_POST['Taille'];
