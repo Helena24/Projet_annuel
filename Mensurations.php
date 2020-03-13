@@ -32,7 +32,7 @@
     <input name="tourtaille" required /><br>
     <label for="hanche">Tour de hanche (en cm) :</label><br>
     <input name="hanche" required /><br>
-    <label for="cuisse">Tour de poitrine (en cm) :</label><br>
+    <label for="cuisse">Tour de cuisse (en cm) :</label><br>
     <input name="cuisse" required /><br>
     <label for="mollet">Tour de mollet (en cm) :</label><br>
     <input name="mollet" required /><br>
