@@ -13,7 +13,15 @@
 
 <div style="display :flex; flex-direction:wrap; padding-left: 100px">
 <form method="POST" action= "Add.mesures.php">
-
+    <label for="client">Client : </label><br>
+        <select name="Client">
+        <?php
+            $reponse = $connect->query('SELECT NOM_CLIENT FROM CLIENTS');
+            while ($donnees = $reponse->fetch())
+            {
+            echo '<option value="' . $donnees['NOM_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . '</option>';
+            }                  
+        ?></select><br>
     <label for="DateB">Date :</label><br>
     <input type="date" name="DateB" required /><br>
     <label for="PourcentMG">Pourcentage de masse graisseuse :</label><br>
