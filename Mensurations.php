@@ -22,20 +22,22 @@
     <input name="Poids" required /><br>
     <label for="epaules">Tour d'épaules (en cm) :</label><br>
     <input name="epaules" required /><br>
-    <label for="bras">Tour de bras (en cm) :</label><br>
-    <input name="bras" required /><br>
     <label for="poitrine">Tour de poitrine (en cm) :</label><br>
     <input name="poitrine" required /><br>
+    <label for="bras">Tour de bras (en cm) :</label><br>
+    <input name="bras" required /><br>
     <label for="poignet">Tour de poignet (en cm) :</label><br>
     <input name="poignet" required /><br>
     <label for="tourtaille">Tour de taille (en cm) :</label><br>
     <input name="tourtaille" required /><br>
     <label for="hanche">Tour de hanche (en cm) :</label><br>
     <input name="hanche" required /><br>
+    <label for="cuisse">Tour de cuisse (en cm) :</label><br>
+    <input name="cuisse" required /><br>
     <label for="mollet">Tour de mollet (en cm) :</label><br>
     <input name="mollet" required /><br>
 
-    <br> <input type="submit" name="envoyer" value="Envoyer au Nutritionniste"/>
+    <br> <input type="submit" name="enregistrer" value="Enregistrer"/>
 </fieldset>
 </form>
 </center>
