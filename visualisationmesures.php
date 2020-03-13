@@ -12,7 +12,6 @@
 
 <center>
 <input type="button" onclick="window.location.href = 'SuiviMG.php';" value="Suivi de la masse graisseuse"/>
-<input type="button" onclick="window.location.href = 'SuiviIE.php';" value="Suivi de l'indice d'effort"/>
 <input type="button" onclick="window.location.href = 'SuiviIE.php';" value="Suivi de la masse"/>
 <input type="button" onclick="window.location.href = 'SuiviME.php';" value="Suivi de la masse d'eau dans le corps"/>
 <input type="button" onclick="window.location.href = 'SuiviGV.php';" value="Suivi de la graisse viscerale"/>
