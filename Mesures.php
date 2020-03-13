@@ -15,8 +15,6 @@
     <input type="date" name="DateB" required /><br>
     <label for="PourcentMG">Pourcentage de masse graisseuse :</label><br>
     <input name="PourcentMG" required /><br>
-    <label for="Masse">Poids (en kg) :</label><br>
-    <input name="Masse" required /><br>
     <label for="PourcentH2O">Pourcentage d'eau dans le corps (F : entre 45 et 60% / H : entre 50 et 65%) :</label><br>
     <input name="PourcentH2O" required/><br>
     <label for="GV">Graisse viscérale (1-12 : Normal / 13-59 : Excessif) :</label><br>
