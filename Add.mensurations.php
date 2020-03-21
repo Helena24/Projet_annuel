@@ -10,15 +10,10 @@
 <?php
 Include 'Connect.php';
 
-session_start();
 
 if(isset($_POST['enregistrer']))
 {
-
-   /*  $IDclient = $connect->prepare('SELECT ID_CLIENT FROM CLIENTS WHERE NOM_CLIENT=Client');
-    $IDclient->execute();
-    $donne = $IDclient->fetch();
-    echo $donne['ID_CLIENT']; */
+    
 
     $DateM=$_POST['DateM'];
     $Taille=$_POST['Taille'];
@@ -35,7 +30,7 @@ if(isset($_POST['enregistrer']))
 
 
 	$Requete = $connect->prepare('INSERT INTO `mensurations`(`ID_CLIENT`, `DATE_MENSURATION`, `TAILLE_CLIENT`, `POIDS_CLIENT`, `TOUR_EPAULE_CLIENT`, `TOUR_POITRINE_CLIENT`, `TOUR_BRAS_CLIENT`, `TOUR_POIGNET_CLIENT`, `TOUR_TAILLE_CLIENT`, `TOUR_HANCHE_CLIENT`, `TOUR_CUISSE_CLIENT`, `TOUR_MOLLET_CLIENT`) 
-    VALUES(:$IDclient, :DateM, :Taille, :Poids, :epaules, :poitrine, :bras, :poignet, :tourtaille, :hanche, :cuisse, :mollet)');
+    VALUES(:Client, :DateM, :Taille, :Poids, :epaules, :poitrine, :bras, :poignet, :tourtaille, :hanche, :cuisse, :mollet)');
     $Requete->bindValue(":Client",$id, PDO::PARAM_STR);
     $Requete->bindValue(":DateM",$DateM, PDO::PARAM_STR);
 	$Requete->bindValue(":Taille",$Taille, PDO::PARAM_STR);

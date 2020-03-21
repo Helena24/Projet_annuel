@@ -7,21 +7,22 @@
     <title>Mesures balances</title>
 </head>
 
-<center>
+
 <h3>Veuillez remplir attentivement chacun des champs ci dessous</h3>
-</center>
+
 
 <div style="display :flex; flex-direction:wrap; padding-left: 100px">
 <form method="POST" action= "Add.mesures.php">
-    <label for="client">Client : </label><br>
-        <select name="Client">
-        <?php
-            $reponse = $connect->query('SELECT NOM_CLIENT FROM CLIENTS');
-            while ($donnees = $reponse->fetch())
-            {
-            echo '<option value="' . $donnees['NOM_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . '</option>';
-            }                  
-        ?></select><br>
+<label for="client">Client : </label><br>
+    <select name="Client">
+    <?php
+        $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT FROM CLIENTS');
+        while ($donnees = $reponse->fetch())
+        {
+          echo '<option value="' . $donnees['ID_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . '</option>';
+        }  
+                       
+    ?></select><br>
     <label for="DateB">Date :</label><br>
     <input type="date" name="DateB" required /><br>
     <label for="PourcentMG">Pourcentage de masse graisseuse :</label><br>
@@ -62,6 +63,19 @@
             $reponse->closeCursor(); // Termine le traitement de la requête
             ?>
         </tr>
+        <tr>
+            <th>Identifiant Client</th>
+            <?php
+            $reponse = $connect->query('SELECT * FROM MENSURATIONS NATURAL JOIN CLIENTS');
+            while ($donnees = $reponse->fetch())
+            {
+                ?>
+                <td><?php echo $donnees['NOM_CLIENT']; ?></td>
+                <?php
+            }
+            $reponse->closeCursor();
+            ?>
+        </tr>  
         <tr>
             <th>Pourcentage masse graisseuse</th>
             <?php

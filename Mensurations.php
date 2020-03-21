@@ -11,9 +11,9 @@
 </head>
 
 
-<center>
+
 <h3>Veuillez remplir attentivement chacun des champs ci dessous</h3>
-</center>
+
 
 <div style="display :flex; flex-direction:wrap; padding-left: 100px">
 
@@ -21,13 +21,15 @@
     <label for="client">Client : </label><br>
     <select name="Client">
     <?php
-        $reponse = $connect->query('SELECT NOM_CLIENT FROM CLIENTS');
+        $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT FROM CLIENTS');
         while ($donnees = $reponse->fetch())
         {
-        echo '<option value="' . $donnees['NOM_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . '</option>';
+          echo '<option value="' . $donnees['ID_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . '</option>';
         }  
-                            
+                       
     ?></select><br>
+
+   
     <label for="DateM">Date :</label><br>
     <input type=date name="DateM" required /><br>
     <label for="Taille">Taille (en cm) :</label><br>
@@ -72,6 +74,19 @@
             $reponse->closeCursor(); // Termine le traitement de la requête
             ?>
         </tr>
+        <tr>
+            <th>Identifiant Client</th>
+            <?php
+            $reponse = $connect->query('SELECT * FROM MENSURATIONS NATURAL JOIN CLIENTS');
+            while ($donnees = $reponse->fetch())
+            {
+                ?>
+                <td><?php echo $donnees['NOM_CLIENT']; ?></td>
+                <?php
+            }
+            $reponse->closeCursor();
+            ?>
+        </tr>    
         <tr>
             <th>Taille</th>
             <?php
