@@ -19,15 +19,15 @@ if(isset($_POST['enregistrer']))
     $Masse=$_POST['Masse'];
     $PourcentH2O=$_POST['PourcentH2O'];
     $GV=$_POST['GV'];
+    $Masseosseuse=$_POST['Masseosseuse'];
     $Massemuscu=$_POST['Massemuscu'];
     $Indiceeffort=$_POST['Indiceeffort'];
-    $Masseosseuse=$_POST['Masseosseuse'];
     $Agemetabolique=$_POST['Agemetabolique'];
 	$id=$_POST['Client'];
 
 
-	$Requete = $connect->prepare('INSERT INTO `mesures`(`ID_CLIENT`,`DATE_MESURE`, `POURCENTAGE_MASSSE_GRAISSEUSE`, `MASSE`, `POURCENTAGE_EAU_CORPS`, `GRAISSE_VISCERALE`, `MASSE_MUSCULAIRE`, `INDICE_EFFORT`, `MASSE_OSSEUSE`, `AGE_METABOLIQUE`) 
-    VALUES (:Client, :DateB, :PourcentMG, :Masse, :PourcentH2O, :GV, :Massemuscu, :Indiceeffort, :Masseosseuse, :Agemetabolique');
+	$Requete = $connect->prepare('INSERT INTO `mesures`(`ID_CLIENT`,`DATE_MESURE`, `POURCENTAGE_MASSSE_GRAISSEUSE`, `MASSE`, `POURCENTAGE_EAU_CORPS`, `GRAISSE_VISCERALE`, `MASSE_OSSEUSE`, `MASSE_MUSCULAIRE`, `INDICE_EFFORT`, `AGE_METABOLIQUE`) 
+    VALUES (:Client, :DateB, :PourcentMG, :Masse, :PourcentH2O, :GV, :Masseosseuse, :Massemuscu, :Indiceeffort, :Agemetabolique');
     $Requete->bindValue(":Client",$id, PDO::PARAM_STR);
     $Requete->bindValue(":DateB",$DateB, PDO::PARAM_STR);
     $Requete->bindValue(":PourcentMG",$PourcentMG, PDO::PARAM_STR);

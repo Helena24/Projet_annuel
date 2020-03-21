@@ -3,6 +3,7 @@
 <?php include("entete.php"); ?>
 <?php include("police.php"); ?>
 <?php include("Connect.php"); ?>
+
 <head>
     <title>Mesures balances</title>
 </head>
@@ -12,8 +13,9 @@
 
 
 <div style="display :flex; flex-direction:wrap; padding-left: 100px">
+
 <form method="POST" action= "Add.mesures.php">
-<label for="client">Client : </label><br>
+    <label for="client">Client : </label><br>
     <select name="Client">
     <?php
         $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT FROM CLIENTS');

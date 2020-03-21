@@ -4,8 +4,6 @@
 <?php include("police.php"); ?>
 <?php include("Connect.php");?>
 
-<javascript 
-
 <head>
     <title>Mensurations</title>
 </head>
