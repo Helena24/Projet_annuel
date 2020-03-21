@@ -4,6 +4,7 @@
 <?php include("police.php"); ?>
 <?php include("Connect.php");?>
 
+<javascript 
 
 <head>
     <title>Mensurations</title>
@@ -20,7 +21,7 @@
     <label for="client">Client : </label><br>
     <select name="Client">
     <?php
-        $reponse = $connect->query('SELECT ID_CLIENT FROM CLIENTS');
+        $reponse = $connect->query('SELECT NOM_CLIENT FROM CLIENTS');
         while ($donnees = $reponse->fetch())
         {
         echo '<option value="' . $donnees['NOM_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . '</option>';
