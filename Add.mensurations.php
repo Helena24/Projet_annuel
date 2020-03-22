@@ -49,7 +49,7 @@ if(isset($_POST['enregistrer']))
 
 ?>
 
-<h3> L'ajout des nouvelles mensurations à bien était réalisé </h3>
+<h3>L'ajout des nouvelles mensurations à bien était réalisé</h3>
 
-<a href="Mensurations.php">Retour à la page précédente</a>
+<input type="button" onclick="window.location.href = 'Mensurations.php';" value="Retour à la page précédente"/>
 </html>

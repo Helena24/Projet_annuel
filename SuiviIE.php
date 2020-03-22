@@ -23,14 +23,6 @@
 <input type="button" onclick="window.location.href = 'SuiviImp.php';" value="Suivi de l'impédance du corps"/>
 </center>
 
-<?php
-$Requete = $connect->prepare("SELECT DATE_MESURES,POURCENTAGE_MASSE_GRAISSEUSE FROM mesures WHERE ID_CLIENT=1 ");
-$Requete->execute();
-$Requeteok = $Requeteok->fetchAll();
-print_r($Requeteok);
-
-//DATEDIFF();
-?>
 
 <h2>Evolution de l'indice d'effort</h2>
 

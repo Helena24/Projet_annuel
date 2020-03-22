@@ -7,7 +7,7 @@
     <title>Visualisation de mes mesures balances</title>
 </head>
 
-<h2>Choississez quelles mesures vous souhaitez visualiser</h2>
+<h2>Choississez quelles mensurations vous souhaitez visualiser</h2>
 
 
 <center>

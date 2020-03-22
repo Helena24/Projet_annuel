@@ -23,15 +23,6 @@
 <input type="button" onclick="window.location.href = 'SuiviAge.php';" value="Suivi de l'age métabolique"/>
 </center>
 
-<?php
-$Requete = $connect->prepare("SELECT DATE_MESURES,POURCENTAGE_MASSE_GRAISSEUSE FROM mesures WHERE ID_CLIENT=1 ");
-$Requete->execute();
-$Requeteok = $Requeteok->fetchAll();
-print_r($Requeteok);
-
-//DATEDIFF();
-?>
-
 
 <h2>Evolution de l'age métabolique</h2>
 

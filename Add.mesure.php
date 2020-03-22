@@ -43,8 +43,8 @@ if(isset($_POST['save']))
 
 ?>
 
-<h3>L'ajout des nouvelles mesures balances à bien était réalisé</h3>
+<h3>L'ajout des nouvelles mensurations à bien était réalisé</h3>
 
-<input type="button" onclick="window.location.href = 'Mesures.php';" value="Retour à la page précédente"/>
+<a href="Mesures.php">Retour à la page précédente</a>
 
 </html>
