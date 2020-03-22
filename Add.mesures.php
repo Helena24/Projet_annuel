@@ -27,7 +27,7 @@ if(isset($_POST['save']))
 
 
 	$Requete = $connect->prepare('INSERT INTO `mesures`(`ID_CLIENT`,`DATE_MESURE`, `POURCENTAGE_MASSSE_GRAISSEUSE`, `MASSE`, `POURCENTAGE_EAU_CORPS`, `GRAISSE_VISCERALE`, `MASSE_OSSEUSE`, `MASSE_MUSCULAIRE`, `INDICE_EFFORT`, `AGE_METABOLIQUE`) 
-    VALUES (:id, :DateB, :PourcentMG, :Masse, :PourcentH2O, :GV, :Masseosseuse, :Massemuscu, :Indiceeffort, :Agemetabolique');
+    VALUES (:id, :DateB, :PourcentMG, :Masse, :PourcentH2O, :GV, :Masseosseuse, :Massemuscu, :Indiceeffort, :Agemetabolique)');
     $Requete->bindValue(":id",$id, PDO::PARAM_STR);
     $Requete->bindValue(":DateB",$DateB, PDO::PARAM_STR);
     $Requete->bindValue(":PourcentMG",$PourcentMG, PDO::PARAM_STR);
@@ -42,5 +42,9 @@ if(isset($_POST['save']))
 }
 
 ?>
+
+<h3> L'ajout des nouvelles mensurations à bien était réalisé </h3>
+
+<a href="Mesures.php">Retour à la page précédente</a>
 
 </html>

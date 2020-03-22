@@ -12,7 +12,7 @@
 <h3>Veuillez remplir attentivement chacun des champs ci dessous</h3>
 
 
-<div style="display :flex; flex-direction:wrap; padding-left: 100px">
+<div style="display :flex; flex-direction:wrap; padding-left: 150px">
 
 <form method="POST" action= "Add.mensurations.php">
     <label for="client">Client : </label><br>
@@ -55,7 +55,7 @@
 </form>
 
 
-<div style="width:600px; overflow-y: scroll; padding-left:250px;">
+<div style="width:600px; overflow-y: scroll; padding-left:600px;">
 <table border=1 cellspacing=4 cellpadding=4 class="semainier">
         <tr>
             <th>Date</th>

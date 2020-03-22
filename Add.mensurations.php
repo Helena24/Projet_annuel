@@ -46,6 +46,10 @@ if(isset($_POST['enregistrer']))
     $Requete->execute();
 }
 
+
 ?>
 
+<h3> L'ajout des nouvelles mensurations à bien était réalisé </h3>
+
+<a href="Mensurations.php">Retour à la page précédente</a>
 </html>
