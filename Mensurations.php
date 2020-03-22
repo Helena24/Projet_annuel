@@ -45,12 +45,12 @@
 </form>
 
 
-<div style="width:150px; padding-left:250px;">
+<div style="width:600px; overflow-y: scroll; padding-left:250px;">
 <table border=1 cellspacing=4 cellpadding=4 class="semainier">
         <tr>
             <th>Date</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT DATE_MENSURATION FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -64,7 +64,7 @@
         <tr>
             <th>Taille</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT TAILLE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -78,7 +78,7 @@
         <tr>
             <th>Poids</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT POIDS_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -92,7 +92,7 @@
         <tr>
             <th>Tour d'épaules</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT TOUR_EPAULE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -106,7 +106,7 @@
         <tr>
             <th>Tour de poitrine</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT TOUR_POITRINE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -120,7 +120,7 @@
         <tr>
             <th>Tour de bras</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT TOUR_BRAS_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -134,7 +134,7 @@
         <tr>
             <th>Tour de poignet</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT TOUR_POIGNET_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -148,7 +148,7 @@
         <tr>
             <th>Tour de taille</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT TOUR_TAILLE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -162,7 +162,7 @@
         <tr>
             <th>Tour de hanche</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT TOUR_HANCHE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -176,7 +176,7 @@
         <tr>
             <th>Tour de cuisse</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT TOUR_CUISSE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -190,7 +190,7 @@
         <tr>
             <th>Tour de mollets</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS');
+            $reponse = $connect->query('SELECT TOUR_MOLLET_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
