@@ -15,8 +15,8 @@
 <div style="display :flex; flex-direction:wrap; padding-left: 100px">
 
 <form method="POST" action= "Add.mesures.php">
-    <label for="client">Client : </label><br>
-    <select name="Client">
+    <label for="idclient">Client : </label><br>
+    <select name="IdClient">
     <?php
         $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT FROM CLIENTS');
         while ($donnees = $reponse->fetch())
@@ -25,6 +25,8 @@
         }  
                        
     ?></select><br>
+
+
     <label for="DateB">Date :</label><br>
     <input type="date" name="DateB" required /><br>
     <label for="PourcentMG">Pourcentage de masse graisseuse :</label><br>
@@ -35,12 +37,12 @@
     <input name="PourcentH2O" required/><br>
     <label for="GV">Graisse viscérale (1-12 : Normal / 13-59 : Excessif) :</label><br>
     <input name="GV" required /><br>
+    <label for="Masseosseuse">Masse osseuse :</label><br>
+    <input name="Masseosseuse" required /><br>
     <label for="Massemuscu">Masse musculaire :</label><br>
     <input name="Massemuscu" required /><br>
     <label for="Indiceeffort">Indice d'effort physique (Entre 1 et 9) :</label><br>
     <input name="Indiceeffort" required /><br>
-    <label for="Masseosseuse">Masse osseuse :</label><br>
-    <input name="Masseosseuse" required /><br>
     <label for="Age Métabolique">Age Métabolique :</label><br>
     <input name="Agemetabolique" required /><br>
 
@@ -68,7 +70,7 @@
         <tr>
             <th>Identifiant Client</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS NATURAL JOIN CLIENTS');
+            $reponse = $connect->query('SELECT * FROM MESURES NATURAL JOIN CLIENTS');
             while ($donnees = $reponse->fetch())
             {
                 ?>
