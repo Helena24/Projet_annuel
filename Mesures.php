@@ -15,8 +15,8 @@
 <div style="display :flex; flex-direction:wrap; padding-left: 100px">
 
 <form method="POST" action= "Add.mesures.php">
-    <label for="idclient">Client : </label><br>
-    <select name="IdClient">
+    <label for="client">Client : </label><br>
+    <select name="id">
     <?php
         $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT FROM CLIENTS');
         while ($donnees = $reponse->fetch())
@@ -46,7 +46,7 @@
     <label for="Age Métabolique">Age Métabolique :</label><br>
     <input name="Agemetabolique" required /><br>
 
-    <br> <input type="submit"  name="enregistrer"  value="Enregistrer"/>
+    <br> <input type="submit"  name="save"  value="Enregistrer"/>
 
 </form>
 
@@ -70,7 +70,7 @@
         <tr>
             <th>Identifiant Client</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES NATURAL JOIN CLIENTS');
+            $reponse = $connect->query('SELECT * FROM MESURES NATURAL JOIN CLIENTS ORDER BY DATE_MESURES DESC');
             while ($donnees = $reponse->fetch())
             {
                 ?>
@@ -137,6 +137,20 @@
             ?>
         </tr>
         <tr>
+            <th>Masse osseuse</th>
+            <?php
+            $reponse = $connect->query('SELECT MASSE_OSSEUSE FROM MESURES ORDER BY DATE_MESURES DESC');
+            // On affiche chaque entrée une à une
+            while ($donnees = $reponse->fetch())
+            {
+            ?>
+            <td><?php echo $donnees['MASSE_OSSEUSE']; ?></td>
+            <?php
+            }
+            $reponse->closeCursor(); // Termine le traitement de la requête
+            ?>
+        </tr>
+        <tr>
             <th>Masse musculaire</th>
             <?php
             $reponse = $connect->query('SELECT MASSE_MUSCULAIRE FROM MESURES ORDER BY DATE_MESURES DESC');
@@ -159,20 +173,6 @@
             {
             ?>
             <td><?php echo $donnees['INDICE_EFFORT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Masse osseuse</th>
-            <?php
-            $reponse = $connect->query('SELECT MASSE_OSSEUSE FROM MESURES ORDER BY DATE_MESURES DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['MASSE_OSSEUSE']; ?></td>
             <?php
             }
             $reponse->closeCursor(); // Termine le traitement de la requête

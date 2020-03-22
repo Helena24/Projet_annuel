@@ -74,7 +74,7 @@
         <tr>
             <th>Identifiant Client</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS NATURAL JOIN CLIENTS');
+            $reponse = $connect->query('SELECT * FROM MENSURATIONS NATURAL JOIN CLIENTS ORDER BY DATE_MENSURATION DESC');
             while ($donnees = $reponse->fetch())
             {
                 ?>
