@@ -51,12 +51,12 @@
 </form>
 
 
-<div style="width:150px; padding-left:250px;">
+<div style="width:600px; overflow-y: scroll; padding-left:250px;">
 <table border=1 cellspacing=4 cellpadding=4 class="semainier">
         <tr>
             <th>Date</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES');
+            $reponse = $connect->query('SELECT DATE_MESURES FROM MESURES ORDER BY DATE_MESURES DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -83,7 +83,7 @@
         <tr>
             <th>Pourcentage masse graisseuse</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES');
+            $reponse = $connect->query('SELECT POURCENTAGE_MASSE_GRAISSEUSE FROM MESURES ORDER BY DATE_MESURES DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -97,7 +97,7 @@
         <tr>
             <th>Masse</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES');
+            $reponse = $connect->query('SELECT MASSE FROM MESURES ORDER BY DATE_MESURES DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -111,7 +111,7 @@
         <tr>
             <th>Pourcentage eau corps</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES');
+            $reponse = $connect->query('SELECT POURCENTAGE_EAU_CORPS FROM MESURES ORDER BY DATE_MESURES DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -125,7 +125,7 @@
         <tr>
             <th>Graisse viscérale</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES');
+            $reponse = $connect->query('SELECT GRAISSE_VISCERALE FROM MESURES ORDER BY DATE_MESURES DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -139,7 +139,7 @@
         <tr>
             <th>Masse musculaire</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES');
+            $reponse = $connect->query('SELECT MASSE_MUSCULAIRE FROM MESURES ORDER BY DATE_MESURES DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -153,7 +153,7 @@
         <tr>
             <th>Indice effort</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES');
+            $reponse = $connect->query('SELECT INDICE_EFFORT FROM MESURES ORDER BY DATE_MESURES DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -167,7 +167,7 @@
         <tr>
             <th>Masse osseuse</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES');
+            $reponse = $connect->query('SELECT MASSE_OSSEUSE FROM MESURES ORDER BY DATE_MESURES DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
@@ -181,7 +181,7 @@
         <tr>
             <th>Age métabolique</th>
             <?php
-            $reponse = $connect->query('SELECT * FROM MESURES');
+            $reponse = $connect->query('SELECT AGE_METABOLIQUE FROM MESURES ORDER BY DATE_MESURES DESC');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
             {
