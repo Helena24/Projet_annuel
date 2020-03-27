@@ -78,7 +78,7 @@ Date de fin : <input name="datefinSem" type="date" required >
             ?>
             </select>
             <input type="button" value="Ok"></td>
-            <td>Croissant</td>
+            <td>Banane</td>
             <td>Croissant</td>
             <td>Croissant</td>
             <td>Croissant</td>
