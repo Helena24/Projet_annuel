@@ -18,10 +18,10 @@
     <label for="client">Client : </label><br>
     <select name="Client">
     <?php
-        $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT FROM CLIENTS');
+        $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT, PRENOM_CLIENT FROM CLIENTS');
         while ($donnees = $reponse->fetch())
         {
-          echo '<option value="' . $donnees['ID_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . '</option>';
+          echo '<option value="' . $donnees['ID_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT'] . '</option>';
         }  
                        
     ?></select><br>
@@ -78,7 +78,7 @@
             while ($donnees = $reponse->fetch())
             {
                 ?>
-                <td><?php echo $donnees['NOM_CLIENT']; ?></td>
+                <td><?php echo $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT']; ?></td>
                 <?php
             }
             $reponse->closeCursor();
