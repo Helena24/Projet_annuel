@@ -13,8 +13,6 @@ Include 'Connect.php';
 
 if(isset($_POST['enregistrer']))
 {
-    
-
     $DateM=$_POST['DateM'];
     $Taille=$_POST['Taille'];
     $Poids=$_POST['Poids'];
