@@ -29,7 +29,10 @@
 	<li><a href="Semainier_nutri.php">Mes semainiers</a>
 		<ul>
 			<li><input type="date" placeholder="mm/dd/yy"></li>
-			<li><a href="Semainier_ress.php">Créer un semainier des ressentis</a></li>
+			<li><a href="#">Créer un semainier des ressentis</a></li>
+			<li><a href="Semainier_nutri.php">Créer un semainier pour un client </a></li>
+			<li><a href="#">Visualier mes semainiers</a></li>
+
 		</ul>
 	</li>
 <li><a href="#">Alimentation</a>

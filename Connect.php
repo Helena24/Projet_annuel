@@ -8,7 +8,7 @@ try
 {
     $connect = new PDO ("mysql:host=$servername;port=3306;dbname=$dbname", $username, $password); 
     $connect -> setAttribute (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Statut connexion : reussie"; 
+   
 
 }
 catch(PDOException $e)
