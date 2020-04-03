@@ -26,16 +26,16 @@
 	</header>
 
 <ul id="menu-deroulant">
-	<li><a href="#">Mes semainiers</a>
+	<li><a href="Semainier_nutri.php">Mes semainiers</a>
 		<ul>
 			<li><input type="date" placeholder="mm/dd/yy"></li>
-			<li><a href="#">Créer un semainier des ressentis</a></li>
+			<li><a href="Semainier_ress.php">Créer un semainier des ressentis</a></li>
 		</ul>
 	</li>
 <li><a href="#">Alimentation</a>
 		<ul>
 			<li><a href="#">Mes demandes</a></li>
-			<li><a href="#">Equivalence</a></li>
+			<li><a href="tab_equivalence.php">Equivalence</a></li>
 			<li><a href="#">Aliments non souhaités</a></li>
 			<li><a href="#">Demandes</a></li>
 		</ul>
@@ -51,6 +51,14 @@
 		<ul>
 			<li><a href="Profil.php">Mon Profil</a></li>
 			<li><a href="Update.mdp.php">Modification mdp</a></li>
+
+		<a href="Login.form.html">
+		<input type="submit" value="Connexion" name="connexion"/>
+		</a>
+
+		<a href="Add.form.html">
+		<input type="submit" value="Inscription" name="inscription"/>
+		</a>
 			
 			<!-- Deconnexion de l'utilisateur (redirection vers la page de connexion) -->
 	
