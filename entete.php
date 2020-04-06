@@ -43,7 +43,7 @@
 			<li><a href="#">Demandes</a></li>
 		</ul>
 	</li>
-<li><a href="#">Ma progression</a>
+<li><a href="#">Saisie des mesures</a>
 		<ul>
 			<li><a href="Mensurations.php">Saisie des mensurations</a></li>
 			<li><a href="Mesures.php">Saisie des informations balances</a></li>
