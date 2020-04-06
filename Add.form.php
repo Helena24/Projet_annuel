@@ -1,7 +1,8 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+<?php include("entete.php"); ?>
+<?php include("police.php"); ?>
 <head>
-<meta charset="UTF8" />
 <title> Ajout Client</title>
 <!--  <link rel="stylesheet" media="screen" href="Style.css"> -->
 </head>
@@ -72,7 +73,7 @@ if(isset($_POST['Enregistrer']))
     $Requete->bindValue(":telUser",$telUser, PDO::PARAM_STR);
     $Requete->bindValue(":mdpUserHash",$mdpUserHash);
     $Requete->execute();
-    echo "client ajouté";
+    echo " Votre nouveau client a bien été ajouté";
 
     $RequeteA = $connect->prepare('INSERT INTO ADRESSE (ID_CLIENT,NUMERO_RUE,NOM_RUE,CODE_POSTAL,VILLE) 
     VALUES((SELECT ID_CLIENT FROM CLIENTS WHERE MAIL_CLIENT="'.$emailUser.'"),:numRueUser, :nomRueUser, :codePostalUser, :villeUser)');
@@ -81,8 +82,11 @@ if(isset($_POST['Enregistrer']))
     $RequeteA->bindValue(":codePostalUser",$codePostalUser, PDO::PARAM_STR);
     $RequeteA->bindValue(":villeUser",$villeUser, PDO::PARAM_STR);
     $RequeteA->execute();
-    echo "adresse ajoutée";
+    //echo "adresse ajoutée";
 }
 ?>
+
+
+
 </body> 
 </html> 
