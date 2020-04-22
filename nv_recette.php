@@ -11,14 +11,15 @@
 </head>     
 
 <body>
-
+<form method="POST" action= "Add.nvrecette.php" enctype="multipart/form-data">   
   <form autocomplete="off" action="Add.recette.php">
+  <input id="quantite" type="number" name="quantite" placeholder="Quantité"> 
     <div class="autocomplete" style="width:300px;">
-      <input id="myInput" type="text" name="myAliment" placeholder="Aliment">
+      <input id="myInput" type="text" name="myAliment" placeholder="Aliment ou ingrédient">
     </div>
-    <input type="submit">
+    <input  name="Enregistrer" type="submit" value="Ajouter à ma recette"/>
   </form>
-
+</form>
 <script>
 //the autocomplete function takes two arguments,the text field element and an array of possible autocompleted values
 function autocomplete(inp, arr) {
