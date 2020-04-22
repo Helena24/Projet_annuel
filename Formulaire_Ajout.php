@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+<?php include("Functions.php");?>
 <head>
 <meta charset="UTF8" />
 <title> Ajout Client</title>
@@ -11,7 +12,6 @@
     <li> <a href="Accueil.html">Retour à la page précédente</a> </li>
 </ul>
 -->
-<h2> Veuillez renseigner les champs suivants : </h2>
 <form method="POST" action= "Add.form.php" enctype="multipart/form-data">
 <fieldset> 
      <table>
@@ -52,7 +52,7 @@
             <td> <input name="villeUser" required > </td>
         </tr>
         <tr>
-            <td><a href="Accueil.php"><button>Annuler</button></a></td>
+            <td></td>
             <td><input name="Enregistrer" type="submit" value="Enregistrer"/></td>
         </tr>
     </table>

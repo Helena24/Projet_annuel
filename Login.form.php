@@ -1,3 +1,4 @@
+<?php include("Functions.php"); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -51,18 +52,11 @@
                     if($resultat)
                     {
                      $_SESSION['NUMERO_RUE']=$resultat['NUMERO_RUE'];
+                     //MANQUE INFOS 
                     
                     }
 
-
-
-
-
-
-
-
-
-                    header('Location: Accueil.php');
+                   // header('Location: Accueil.php');
                 }
                 else
                 {
@@ -71,6 +65,19 @@
 
             }
     }
+
+    if (is_admin()){
+        header('Location: entete.php');
+    } 
+
+
+    if (is_user()){
+        header('Location: entete_client.php');
+    } 
+
+
+   
+
 
       
     // permet la deconnexion de l'utilisateur 

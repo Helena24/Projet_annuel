@@ -7,6 +7,7 @@
     <body>
 <?php
 include("Connect.php");
+include("Functions.php");
 
 if(isset($_POST['add']))
 {
