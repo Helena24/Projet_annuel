@@ -13,10 +13,10 @@
 <script type="text/javascript">
 function create_champ_aliment(i) {
 var i2 = i + 1;
-document.getElementById('aliment'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment ou ingrédient"></span>';
-document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')">Ajouter un champ</a></span>' : '';
 document.getElementById('quantite'+i).innerHTML = '<input id="quantite" type="text" name="quantite['+i+']" placeholder="Quantité"></span>';
+document.getElementById('aliment'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment ou ingrédient"></span>';
 document.getElementById('quantite'+i).innerHTML += (i <= 10) ? '<span id="quantite'+i2+'"><a href="javascript:create_champ_quantite('+i2+')"></a></span>' : '';
+document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')">Ajouter un champ</a></span>' : '';
 var countries = $(document).ready(function () {
     let countries = null;
     $.get('Add.recette.php')
@@ -44,13 +44,13 @@ if(empty($_POST['valide']))
 
 <!-- Champs pour les aliments et ingrédients qui vont se créer si on appuie sur ajouter un champ -->
 
-<form autocomplete="off" action="Add.recette.php">
-    <div class="autocomplete" style="width:300px;">
-      <input id="quantite" type="number" name="quantite[0]" placeholder="Quantité"> 
-      <input id="myInput" type="text" name="aliment[0]" placeholder="Aliment ou ingrédient">
-      <span id="quantite1"><a href="javascript:create_champ_aliment(1)"></a></span>
-      <span id="aliment1"><a href="javascript:create_champ_aliment(1)">Ajouter un autre aliment ou ingrédient</a></span> 
-    </div>
+  <form autocomplete="off" action="Add.recette.php">
+      <div class="autocomplete" style="width:500px;">
+          <input id="quantite" type="number" name="quantite[0]" placeholder="Quantité">
+          <input id="myInput" type="text" name="aliment[0]" placeholder="Aliment ou ingrédient">
+          <span id="quantite1"><a href="javascript:create_champ_aliment(1)"></a></span>
+          <span id="aliment1"><a href="javascript:create_champ_aliment(1)">Ajouter un autre aliment ou ingrédient</a></span> 
+      </div>
   </form>
 
   <input type="submit" value="envoyer" name="valide"/>
