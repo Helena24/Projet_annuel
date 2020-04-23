@@ -13,10 +13,10 @@
 <script type="text/javascript">
 function create_champ_aliment(i) {
 var i2 = i + 1;
-document.getElementById('quantite'+i).innerHTML = '<tr><td><input id="quantite" type="text" name="quantite['+i+']" placeholder="Quantité"></td>';
-document.getElementById('aliment'+i).innerHTML = '<td><input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment ou ingrédient"></td></tr>';
+document.getElementById('quantite'+i).innerHTML = '<input id="quantite" type="text" name="quantite['+i+']" placeholder="Quantité">';
+document.getElementById('aliment'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment ou ingrédient">';
 document.getElementById('quantite'+i).innerHTML += (i <= 10) ? '<span id="quantite'+i2+'"><a href="javascript:create_champ_quantite('+i2+')"></a></span>' : '';
-document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')">Ajouter un autre aliment ou ingrédient</a></span>' : '';
+document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')"><img width=30 height=30 src="ajouter.png"/></a></span>' : '';
 var countries = $(document).ready(function () {
     let countries = null;
     $.get('Add.recette.php')
@@ -28,32 +28,63 @@ var countries = $(document).ready(function () {
 
   })
 }
+// ajout de la classe JS à HTML
+document.querySelector("html").classList.add('js');
+ 
+// initialisation des variables
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+ 
+// action lorsque la "barre d'espace" ou "Entrée" est pressée
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
+});
+ 
+// action lorsque le label est cliqué
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});
+ 
+// affiche un retour visuel dès que input:file change
+fileInput.addEventListener( "change", function( event ) {  
+    the_return.innerHTML = this.value;  
+});
 </script>
-
 
 <body>
 <?php
 if(empty($_POST['valide']))
 {
 ?>
+<p class="file-return"></p>
   <!-- Champs pour le nom et le nombre de parts de la recette -->
 <form method="POST" action= "" enctype="multipart/form-data"> 
   <input id="nomRecette" type="text" name="nomRecette" placeholder="Nom de la recette"> 
   <input id="nbPart" type="number" name="nbPart" placeholder="Nombre de parts de la recette"> <br>
+  <!-- Choisir un fichier pour l'image de la recette  -->
+  <div class="input-file-container">
+    <input class="input-file" id="my-file" type="file">
+    <label for="my-file" class="input-file-trigger" tabindex="0">Select a file...</label>
+  </div>
+  
 <!-- Champs pour les aliments et ingrédients qui vont se créer si on appuie sur ajouter un champ -->
   <form autocomplete="off" action="Add.recette.php">
-      <div class="autocomplete" style="width:800px;">
+      <div class="autocomplete" style="width:400px;">
         <table>
           <tr>
             <td><span id="quantite1"><a href="javascript:create_champ_aliment(1)"></a></span></td>
-            <td><span id="aliment1"><a href="javascript:create_champ_aliment(1)">Ajouter un aliment ou ingrédient</a></span></td>
+            <td><span id="aliment1"><a href="javascript:create_champ_aliment(1)"><img width=30 height=30 src="ajouter.png"/></a></span></td>
           </tr>
         </table>
       </div>
 
   </form>
 </form>
-<input type="submit" value="envoyer" name="valide"/>
+<input type="submit" value="Ajouter cette recette" name="valide"/>
 <?php
 }
 else
