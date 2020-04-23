@@ -5,6 +5,10 @@ font-family: "barlow";
 src: url('https://fonts.googleapis.com/css?family=Barlow+Condensed&display=swap');
 }
 
+#span{
+  background-image: url("ajouter.png");
+}
+
 /* recherche intuitive */
 
 #resultat

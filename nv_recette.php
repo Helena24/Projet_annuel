@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-<?php include("Functions.php");?>
+  <?php// include("Functions.php");?>
   <?php include("Connect.php"); ?>
+  <?php include("entete.php"); ?>
   
   <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
 
@@ -12,10 +13,10 @@
 <script type="text/javascript">
 function create_champ_aliment(i) {
 var i2 = i + 1;
-document.getElementById('quantite'+i).innerHTML = '<input id="quantite" type="text" name="quantite['+i+']" placeholder="Quantité"></span>';
-document.getElementById('aliment'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment ou ingrédient"></span>';
+document.getElementById('quantite'+i).innerHTML = '<tr><td><input id="quantite" type="text" name="quantite['+i+']" placeholder="Quantité"></td>';
+document.getElementById('aliment'+i).innerHTML = '<td><input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment ou ingrédient"></td></tr>';
 document.getElementById('quantite'+i).innerHTML += (i <= 10) ? '<span id="quantite'+i2+'"><a href="javascript:create_champ_quantite('+i2+')"></a></span>' : '';
-document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')">Ajouter un champ</a></span>' : '';
+document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')">Ajouter un autre aliment ou ingrédient</a></span>' : '';
 var countries = $(document).ready(function () {
     let countries = null;
     $.get('Add.recette.php')
@@ -39,25 +40,20 @@ if(empty($_POST['valide']))
 <form method="POST" action= "" enctype="multipart/form-data"> 
   <input id="nomRecette" type="text" name="nomRecette" placeholder="Nom de la recette"> 
   <input id="nbPart" type="number" name="nbPart" placeholder="Nombre de parts de la recette"> <br>
-
-
 <!-- Champs pour les aliments et ingrédients qui vont se créer si on appuie sur ajouter un champ -->
-
   <form autocomplete="off" action="Add.recette.php">
-      <div class="autocomplete" style="width:500px;">
-          <input id="quantite" type="number" name="quantite[0]" placeholder="Quantité">
-          <input id="myInput" type="text" name="aliment[0]" placeholder="Aliment ou ingrédient">
-          <span id="quantite1"><a href="javascript:create_champ_aliment(1)"></a></span>
-          <span id="aliment1"><a href="javascript:create_champ_aliment(1)">Ajouter un autre aliment ou ingrédient</a></span> 
+      <div class="autocomplete" style="width:800px;">
+        <table>
+          <tr>
+            <td><span id="quantite1"><a href="javascript:create_champ_aliment(1)"></a></span></td>
+            <td><span id="aliment1"><a href="javascript:create_champ_aliment(1)">Ajouter un aliment ou ingrédient</a></span></td>
+          </tr>
+        </table>
       </div>
+
   </form>
-
-  <input type="submit" value="envoyer" name="valide"/>
 </form>
-
-
-
-
+<input type="submit" value="envoyer" name="valide"/>
 <?php
 }
 else
@@ -71,9 +67,6 @@ else
     }
 }
 ?>
-    <br>
-  </form>
-</form>
 <script>
 //the autocomplete function takes two arguments,the text field element and an array of possible autocompleted values
 function autocomplete(inp, arr) {

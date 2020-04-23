@@ -1,7 +1,4 @@
 <?php include("Connect.php"); ?>
-<?php include("Functions.php");?>
-
-
 <?php
     
     $result = $connect->query('SELECT nom_aliment FROM ALIMENTS ORDER BY NOM_ALIMENT');
