@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <?php include("entete.php"); ?>
-  <?php include("police.php"); ?>
+<?php include("Functions.php");?>
   <?php include("Connect.php"); ?>
   
   <script type="text/javascript" src="jquery-3.4.1.min.js"></script>

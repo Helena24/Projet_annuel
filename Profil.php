@@ -1,7 +1,11 @@
+<?php
+session_start();
+include("Functions.php"); 
+
+   
+?>
+
 <html> 
-<?php include("entete.php"); ?>
-<?php include("police.php"); ?>
-<?php session_start();?>
 
 <table> 
     <tr> 

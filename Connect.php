@@ -15,4 +15,14 @@ catch(PDOException $e)
 {
     echo "Statut connecion : échec (".$e -> getMessage().")"; 
 }
-?>
+
+
+
+
+   
+
+
+
+
+
+

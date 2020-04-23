@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<?php include("entete.php"); ?>
+<?php include("Functions.php");?>
 
 
 <html>

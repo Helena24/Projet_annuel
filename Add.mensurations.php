@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php include("entete.php"); ?>
-<?php include("police.php"); ?>
+<?php include("Functions.php");?>
     <head>
         <title>Mensurations</title>
     </head>
