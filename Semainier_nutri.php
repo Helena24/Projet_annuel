@@ -12,11 +12,11 @@ include("Connect.php");?>
 <label for="client">Client : </label>
 <select name="Client">
 <?php
-$reponse = $connect->query('SELECT NOM_CLIENT FROM CLIENTS');
-while ($donnees = $reponse->fetch())
-{
-echo '<option value="' . $donnees['NOM_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . '</option>';
-}                      
+ $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT, PRENOM_CLIENT FROM CLIENTS');
+ while ($donnees = $reponse->fetch())
+ {
+   echo '<option value="' . $donnees['ID_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT'] . '</option>';
+ }              
 ?>
 </select>
 Date de début : <input name="datedebutSem" type="date" required >
@@ -38,10 +38,12 @@ Date de fin : <input name="datefinSem" type="date" required >
         </tr>
         <tr>
             <td>Petit-déjeuner</td>
-            <td>Aliment :
+            <td>Combien d'aliment voulez-vous ?
+                <input name="nombrealiment" required/>
+                Aliment :
             <select name="Aliment" id="Aliment">
             <?php
-            $aliments = $connect->query('SELECT NOM_ALIMENT FROM ALIMENTS');
+            $aliments = $connect->query('SELECT ID_ALIMENT, NOM_ALIMENT FROM ALIMENTS');
             while ($donnees = $aliments->fetch())
             {
             echo '<option value="' . $donnees['NOM_ALIMENT'] . '">' . $donnees['NOM_ALIMENT'] . '</option>';
