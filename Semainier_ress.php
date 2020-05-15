@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<?php include("entete.php"); ?>
+<?php include("Functions.php");?>
 
 <h2>Semainier des ressentis</h2>
 

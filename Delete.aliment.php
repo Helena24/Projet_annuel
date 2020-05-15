@@ -1,4 +1,5 @@
 <?php
+include("Functions.php");
 include("Connect.php");
 if(isset($_POST['supprimer']));
 

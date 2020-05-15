@@ -1,34 +1,106 @@
-<html>
-  <?php include("entete.php"); ?>
-  <?php include("police.php"); ?>
-  <?php include("Connect.php"); ?>
-  
-  
-  
-  
-<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
-
-
 <!DOCTYPE html>
 <html>
+  <?php// include("Functions.php");?>
+  <?php include("Connect.php"); ?>
+  <?php include("entete.php"); ?>
+  
+  <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>     
+
+<script type="text/javascript">
+function create_champ_aliment(i) {
+var i2 = i + 1;
+document.getElementById('quantite'+i).innerHTML = '<input id="quantite" type="text" name="quantite['+i+']" placeholder="Quantité">';
+document.getElementById('aliment'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment ou ingrédient">';
+document.getElementById('quantite'+i).innerHTML += (i <= 10) ? '<span id="quantite'+i2+'"><a href="javascript:create_champ_quantite('+i2+')"></a></span>' : '';
+document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')"><img width=30 height=30 src="ajouter.png"/></a></span>' : '';
+var countries = $(document).ready(function () {
+    let countries = null;
+    $.get('Add.recette.php')
+        .done(function (data) {
+            countries = JSON.parse(data);
+            autocomplete(document.getElementById('myInput'+i), countries); 
+
+        });
+
+  })
+}
+// ajout de la classe JS à HTML
+document.querySelector("html").classList.add('js');
+ 
+// initialisation des variables
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+ 
+// action lorsque la "barre d'espace" ou "Entrée" est pressée
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
+});
+ 
+// action lorsque le label est cliqué
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});
+ 
+// affiche un retour visuel dès que input:file change
+fileInput.addEventListener( "change", function( event ) {  
+    the_return.innerHTML = this.value;  
+});
+</script>
+
 <body>
-
-<!--Make sure the form has the autocomplete function switched off:-->
-<form autocomplete="off" action="Add.recette.php">
-  <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="myCountry" placeholder="Country">
+<?php
+if(empty($_POST['valide']))
+{
+?>
+<p class="file-return"></p>
+  <!-- Champs pour le nom et le nombre de parts de la recette -->
+<form method="POST" action= "" enctype="multipart/form-data"> 
+  <input id="nomRecette" type="text" name="nomRecette" placeholder="Nom de la recette"> 
+  <input id="nbPart" type="number" name="nbPart" placeholder="Nombre de parts de la recette"> <br>
+  <!-- Choisir un fichier pour l'image de la recette  -->
+  <div class="input-file-container">
+    <input class="input-file" id="my-file" type="file">
+    <label for="my-file" class="input-file-trigger" tabindex="0">Select a file...</label>
   </div>
-  <input type="submit">
-</form>
+  
+<!-- Champs pour les aliments et ingrédients qui vont se créer si on appuie sur ajouter un champ -->
+  <form autocomplete="off" action="Add.recette.php">
+      <div class="autocomplete" style="width:400px;">
+        <table>
+          <tr>
+            <td><span id="quantite1"><a href="javascript:create_champ_aliment(1)"></a></span></td>
+            <td><span id="aliment1"><a href="javascript:create_champ_aliment(1)"><img width=30 height=30 src="ajouter.png"/></a></span></td>
+          </tr>
+        </table>
+      </div>
 
+  </form>
+</form>
+<input type="submit" value="Ajouter cette recette" name="valide"/>
+<?php
+}
+else
+{
+    echo 'Voila le résultat du formulaire<br/>';
+    var_dump($_POST);
+    echo '<br/>et voila le résultat des champs en affichage<br/>';
+    foreach($_POST['aliment'] as $value)
+    {
+        echo $value.'<br/>';
+    }
+}
+?>
 <script>
+//the autocomplete function takes two arguments,the text field element and an array of possible autocompleted values
 function autocomplete(inp, arr) {
-  /*the autocomplete function takes two arguments,
-  the text field element and an array of possible autocompleted values:*/
   var currentFocus;
   /*execute a function when someone writes in the text field:*/
   inp.addEventListener("input", function(e) {
@@ -66,6 +138,7 @@ function autocomplete(inp, arr) {
         }
       }
   });
+
   /*execute a function presses a key on the keyboard:*/
   inp.addEventListener("keydown", function(e) {
       var x = document.getElementById(this.id + "autocomplete-list");
@@ -91,25 +164,25 @@ function autocomplete(inp, arr) {
         }
       }
   });
+   
+  // function to classify an item as "active":
   function addActive(x) {
-    /*a function to classify an item as "active":*/
     if (!x) return false;
-    /*start by removing the "active" class on all items:*/
     removeActive(x);
     if (currentFocus >= x.length) currentFocus = 0;
     if (currentFocus < 0) currentFocus = (x.length - 1);
-    /*add class "autocomplete-active":*/
     x[currentFocus].classList.add("autocomplete-active");
   }
+  
+  //function to remove the "active" class from all autocomplete items
   function removeActive(x) {
-    /*a function to remove the "active" class from all autocomplete items:*/
     for (var i = 0; i < x.length; i++) {
       x[i].classList.remove("autocomplete-active");
     }
   }
-  function closeAllLists(elmnt) {
-    /*close all autocomplete lists in the document,
-    except the one passed as an argument:*/
+  
+  //close all autocomplete lists in the document, except the one passed as an argument 
+  function closeAllLists(elmnt) { 
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
       if (elmnt != x[i] && elmnt != inp) {
@@ -117,30 +190,27 @@ function autocomplete(inp, arr) {
       }
     }
   }
-  /*execute a function when someone clicks in the document:*/
+  
+  //execute a function when someone clicks in the document 
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   });
 }
 
-/*An array containing all the country names in the world:*/
-//var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+  //initiate the autocomplete function on the "myInput" element, and pass along the array as possible autocomplete values
+  var countries = $(document).ready(function () {
+    let countries = null;
+    $.get('Add.recette.php')
+        .done(function (data) {
+            countries = JSON.parse(data);
+            autocomplete(document.getElementById("myInput"), countries); 
+        });
 
-var countries = $(document).ready(function() {
-      let countries = null;
-      console.log(countries);
-      $.get('Add.recette.php')
-      .done(function(data){
-            countries = data;
-            console.log(countries);
-      });
-     
- })
+  })
 
-/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), countries);
+
+
 </script>
 
 </body>
 </html>
-

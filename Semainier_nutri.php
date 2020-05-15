@@ -2,8 +2,10 @@
 <html>
 <script type="text/javascript" src="semainier.js"></script>
 
-<?php include("entete.php"); 
-include("Connect.php");?>
+<?php 
+ include("Functions.php");
+include("Connect.php");
+?>
 
 <h2>Semainier nutritionnel</h2>
 

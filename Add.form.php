@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php include("entete.php"); ?>
-<?php include("police.php"); ?>
+<?php include("Functions.php");?>
 <head>
 <title> Ajout Client</title>
 <!--  <link rel="stylesheet" media="screen" href="Style.css"> -->
@@ -82,7 +81,7 @@ if(isset($_POST['Enregistrer']))
     $RequeteA->bindValue(":codePostalUser",$codePostalUser, PDO::PARAM_STR);
     $RequeteA->bindValue(":villeUser",$villeUser, PDO::PARAM_STR);
     $RequeteA->execute();
-    //echo "adresse ajoutée";
+    echo "adresse ajoutée";
 }
 ?>
 

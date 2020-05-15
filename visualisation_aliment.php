@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-<?php include("Functions.php");?>
+<?php include("entete.php"); ?>
+<?php include("police.php"); ?>
 <?php include("Connect.php"); ?>
 <head>
 <title>Suppression Aliment</title>
@@ -15,7 +16,6 @@
             <th>Protéines</th>
             <th>Glucides</th>
             <th>Lipides</th>
-            <th>Supprimer</th>
         </tr>
 
 <?php
@@ -31,9 +31,6 @@ while ($donnees = $reponse->fetch())
     <td><?php echo $donnees['PROTEINE_ALIMENT']; ?></td>
     <td><?php echo $donnees['GLUCIDE_ALIMENT']; ?></td>
     <td><?php echo $donnees['LIPIDE_ALIMENT']; ?></td>
-    <td><form method="post" action="Delete.aliment.php">
-   	<input type="hidden" name="id" value="<?php echo $donnees['ID_ALIMENT'] ?>"/>
-   	<input type="submit" name="supprimer" class="delete" value="Supprimer" /></td>
     </tr>
 <?php
 }
