@@ -20,9 +20,10 @@
 
 		<!-- Deconnexion de l'utilisateur (redirection vers la page de connexion) -->
 	
-		<a href= "Login.form.html">
-		<input type="submit" value="Deconnexion" name="Deconnexion"/>
-		</a>
+		
+		<form action=" Login.form.php" method="post">
+		<input type="submit" value="Deconnexion" name="Deconnexion">
+		
 
 	</header>
 
