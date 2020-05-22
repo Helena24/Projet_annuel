@@ -95,7 +95,7 @@ top:0;
 
 header
 {
-     background: black;
+     background: rgb(0, 0, 0);
 	 position: relative;
      height: 150px;
      width: 100%;
@@ -254,21 +254,22 @@ li a:hover {
     font-family: 'Barlow Condensed', bold;
     margin: auto;
 }
-table {
+
+/* table {
     border-collapse:collapse;
 }
 tr, td {
     padding: 10px;
-    border: 2px solid black;
+    border: 1px solid black;
     text-align: center;
 }
 th {
     padding: 10px;
-    border: 2px solid black;
+    border: 1px solid black;
     background-color: black;
     color:#05b2b5;
     text-align: center;
-}
+} */
 
 
 * {
@@ -329,6 +330,162 @@ input[type=submit] {
 
 /*when navigating through the items using the arrow keys:*/
 .autocomplete-active {
-  background-color: DodgerBlue !important; 
+  background-color: DodgerBlue; 
   color: #ffffff; 
+}
+
+
+
+
+
+
+
+/****************************************************/
+/*PAGE DE CONNEXION */
+/*
+Avec la section, nous voulons prendre toute la place du « viewport » et mettre un arrière-plan en couleur 
+transparente pour donner l’impression d’un « pop-up » par-dessus la page.
+*/
+section.login-container{
+  display: flex;
+  position: fixed;
+  top:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #34495E;
+}
+
+
+
+/*
+Le div directement sous la section nous permet de créer une boite avec une couleur d’arrière-plan
+et une bordure.
+*/
+section.login-container > div{
+  width: 450px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/*
+Nous plaçons les éléments à l’intérieur du formulaire en « flexbox » sur une seule colonne.
+*/
+section.login-container form{
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+Nous voulons que les champs du formulaire prennent toute la largeur.
+Le outline: 0; empêche d’avoir un surlignement de l’objet au focus.
+*/
+form input[type="password"],
+form input[type="date"], 
+form input[type="text"], 
+form button[type="submit"] {
+  width: 100%;
+  margin-bottom: 32px;
+  padding: 16px;
+  color: rgb(0, 0, 0);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: 0;
+}
+
+/*
+Au survol et au focus des champs de saisie de texte,nous changeons la couleur d’arrière-plan.
+*/
+form input[type="date"]:focus,
+form input[type="date"]:hover,
+form input[type="text"]:focus,
+form input[type="text"]:hover,
+form input[type="password"]:focus,
+form input[type="password"]:hover {
+  background-color: #ccc;
+}
+
+/*
+Mises-en forme du bouton pour l’envoi du formulaire.
+*/
+form button[type="submit"] {
+  font-weight: bold;
+  color: #eee;
+  text-transform: uppercase;
+  background-color: #e67e22;
+}
+
+/*
+Mises-en forme du bouton pour l’envoi du formulaire au survol et au focus.
+*/
+form button[type="submit"]:focus,
+form button[type="submit"]:hover {
+background-color: #d35400;
+}
+/****************************************************/
+
+
+
+/* Styles de base pour la page Web */
+
+/*------------------
+ Reset
+------------------*/
+html{
+  box-sizing: border-box;
+}
+
+*,*:before,*:after{
+  box-sizing: inherit;
+}
+
+/*------------------
+ Base
+------------------*/
+
+body{
+  background-color: white;
+  font-family: Helvetica, sans-serif;
+}
+
+/*------------------
+ Mise en page
+------------------*/
+
+.wrapper{
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/* FORMULAIRE AJOUT CLIENT */
+
+section.ajout-container{
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+section.ajout-container > div{
+  width: 450px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  text-align: center;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+section.ajout-container form{
+  display: flex;
+  flex-direction: column;
 }

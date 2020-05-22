@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html>
-<?php include("Functions.php");?>
-<head>
-<title> Ajout Client</title>
-<!--  <link rel="stylesheet" media="screen" href="Style.css"> -->
-</head>
-
-<body>
-     
-
 <?php
 include("Connect.php");
-
+session_start();
 
 //Fonction qui permet de générer une chaine de charactères 
 function motDePasse($longueur=5) {
@@ -25,11 +14,7 @@ function motDePasse($longueur=5) {
     //le temps de tester avant d'être sur un serveur 
     $Chaine = "ABCDE";
     return $Chaine;
-
-
 }
-
-
 
 
 if(isset($_POST['Enregistrer']))
@@ -63,7 +48,8 @@ if(isset($_POST['Enregistrer']))
    // Permet de hasher la chaine de characteres avant de la stocker 
     $mdpUserHash= password_hash($mdpUser, PASSWORD_DEFAULT);
   
-	$Requete = $connect->prepare('INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,MDP_CLIENT) 
+    //Insert la valeur des champs dans la DB sauf l'adresse 
+    $Requete = $connect->prepare('INSERT INTO CLIENTS (NOM_CLIENT,PRENOM_CLIENT,DATE_NAISSANCE_CLIENT,MAIL_CLIENT,TEL_CLIENT,MDP_CLIENT) 
     VALUES(:nomUser, :prenomUser, :datenaissanceUser, :emailUser, :telUser, :mdpUserHash)');
 	$Requete->bindValue(":nomUser",$nomUser, PDO::PARAM_STR);
 	$Requete->bindValue(":prenomUser",$prenomUser, PDO::PARAM_STR);
@@ -73,7 +59,8 @@ if(isset($_POST['Enregistrer']))
     $Requete->bindValue(":mdpUserHash",$mdpUserHash);
     $Requete->execute();
     echo " Votre nouveau client a bien été ajouté";
-
+    
+    //Insert les informations de l'adresse dans la BD
     $RequeteA = $connect->prepare('INSERT INTO ADRESSE (ID_CLIENT,NUMERO_RUE,NOM_RUE,CODE_POSTAL,VILLE) 
     VALUES((SELECT ID_CLIENT FROM CLIENTS WHERE MAIL_CLIENT="'.$emailUser.'"),:numRueUser, :nomRueUser, :codePostalUser, :villeUser)');
     $RequeteA->bindValue(":numRueUser",$numRueUser, PDO::PARAM_STR);
@@ -86,6 +73,3 @@ if(isset($_POST['Enregistrer']))
 ?>
 
 
-
-</body> 
-</html> 

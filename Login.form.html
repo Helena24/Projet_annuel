@@ -1,25 +1,42 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta charset="UTF8" />
-<title> Connexion </title>
-<!--<link rel="stylesheet" media="screen" href="Nutrition.css">-->
-</head> 
-<body> 
-    <h2> Veuillez renseigner les champs suivants : </h2>
-    <form method="post" action=" Login.form.php"> 
-    <fieldset> 
-        Adresse Mail <input type="text" name="emailUser" required/> <br>
-        Mot de passe <input type="password" name="mdpUser" required /> <br> 
+    <head>
+        <meta charset="UTF8" />
+        <title> Connexion </title>
+        <link rel="stylesheet" media="screen" href="Nutrition.css">
+    </head> 
+    <body> 
         
-        <input type="submit" value="Connexion" name="Connexion"/>
-        
-    </fieldset>
-    </form>
-</body>
+        <div class="wrapper">
+            <section class="login-container">
+                <div>
+                    <!-- formulaire de connexion utilisant la méthode POST avec l'adresse mail et mdp de l'utilisateur-->
+                    <header style= background:#eee>
+                        <img src='https://nsa40.casimages.com/img/2020/01/31/mini_20013102493697038.png' height="130" width="100" /></a>
+                    </header>
+                    
+                    <form action=" Login.form.php" method="post">
+                        <fieldset style = "border:0">
+                            <input type="text" name="emailUser"  placeholder="Adresse mail utilisateur" required="required"/>
+                            <input type="password" name="mdpUser" placeholder="Mot de passe" required="required" />
+                            <button type="submit" value="Connexion" name="Connexion">Connexion</button>
+                        </fieldset>
+                    </form>
+                    <a href="">Mot de passe oublié</a>
+                </div>
+            </section>
+        </div>
+    </body>
 </html> 
 
+
+
+
+
         
+
+
+
         
         
         

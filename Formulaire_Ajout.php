@@ -1,62 +1,31 @@
+<?php include("Functions.php");?>
 <!DOCTYPE HTML>
 <html>
-<?php include("Functions.php");?>
 <head>
-<meta charset="UTF8" />
-<title> Ajout Client</title>
-<link rel="stylesheet" media="screen" href="Nutrition.css">  
+    <meta charset="UTF8" />
+    <title> Ajout Client</title>
+    <link rel="stylesheet" media="screen" href="Nutrition.css">  
 </head> 
 <body>
-<!--    
-<ul>
-    <li> <a href="Accueil.html">Retour à la page précédente</a> </li>
-</ul>
--->
-<form method="POST" action= "Add.form.php" enctype="multipart/form-data">
-<fieldset> 
-     <table>
-        <tr>
-            <td><label>Nom :</label></td>
-            <td> <input type="text" name="nomUser" required > </td>
-        </tr>
-        <tr>
-            <td><label>Prénom :</label></td>
-            <td> <input type="text" name="prenomUser" required > </td>
-        </tr>
-        <tr>
-            <td><label>Date de naissance :</label></td>
-            <td> <input name="datenaissanceUser" type="date" required > </td>
-        </tr>
-        <tr>
-            <td><label>Adresse Mail :</label></td>
-            <td> <input name="emailUser" required > </td>
-        </tr>
-        <tr>
-            <td><label>Numéro de téléphone : </label></td>
-            <td> <input name="telUser" required > </td>
-        </tr>
-        <tr>
-            <td><label>Numéro rue : </label></td>
-            <td> <input name="numRueUser" required > </td>
-        </tr>
-        <tr>
-            <td><label>Nom rue : </label></td>
-            <td> <input name="nomRueUser" required > </td>
-        </tr>
-        <tr>
-            <td><label>Code postal : </label></td>
-            <td> <input name="codePostalUser" required > </td>
-        </tr>
-        <tr>
-            <td><label>Ville : </label></td>
-            <td> <input name="villeUser" required > </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input name="Enregistrer" type="submit" value="Enregistrer"/></td>
-        </tr>
-    </table>
-</fieldset>
-</form>
+    <div class="wrapper">
+        <section class="ajout-container">
+            <div>
+                <form method="post" action= "Add.form.php" enctype="multipart/form-data">
+                    <fieldset style = "border:0"> 
+                        <input type="text" name="nomUser" placeholder="Nom" required="required">
+                        <input type="text" name="prenomUser" placeholder="Prénom" required="required" > 
+                        <input type="date" name="datenaissanceUser" placeholder="Date de naissance" required="required">
+                        <input type="text" name="emailUser" placeholder="Adresse mail" required="required"> 
+                        <input type="text" name="telUser" placeholder="Numéro de téléphone" required="required"> 
+                        <input type="text" name="numRueUser" placeholder="Numéro de rue" required="required"> 
+                        <input type="text" name="nomRueUser" placeholder="Nom de la rue" required="required"> 
+                        <input type="text" name="codePostalUser" placeholder="Code postal" required="required"> 
+                        <input type="text" name="villeUser" placeholder="Ville" required="required"> 
+                        <input type="submit" value="Enregistrer" name="Enregistrer">
+                    </fieldset>  
+                </form>
+            </div>
+        </section>   
+    </div>
 </body>
 </html> 
