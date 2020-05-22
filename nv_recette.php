@@ -62,12 +62,12 @@ if(empty($_POST['valide']))
 ?>
 <p class="file-return"></p>
   <!-- Champs pour le nom et le nombre de parts de la recette -->
-<form method="POST" action= "" enctype="multipart/form-data"> 
+<form method="POST" action= "Add.nvrecette.php" enctype="multipart/form-data"> 
   <input id="nomRecette" type="text" name="nomRecette" placeholder="Nom de la recette"> 
   <input id="nbPart" type="number" name="nbPart" placeholder="Nombre de parts de la recette"> <br>
   <!-- Choisir un fichier pour l'image de la recette  -->
   <div class="input-file-container">
-    <input class="input-file" id="my-file" type="file">
+    <input class="input-file" id="photoRecette" type="file">
     <label for="my-file" class="input-file-trigger" tabindex="0">Select a file...</label>
   </div>
   
@@ -81,10 +81,10 @@ if(empty($_POST['valide']))
           </tr>
         </table>
       </div>
-
+      <input type="submit" value="Ajouter cette recette" name="ajouterRecette"/>
   </form>
 </form>
-<input type="submit" value="Ajouter cette recette" name="valide"/>
+
 <?php
 }
 else

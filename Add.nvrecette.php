@@ -27,18 +27,36 @@ if(isset($_POST['ajouterRecette']))
     $Requete->execute();
     echo "Recette ajoutée";
 }
-if(isset($_POST['Ajouteringr']))
+if(isset($_POST['ajouterRecette']))
 {
     $nomRecette=$_POST['nomRecette'];
-    $myAliment=$_POST['myAliment'];
-    $quantite=$_POST['quantite'];
-
-	$Requete = $connect->prepare('INSERT INTO CONSTITUER (ID_RECETTE, ID_ALIMENT, QTE_ALIMENT_REPAS) 
-    VALUES((SELECT ID_RECETTE FROM RECETTES WHERE NOM_RECETTE="'.$nomRecette.'"),
-    (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT="'.$myAliment.'"), :quantite)');
-    $Requete->bindValue(":quantite",$quantite, PDO::PARAM_STR);
+    $Requete = $connect->prepare('SELECT ID_RECETTE FROM RECETTES WHERE NOM_RECETTE="'.$nomRecette.'"');
     $Requete->execute();
-    echo "Ingrédient ou aliment ajouté";
+    $resultat=$Requete->fetch();
+    $idRecette = $resultat['ID_RECETTE'];
+    echo $resultat['ID_RECETTE'];
+
+    foreach($_POST['aliment'] as $aliment)
+    {
+        $RequeteInsert = $connect->prepare('INSERT INTO CONTENIR (ID_RECETTE, ID_ALIMENT) 
+        VALUES("'.$resultat['ID_RECETTE'].'",
+        (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT="'.$aliment.'"))');
+        $RequeteInsert->execute();
+        echo "Ingrédient ou aliment ajouté";
+
+
+        foreach($_POST['quantite'] as $quantiteAliment)
+        {
+            $RequeteUpdate = $connect->prepare("UPDATE CONTENIR 
+            SET QTE_ALIMENT_RECETTE =  '$quantiteAliment' 
+            WHERE ID_RECETTE = '$idRecette'
+            AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
+            $RequeteUpdate->execute();
+            echo "Ingrédienljpiojpojpoj";
+        }
+    }
+
+  
 }
 ?>
 

@@ -43,7 +43,7 @@ if(isset($_POST['Enregistrer']))
     $nomRueUser=$_POST['nomRueUser'];
     $codePostalUser=$_POST['codePostalUser'];
     $villeUser=$_POST['villeUser'];
-    $mdpUser= motDePasse(7);
+    $mdpUser= motDePasse(5);
    
 
     //Fonction qui permet d'envoyer le mdp et identifiant par mail 
