@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 include("police.php");
 
 //function permettant de définir l'administrateur 
