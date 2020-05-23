@@ -18,19 +18,38 @@ if(isset($_POST['ajouterSmoothie']))
 {
     $nomSmoothie=$_POST['nomSmoothie'];
 	$Requete = $connect->prepare('INSERT INTO SMOOTHIES (NOM_SMOOTHIE) VALUES(:nomSmoothie)');
-	$Requete->bindValue(":nomSmoothie",$nomRecette, PDO::PARAM_STR);
+	$Requete->bindValue(":nomSmoothie",$nomSmoothie, PDO::PARAM_STR);
     $Requete->execute();
     echo "Smoothie ajouté";
 }
 if(isset($_POST['ajouterSmoothie']))
 {
     $nomSmoothie=$_POST['nomSmoothie'];
-    echo $nomSmoothie;
     $Requete = $connect->prepare('SELECT ID_SMOOTHIE FROM SMOOTHIES WHERE NOM_SMOOTHIE="'.$nomSmoothie.'"');
     $Requete->execute();
     $resultat=$Requete->fetch();
     $idSmoothie = $resultat['ID_SMOOTHIE'];
     echo $resultat['ID_SMOOTHIE'];
+    
+    foreach($_POST['ingredient'] as $ingredient)
+    {
+        $RequeteInsertI = $connect->prepare('INSERT INTO COMPOSER_S (ID_SMOOTHIE, ID_INGREDIENT) 
+        VALUES("'.$resultat['ID_SMOOTHIE'].'",
+        (SELECT ID_INGREDIENT FROM INGREDIENTS WHERE NOM_INGREDIENT="'.$ingredient.'"))');
+        $RequeteInsertI->execute();
+        echo "Ingrédient ajouté";
+
+    }
+}
+if(isset($_POST['ajouterSmoothie']))
+{
+    $nomSmoothie=$_POST['nomSmoothie'];
+    $Requete = $connect->prepare('SELECT ID_SMOOTHIE FROM SMOOTHIES WHERE NOM_SMOOTHIE="'.$nomSmoothie.'"');
+    $Requete->execute();
+    $resultat=$Requete->fetch();
+    $idSmoothie = $resultat['ID_SMOOTHIE'];
+    echo $resultat['ID_SMOOTHIE'];
+
 
     foreach($_POST['aliment'] as $aliment)
     {
@@ -48,7 +67,7 @@ if(isset($_POST['ajouterSmoothie']))
             WHERE ID_SMOOTHIE = '$idSmoothie'
             AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
             $RequeteUpdateQ->execute();
-            echo "Ingrédienljpiojpojpoj";
+            echo "quantite";
         }
         foreach($_POST['unite'] as $uniteAliment)
         {
@@ -57,21 +76,9 @@ if(isset($_POST['ajouterSmoothie']))
             WHERE ID_SMOOTHIE = '$idSmoothie'
             AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
             $RequeteUpdateU->execute();
-            echo "quantite";
+            echo "unite";
         }
     }
-    
-    foreach($_POST['ingredient'] as $ingredient)
-    {
-        $RequeteInsertI = $connect->prepare('INSERT INTO COMPOSER_S (ID_SMOOTHIE, ID_INGREDIENT) 
-        VALUES("'.$resultat['ID_SMOOTHIE'].'",
-        (SELECT ID_INGREDIENT FROM INGREDIENTS WHERE NOM_INGREDIENT="'.$ingredient.'"))');
-        $RequeteInsertI->execute();
-        echo "Ingrédient ajouté";
-
-    }
-
-  
 }
 ?>
 
