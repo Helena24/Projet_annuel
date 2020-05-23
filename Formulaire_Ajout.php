@@ -1,10 +1,15 @@
-<?php include("Functions.php");?>
+<?php 
+//include("Functions.php");
+include "entete.php";
+session_start(); 
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="UTF8" />
     <title> Ajout Client</title>
-    <link rel="stylesheet" media="screen" href="Nutrition.css">  
+    <link rel="stylesheet" media="screen" href="Nutrition.css">
 </head> 
 <body>
     <div class="wrapper">
@@ -21,7 +26,7 @@
                         <input type="text" name="nomRueUser" placeholder="Nom de la rue" required="required"> 
                         <input type="text" name="codePostalUser" placeholder="Code postal" required="required"> 
                         <input type="text" name="villeUser" placeholder="Ville" required="required"> 
-                        <input type="submit" value="Enregistrer" name="Enregistrer">
+                        <button type="submit" value="Enregistrer" name="Enregistrer">ENREGISTRER</button>
                     </fieldset>  
                 </form>
             </div>

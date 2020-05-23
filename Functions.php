@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 include("police.php");
 
 //function permettant de définir l'administrateur 
@@ -27,10 +27,12 @@ function is_user(){
  //Pages a afficher si il s'agit d'une connexion admin 
  if (is_admin()){
     include("entete.php");
+  
 } 
 
 if (is_user()){
     include("entete_client.php");
+ 
 } 
 
 

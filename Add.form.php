@@ -2,6 +2,7 @@
 include("Connect.php");
 session_start();
 
+
 //Fonction qui permet de générer une chaine de charactères 
 function motDePasse($longueur=5) {
     //$Chaine = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
