@@ -83,25 +83,34 @@ a.lien_recherche:hover
 {
 position: absolute;
 left:15px;
-top:0;
+top:4px;
 }
 
-#afficheclient
-{
+.nom{
 position: absolute;
-right:15px;
-top:0;
+right: 15px;
+top: 25px;
+
+color: white;
+}
+
+.boutton_deconnexion{
+position: absolute;
+right: 15px;
+top: 70px;
+
 }
 
 header
 {
-     background: rgb(0, 0, 0);
-	 position: relative;
-     height: 150px;
-     width: 100%;
-     margin: 0;
-	 text-align:center;
-	 font-family: 'Barlow Condensed', bold;
+  background:rgba(0, 0, 0, 0.87);
+  
+	position: relative;
+  height: 150px;
+  width: 100%;
+  margin: 0;
+	text-align:center;
+	font-family: 'Barlow Condensed', bold;
 }
 h1
 {
@@ -119,7 +128,7 @@ h2
 }
 body
 {
-    background-color:lightcyan; 
+    background-color:whitesmoke; 
 	font-family: 'Barlow Condensed', bold; 
 }
 /*formulaire connexion*/
@@ -255,7 +264,7 @@ li a:hover {
     margin: auto;
 }
 
-/* table {
+/*  table {
     border-collapse:collapse;
 }
 tr, td {
@@ -269,16 +278,16 @@ th {
     background-color: black;
     color:#05b2b5;
     text-align: center;
-} */
+}  */
 
 
 * {
   box-sizing: border-box;
 }
-
+/* 
 body {
   font: 16px Arial;  
-}
+} */
 
 /*the container must be positioned relative:*/
 .autocomplete {
@@ -299,8 +308,8 @@ input[type=text] {
 }
 
 input[type=submit] {
-  background-color: DodgerBlue;
-  color: #fff;
+  background-color:#05b2b5;
+  color: black;
   cursor: pointer;
 }
 
@@ -445,14 +454,9 @@ html{
   box-sizing: inherit;
 }
 
-/*------------------
- Base
-------------------*/
 
-body{
-  background-color: white;
-  font-family: Helvetica, sans-serif;
-}
+
+
 
 /*------------------
  Mise en page
@@ -489,5 +493,55 @@ section.ajout-container > div{
 section.ajout-container form{
   display: flex;
   flex-direction: column;
+}
+
+
+
+
+
+* {
+  font-family: sans-serif; /* Change your font family */
+}
+
+.content-table {
+  width: 500px;
+  border-collapse: collapse;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #05b2b5;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 20px 20px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #05b2b5;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #05b2b5;
 }
 

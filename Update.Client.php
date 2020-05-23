@@ -6,6 +6,7 @@
 </head>
     <body>
         <?php
+        include 'Add.form.php';
         //Connexion a la base de donnée
         Include 'Connect.php';
         session_start();
@@ -51,6 +52,74 @@
                 </script>'; 
             }   
         }
+
+
+
+        //Action du bouton "Reinitialiser"
+        if(isset($_POST['Reinitialiser'])){
+
+            $nom=$_POST['nom'];
+            $prenom=$_POST['prenom'];
+            $mail=$_POST['mail'];
+
+            //stockage d'une chaine de caracteres aleatoire 
+            $mdpUser= motDePasse(5);
+   
+
+            $Requete=$connect->query("SELECT * FROM CLIENTS  WHERE NOM_CLIENT='$nom' AND PRENOM_CLIENT='$prenom' AND MAIL_CLIENT='$mail'");
+            $Requete->bindValue(1,$nom, PDO::PARAM_STR);
+            $Requete->bindValue(2,$prenom, PDO::PARAM_STR);
+            $Requete->bindValue(3,$mail, PDO::PARAM_STR);
+            $Requete->execute();
+            $resultat=$Requete->fetch();
+                            
+            if($resultat){
+
+                //Fonction qui permet d'envoyer le mdp et identifiant par mail 
+                //ini_set('display_errors', 1);
+                // error_reporting(E_ALL);
+                // $message = "Voici votre mot de passe :".$mdpUser;
+                // $subject = "Vos identifiants"; 
+                // $from = "victor.janneteau@laposte.net"; 
+                // $headers = 'From: '.$from."\r\n".
+                //     'Reply-To: '.$from."\r\n" .
+                //     'X-Mailer: PHP/' . phpversion();
+                // $to = $emailUser;
+                // mail($to,$subject,$message,$headers);
+                // echo"mail envoyé"; 
+
+                // Permet de hasher la chaine de characteres avant de la stocker 
+                $mdpUserHash= password_hash($mdpUser, PASSWORD_DEFAULT);
+
+                $Requete=$connect->query("UPDATE CLIENTS SET MDP_CLIENT='$mdpUserHash' WHERE NOM_CLIENT='$nom' AND PRENOM_CLIENT='$prenom' AND MAIL_CLIENT='$mail'");
+                $Requete->bindValue(1,$mdpUserHash, PDO::PARAM_STR);
+                $Requete->bindValue(2,$nom, PDO::PARAM_STR);
+                $Requete->bindValue(3,$prenom, PDO::PARAM_STR);
+                $Requete->bindValue(4,$mail, PDO::PARAM_STR);
+                $Requete->execute();
+
+                //message de l'envoie par mail et redirection
+                $message='Un nouveau mot de passe vous a été envoyé par mail';
+                echo '<script type="text/javascript">window.alert("'.$message.'");
+                window.location.replace("Login.form.html");
+                </script>'; 
+            }
+            else{
+                //message de l'envoie par mail et redirection
+                $message='Cet utilisateur est introuvable, veuillez réessayer';
+                echo '<script type="text/javascript">window.alert("'.$message.'");
+                window.location.replace("forgot_password.php");
+                </script>'; 
+
+            }
+          
+        }
+
+
+
+
+
+
         ?>
     </body>
 </html>

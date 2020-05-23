@@ -1,6 +1,5 @@
 <?php 
-//include("Functions.php");
-include "entete.php";
+include("Functions.php");
 session_start(); 
 ?>
 
@@ -15,6 +14,7 @@ session_start();
     <div class="wrapper">
         <section class="ajout-container">
             <div>
+                <!-- Formulaire permettant l'ajout d'un utilisateur-->
                 <form method="post" action= "Add.form.php" enctype="multipart/form-data">
                     <fieldset style = "border:0"> 
                         <input type="text" name="nomUser" placeholder="Nom" required="required">

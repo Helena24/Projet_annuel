@@ -17,7 +17,7 @@ function motDePasse($longueur=5) {
     return $Chaine;
 }
 
-
+//Action du bouton enregistrer 
 if(isset($_POST['Enregistrer']))
 {
     $nomUser=$_POST['nomUser'];
@@ -70,6 +70,12 @@ if(isset($_POST['Enregistrer']))
     $RequeteA->bindValue(":villeUser",$villeUser, PDO::PARAM_STR);
     $RequeteA->execute();
     echo "adresse ajoutée";
+
+     //message d'alerte avec redirection
+     $message='Nouveau utilisateur bien ajouté';
+     echo '<script type="text/javascript">window.alert("'.$message.'");
+     window.location.replace("Accueil.php");
+     </script>'; 
 }
 ?>
 
