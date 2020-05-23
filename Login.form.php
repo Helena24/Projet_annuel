@@ -10,9 +10,6 @@ include 'Connect.php';
         <link rel="stylesheet" media="screen" href="Nutrition.css">
     </head>
     <body>
-        <ul>
-            <li> <a href="Login.form.html">Retour en arrière</a> </li>
-        </ul>
         <?php 
             //Quand l'utilisateur presse le bouton de connexion 
             if (isset ($_POST['Connexion'])){
@@ -24,14 +21,13 @@ include 'Connect.php';
                 $Requete->bindValue(1,$emailUser, PDO::PARAM_STR);
                 $Requete->execute();
                 $resultat=$Requete->fetch();        
-                    if(!$resultat)
-                    {
-                        echo 'Adresse mail incorrecte';
-                        //redirection automatique vers la page de connexion
-                        header("Refresh:1; URL=http://localhost/PROJET_ANNUEL/Projet_annuel/Projet_annuel/Login.form.html");
+                    if(!$resultat){
+                        //message d'alerte indiquant que le mail est incorrecte avec redirection sur la page de connexion
+                        $message='Adresse mail est incorrecte';
+                        echo '<script type="text/javascript">window.alert("'.$message.'");
+                        window.location.replace("Login.form.html");</script>'; 
                     }
-                    else 
-                    {
+                    else{
                         $mdp=$resultat['MDP_CLIENT'];
                         if (password_verify($mdpUser, $mdp)) //verifie que le mdp saisi correspond a celui crypté dans la BD
                         {
@@ -46,25 +42,25 @@ include 'Connect.php';
                             $_SESSION['DATE_NAISSANCE_CLIENT']=$resultat['DATE_NAISSANCE_CLIENT'];
                             $_SESSION['MDP_CLIENT']=$resultat['MDP_CLIENT'];
                             
-                            
                             $id=$_SESSION['ID_CLIENT']; 
                             $Requete=$connect->prepare("SELECT ADRESSE.ID_CLIENT, ADRESSE.NUMERO_RUE, ADRESSE.NOM_RUE, ADRESSE.CODE_POSTAL, ADRESSE.VILLE, CLIENTS.ID_CLIENT FROM ADRESSE NATURAL JOIN CLIENTS WHERE ADRESSE.ID_CLIENT='$id' ");
                             $Requete->bindValue(1,$id, PDO::PARAM_STR);
                             $Requete->execute();
                             $resultat=$Requete->fetch();
                             
-                            if($resultat)
-                            {
-                            $_SESSION['NUMERO_RUE']=$resultat['NUMERO_RUE'];
-                            //MANQUE INFOS 
-                            
+                            if($resultat){
+                                $_SESSION['NUMERO_RUE']=$resultat['NUMERO_RUE'];
+                                $_SESSION['NOM_RUE']=$resultat['NOM_RUE'];
+                                $_SESSION['CODE_POSTAL']=$resultat['CODE_POSTAL'];
+                                $_SESSION['VILLE']=$resultat['VILLE'];
                             }
                         }
-                        else
-                        {
-                            echo 'Le mot de passe est invalide.';
-                            //redirection automatique vers la page de connexion
-                            header("Refresh:1; URL=http://localhost/PROJET_ANNUEL/Projet_annuel/Projet_annuel/Login.form.html");
+                        else{
+                            //message d'alerte avec redirection
+                            $message='Mot de passe incorrect';
+                            echo '<script type="text/javascript">window.alert("'.$message.'");
+                            window.location.replace("Login.form.html");
+                            </script>'; 
                         }
                     }
             }

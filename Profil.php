@@ -1,11 +1,11 @@
 <?php
 session_start();
-include("Functions.php"); 
-
-   
+include("Functions.php");  
 ?>
 
-<html> 
+<html>
+
+
 
 <table> 
     <tr> 
