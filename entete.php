@@ -11,13 +11,13 @@
 	<header>
 		<br>
 		<!-- Changer le chemin du logo pour qu'il s'affiche -->
-		<a href="entete.php" title='Mon image' target='_blank'><img src='https://nsa40.casimages.com/img/2020/01/31/mini_20013102493697038.png' alt='Mon image' height="140" width="100" id="logo" /></a>
+		<a href="entete.php" title='Mon image' target='_blank'><img src="logo-cutout.png" alt='Mon image' height="140" width="100" id="logo" /></a>
 		
 		<h1 id="afficheclient">
 		<?php 
-		session_start();
-		echo $_SESSION['NOM_CLIENT']."<br/>\n"; 
-		echo $_SESSION['PRENOM_CLIENT']; ?></h1>
+		//session_start();
+		//echo $_SESSION['NOM_CLIENT']."<br/>\n"; 
+		//echo $_SESSION['PRENOM_CLIENT']; ?></h1>
 
 		<!-- Deconnexion de l'utilisateur (redirection vers la page de connexion) -->
 	
