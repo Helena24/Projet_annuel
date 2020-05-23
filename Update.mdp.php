@@ -9,12 +9,12 @@
         <div class="wrapper">
             <section class="ajout-container">
                 <div>
+                    <!-- Formulaire permettant de modifier le mot de passe -->
                     <form method="post" action="Update.Client.php" enctype="multipart/form-data">
                         <fieldset style = "border:0"> 
-                            <input type="text" name="ancien_mdp" placeholder="Ancien mot de passe" required="required">
+                            <input type="text" name="ancien_mdp" placeholder="Mot de passe actuel" required="required">
                             <input type="password" name="nouveau_mdp1" placeholder="Nouveau mot de passe" required="required">
                             <input type="password" name="nouveau_mdp2" placeholder="Confirmation" required="required">
-
                             <button type="submit" value="Modifier" name="Modifier">Modifier</button>
                         </fieldset>  
                     </form>
