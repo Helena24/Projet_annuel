@@ -106,15 +106,9 @@ if(empty($_POST['valide']))
 {
 ?>
 <p class="file-return"></p>
-  <!-- Champs pour le nom et le nombre de parts de la recette -->
-<form method="POST" action= "Add.nvrecette.php" enctype="multipart/form-data"> 
-  <input id="nomRecette" type="text" name="nomRecette" placeholder="Nom de la recette"> 
-  <input id="nbPart" type="number" name="nbPart" placeholder="Nombre de parts de la recette"> <br>
-  <!-- Choisir un fichier pour l'image de la recette  
-  <div class="input-file-container">
-    <input class="input-file" id="photoRecette" type="file">
-    <label for="my-file" class="input-file-trigger" tabindex="0">Select a file...</label>
-  </div>-->
+  <!-- Champs pour le nom edu smoothie -->
+<form method="POST" action= "Add.nvsmoothie.php" enctype="multipart/form-data"> 
+  <input id="nomSmoothie" type="text" name="nomSmoothie" placeholder="Nom du smoothie"> 
   <!-- Champs pour les ingrédients qui vont se créer si on appuie sur ajouter un champ -->
   <form autocomplete="off" action="Add.recette.php">
       <div class="autocomplete" style="width:400px;">
@@ -135,7 +129,7 @@ if(empty($_POST['valide']))
           </tr>
         </table>
       </div>
-      <input type="submit" value="Ajouter cette recette" name="ajouterRecette"/>
+      <input type="submit" value="Ajouter ce Smoothie" name="ajouterSmoothie"/>
   </form>
 </form>
 
