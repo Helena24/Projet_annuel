@@ -24,6 +24,7 @@
 		
 		<form action=" Login.form.php" method="post">
 		<input type="submit" value="Deconnexion" name="Deconnexion">
+		</form>
 		
 		
 		

@@ -15,9 +15,9 @@
 		
 		<h1 id="afficheclient">
 		<?php 
-		//session_start();
-		//echo $_SESSION['NOM_CLIENT']."<br/>\n"; 
-		//echo $_SESSION['PRENOM_CLIENT']; ?></h1>
+		session_start();
+		echo $_SESSION['NOM_CLIENT']."<br/>\n"; 
+		echo $_SESSION['PRENOM_CLIENT']; ?></h1>
 
 		<!-- Deconnexion de l'utilisateur (redirection vers la page de connexion) -->
 	
