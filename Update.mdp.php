@@ -1,25 +1,21 @@
 <!DOCTYPE HTML>
 <?php include("Functions.php");?>
-
-
 <html>
     <head>
-    <meta charset="UTF8" />
-    <title> Ajout Client</title>
-    <!--  <link rel="stylesheet" media="screen" href="Style.css"> -->
+        <meta charset="UTF8" />
+        <title> Ajout Client</title>
     </head>
-<body>
+    <body>
+        <form method="POST" action="Update.Client.php">
+        <!-- Affichage des champs textes -->
+        <p>Mot de passe actuel :</p><input type="text" name="ancien_mdp"><br/><br/>
 
-<form method="POST" action="Update.Client.php">
-<!-- Affichage des champs textes -->
-<p>Mot de passe actuel :</p><input type="text" name="ancien_mdp"><br/><br/>
+        <p>Nouveau mot de passe :</p><input type="text" name="nouveau_mdp1"><br/><br/>
+        <p>Confirmation :</p><input type="text" name="nouveau_mdp2"><br/><br/>
 
-<p>Nouveau mot de passe :</p><input type="text" name="nouveau_mdp1"><br/><br/>
-<p>Confirmation :</p><input type="text" name="nouveau_mdp2"><br/><br/>
+        <!-- Affichage d'un bouton "Modifier" -->
+        <input type="submit" name="Modifier" value="Modifier" ></td>
 
-<!-- Affichage d'un bouton "Modifier" -->
-<input type="submit" name="Modifier" value="Modifier" ></td>
-
-</form>
-</body>
+        </form>
+    </body>
 </html>
