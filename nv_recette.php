@@ -13,10 +13,55 @@
 <script type="text/javascript">
 function create_champ_aliment(i) {
 var i2 = i + 1;
-document.getElementById('quantite'+i).innerHTML = '<input id="quantite" type="text" name="quantite['+i+']" placeholder="Quantité">';
-document.getElementById('aliment'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment ou ingrédient">';
-document.getElementById('quantite'+i).innerHTML += (i <= 10) ? '<span id="quantite'+i2+'"><a href="javascript:create_champ_quantite('+i2+')"></a></span>' : '';
-document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')"><img width=30 height=30 src="ajouter.png"/></a></span>' : '';
+document.getElementById('quantite'+i).innerHTML = '<input id="quantite" type="number" name="quantite['+i+']" placeholder="Quantité">';
+document.getElementById('unite'+i).innerHTML = '<SELECT name="unite['+i+']" size="1"><OPTION>g<OPTION>kg<OPTION>l<OPTION>cl<OPTION>ml</SELECT>';
+document.getElementById('aliment'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment">';
+document.getElementById('quantite'+i).innerHTML += (i <= 10) ? '<span id="quantite'+i2+'"><a href="javascript:create_champ_aliment('+i2+')"></a></span>' : '';
+document.getElementById('unite'+i).innerHTML += (i <= 10) ? '<span id="unite'+i2+'"><a href="javascript:create_champ_aliment('+i2+')"></a></span>' : '';
+document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')">Ajouter un aliment</a></span>' : '';
+var countries = $(document).ready(function () {
+    let countries = null;
+    $.get('Add.recette.php')
+        .done(function (data) {
+            countries = JSON.parse(data);
+            autocomplete(document.getElementById('myInput'+i), countries); 
+
+        });
+
+  })
+}
+// ajout de la classe JS à HTML
+document.querySelector("html").classList.add('js');
+ 
+// initialisation des variables
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+ 
+// action lorsque la "barre d'espace" ou "Entrée" est pressée
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
+});
+ 
+// action lorsque le label est cliqué
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});
+ 
+// affiche un retour visuel dès que input:file change
+fileInput.addEventListener( "change", function( event ) {  
+    the_return.innerHTML = this.value;  
+});
+</script>
+
+<script type="text/javascript">
+function create_champ_ingredient(i) {
+var i2 = i + 1;
+document.getElementById('ingredient'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="ingredient['+i+']" placeholder="Ingredient">';
+document.getElementById('ingredient'+i).innerHTML += (i <= 10) ? '<span id="ingredient'+i2+'"><a href="javascript:create_champ_ingredient('+i2+')">Ajouter un ingredient</a></span>' : '';
 var countries = $(document).ready(function () {
     let countries = null;
     $.get('Add.recette.php')
@@ -65,19 +110,28 @@ if(empty($_POST['valide']))
 <form method="POST" action= "Add.nvrecette.php" enctype="multipart/form-data"> 
   <input id="nomRecette" type="text" name="nomRecette" placeholder="Nom de la recette"> 
   <input id="nbPart" type="number" name="nbPart" placeholder="Nombre de parts de la recette"> <br>
-  <!-- Choisir un fichier pour l'image de la recette  -->
+  <!-- Choisir un fichier pour l'image de la recette  
   <div class="input-file-container">
     <input class="input-file" id="photoRecette" type="file">
     <label for="my-file" class="input-file-trigger" tabindex="0">Select a file...</label>
-  </div>
-  
-<!-- Champs pour les aliments et ingrédients qui vont se créer si on appuie sur ajouter un champ -->
+  </div>-->
+  <!-- Champs pour les ingrédients qui vont se créer si on appuie sur ajouter un champ -->
   <form autocomplete="off" action="Add.recette.php">
       <div class="autocomplete" style="width:400px;">
         <table>
           <tr>
+            <td><span id="ingredient1"><a href="javascript:create_champ_ingredient(1)">Ajouter un ingrédient</a></span></td>
+          </tr>
+        </table>
+      </div>
+  
+<!-- Champs pour les aliments qui vont se créer si on appuie sur ajouter un champ -->
+      <div class="autocomplete" style="width:400px;">
+        <table>
+          <tr>
             <td><span id="quantite1"><a href="javascript:create_champ_aliment(1)"></a></span></td>
-            <td><span id="aliment1"><a href="javascript:create_champ_aliment(1)"><img width=30 height=30 src="ajouter.png"/></a></span></td>
+            <td><span id="unite1"><a href="javascript:create_champ_aliment(1)"></a></span></td>
+            <td><span id="aliment1"><a href="javascript:create_champ_aliment(1)">Ajouter un aliment</a></span></td>
           </tr>
         </table>
       </div>

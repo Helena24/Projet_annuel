@@ -38,22 +38,41 @@ if(isset($_POST['ajouterRecette']))
 
     foreach($_POST['aliment'] as $aliment)
     {
-        $RequeteInsert = $connect->prepare('INSERT INTO CONTENIR (ID_RECETTE, ID_ALIMENT) 
+        $RequeteInsertA = $connect->prepare('INSERT INTO CONTENIR (ID_RECETTE, ID_ALIMENT) 
         VALUES("'.$resultat['ID_RECETTE'].'",
         (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT="'.$aliment.'"))');
-        $RequeteInsert->execute();
-        echo "Ingrédient ou aliment ajouté";
+        $RequeteInsertA->execute();
+        echo "Aliment ajouté";
 
 
         foreach($_POST['quantite'] as $quantiteAliment)
         {
-            $RequeteUpdate = $connect->prepare("UPDATE CONTENIR 
+            $RequeteUpdateQ = $connect->prepare("UPDATE CONTENIR 
             SET QTE_ALIMENT_RECETTE =  '$quantiteAliment' 
             WHERE ID_RECETTE = '$idRecette'
             AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
-            $RequeteUpdate->execute();
+            $RequeteUpdateQ->execute();
             echo "Ingrédienljpiojpojpoj";
         }
+        foreach($_POST['unite'] as $uniteAliment)
+        {
+            $RequeteUpdateU = $connect->prepare("UPDATE CONTENIR 
+            SET UNITE_ALIMENT_RECETTE =  '$uniteAliment' 
+            WHERE ID_RECETTE = '$idRecette'
+            AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
+            $RequeteUpdateU->execute();
+            echo "quantite";
+        }
+    }
+    
+    foreach($_POST['ingredient'] as $ingredient)
+    {
+        $RequeteInsertI = $connect->prepare('INSERT INTO COMPOSER (ID_RECETTE, ID_INGREDIENT) 
+        VALUES("'.$resultat['ID_RECETTE'].'",
+        (SELECT ID_INGREDIENT FROM INGREDIENTS WHERE NOM_INGREDIENT="'.$ingredient.'"))');
+        $RequeteInsertI->execute();
+        echo "Ingrédient ajouté";
+
     }
 
   

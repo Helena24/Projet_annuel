@@ -387,6 +387,8 @@ Le outline: 0; empêche d’avoir un surlignement de l’objet au focus.
 form input[type="password"],
 form input[type="date"], 
 form input[type="text"], 
+form input[type="number"], 
+form select,
 form button[type="submit"] {
   width: 100%;
   margin-bottom: 32px;
