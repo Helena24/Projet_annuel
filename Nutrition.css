@@ -397,11 +397,14 @@ section.login-container form{
 Nous voulons que les champs du formulaire prennent toute la largeur.
 Le outline: 0; empêche d’avoir un surlignement de l’objet au focus.
 */
+
+form input [type="number"],
 form input[type="password"],
 form input[type="date"], 
 form input[type="text"], 
 form input[type="number"], 
 form select,
+form option, 
 form button[type="submit"] {
   width: 100%;
   margin-bottom: 32px;
@@ -415,6 +418,14 @@ form button[type="submit"] {
 /*
 Au survol et au focus des champs de saisie de texte,nous changeons la couleur d’arrière-plan.
 */
+form select:focus, 
+form select:hover,
+form option:focus, 
+form option:hover, 
+
+form input[type="number"]:focus,
+form input[type="number"]:hover,
+
 form input[type="date"]:focus,
 form input[type="date"]:hover,
 form input[type="text"]:focus,
@@ -485,7 +496,7 @@ section.ajout-container{
 }
 
 section.ajout-container > div{
-  width: 450px;
+  width: 500px;
   margin: auto;
   padding: 10px;
   text-align: center;
