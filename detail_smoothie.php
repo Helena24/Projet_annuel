@@ -35,13 +35,15 @@ while ($infosmoothie = $smoothie->fetch())
                     <?php echo $infoaliment['QTE_ALIMENT_SMOOTHIE']; ?>
                     <?php echo $infoaliment['UNITE_ALIMENT_SMOOTHIE']; ?>
                     <?php echo $infoaliment['NOM_ALIMENT']; ?>
+                    <?php $caloriestotales = $caloriestotales + (($infoaliment['QTE_ALIMENT_SMOOTHIE']/100) * $infoaliment['CALORIE_ALIMENT']); ?>
                     <br>
+                    Calories
                     <?php
                     }
-
+                    echo $caloriestotales; 
                     $aliment->closeCursor(); // Termine le traitement de la requête
 
-                    ?>
+                    ?><br>
                     <!-- Récupérer les ingrédients de la recette -->
                     <?php $ingredient = $connect->query("SELECT * FROM INGREDIENTS 
                     INNER JOIN COMPOSER_S ON INGREDIENTS.ID_INGREDIENT = COMPOSER_S.ID_INGREDIENT 
