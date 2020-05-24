@@ -381,6 +381,8 @@ section.login-container > div{
   border-radius: 5px;
 }
 
+
+
 /*
 Nous plaçons les éléments à l’intérieur du formulaire en « flexbox » sur une seule colonne.
 */
@@ -388,6 +390,8 @@ section.login-container form{
   display: flex;
   flex-direction: column;
 }
+
+
 
 /*
 Nous voulons que les champs du formulaire prennent toute la largeur.
