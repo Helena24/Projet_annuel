@@ -10,7 +10,7 @@
 <h2> Pour ajouter un aliment remplissez les champs suivants : </h2>
 <form method="POST" action= "Add.aliment.php" enctype="multipart/form-data">
     <fieldset>
-        Aliment                     <input name="nomAliment" required ><br>
+        Aliment                     <input name="nomAliment" type="text" required ><br>
         Catégorie d'aliment         <select name="categorieAliment">
                                     <option value="Fruit">Fruit</option>
                                     <option value="Légume">Légume</option>
@@ -20,10 +20,10 @@
                                     <option value="Fromage">Fromage</option>
                                     <option value="Legumineuses">Légumineuses</option>
                                     </select><br>
-        Calories                 <input name="calorieAliment" required > <br>
-        Protéines                <input name="proteineAliment" required > <br>
-        Glucides                 <input name="glucideAliment" required > <br>
-        Lipides                  <input name="lipideAliment" required > <br>
+        Calories                 <input name="calorieAliment" type="number" required > <br>
+        Protéines                <input name="proteineAliment" type="number" required > <br>
+        Glucides                 <input name="glucideAliment" type="number" required > <br>
+        Lipides                  <input name="lipideAliment" type="number" required > <br>
         <br> <input name="add" type="submit" value="Ajouter cet aliment"/>
     </fieldset>
 </form>

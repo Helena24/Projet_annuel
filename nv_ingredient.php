@@ -10,7 +10,7 @@
 <h2> Pour ajouter un ingrédient remplissez les champs suivants : </h2>
 <form method="POST" action= "Add.ingredient.php" enctype="multipart/form-data">
     <fieldset>
-        Ingrédient                     <input name="nomIngredient" required ><br>
+        Ingrédient                     <input name="nomIngredient" type="text" required ><br>
         <br> <input name="add" type="submit" value="Ajouter cet ingrédient"/>
     </fieldset>
 </form>
