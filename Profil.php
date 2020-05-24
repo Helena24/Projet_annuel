@@ -10,6 +10,7 @@ include("Functions.php");
             <tr>
                 <td>Nom</td>
                 <td> <?php echo $_SESSION['NOM_CLIENT'] ?> </td> 
+                <td contenteditable="true"> Contenu initial </td>
             </tr>
             <tr class="active-row">
                 <td>Prénom</td>
