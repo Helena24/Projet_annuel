@@ -6,35 +6,147 @@ include("Functions.php");
 include("Connect.php");
 ?>
 <script type="text/javascript">
+// Champ pour le petit-déjeuner de lundi
 function create_champ_pdlundi(i) {
 var i2 = i + 1;
-document.getElementById('pdlundi'+i).innerHTML = '<input id="collundi'+i+'" type="text" name="pdlundi['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
+document.getElementById('pdlundi'+i).innerHTML = '<input id="pdlundi'+i+'" type="text" name="pdlundi['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
 document.getElementById('pdlundi'+i).innerHTML += (i <= 10) ? '<span id="pdlundi'+i2+'"><a href="javascript:create_champ_pdlundi('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
-var countries = $(document).ready(function () {
-    let countries = null;
-    $.get('Add.recette.php')
-        .done(function (data) {
-            countries = JSON.parse(data);
-            autocomplete(document.getElementById('myInput'+i), countries); 
-
-        });
-
-  })
 }
+// ajout de la classe JS à HTML
+document.querySelector("html").classList.add('js');
+ 
+// initialisation des variables
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+ 
+// action lorsque la "barre d'espace" ou "Entrée" est pressée
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
+});
+ 
+// action lorsque le label est cliqué
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});
+ 
+// affiche un retour visuel dès que input:file change
+fileInput.addEventListener( "change", function( event ) {  
+    the_return.innerHTML = this.value;  
+});
+</script>
+
+<script type="text/javascript">
+// Champ pour la collation de lundi 
 function create_champ_collundi(i) {
 var i2 = i + 1;
 document.getElementById('collundi'+i).innerHTML = '<input id="collundi'+i+'" type="text" name="collundi['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
 document.getElementById('collundi'+i).innerHTML += (i <= 10) ? '<span id="collundi'+i2+'"><a href="javascript:create_champ_collundi('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
-var countries = $(document).ready(function () {
-    let countries = null;
-    $.get('Add.recette.php')
-        .done(function (data) {
-            countries = JSON.parse(data);
-            autocomplete(document.getElementById('myInput'+i), countries); 
+}
+// ajout de la classe JS à HTML
+document.querySelector("html").classList.add('js');
+ 
+// initialisation des variables
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+ 
+// action lorsque la "barre d'espace" ou "Entrée" est pressée
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
+});
+ 
+// action lorsque le label est cliqué
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});
+ 
+// affiche un retour visuel dès que input:file change
+fileInput.addEventListener( "change", function( event ) {  
+    the_return.innerHTML = this.value;  
+});
+</script>
 
-        });
+<script type="text/javascript">
+// Champ pour le dejeuner de lundi 
+function create_champ_dejlundi(i) {
+var i2 = i + 1;
+document.getElementById('dejlundi'+i).innerHTML = '<input id="dejlundi'+i+'" type="text" name="dejlundi['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
+document.getElementById('dejlundi'+i).innerHTML += (i <= 10) ? '<span id="dejlundi'+i2+'"><a href="javascript:create_champ_dejlundi('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
+}
+// ajout de la classe JS à HTML
+document.querySelector("html").classList.add('js');
+ 
+// initialisation des variables
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+ 
+// action lorsque la "barre d'espace" ou "Entrée" est pressée
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
+});
+ 
+// action lorsque le label est cliqué
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});
+ 
+// affiche un retour visuel dès que input:file change
+fileInput.addEventListener( "change", function( event ) {  
+    the_return.innerHTML = this.value;  
+});
+</script>
 
-  })
+<script type="text/javascript">
+// Champ pour la collation 2 de lundi 
+function create_champ_colbislundi(i) {
+var i2 = i + 1;
+document.getElementById('colbislundi'+i).innerHTML = '<input id="colbislundi'+i+'" type="text" name="colbislundi['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
+document.getElementById('colbislundi'+i).innerHTML += (i <= 10) ? '<span id="colbislundi'+i2+'"><a href="javascript:create_champ_colbislundi('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
+}
+// ajout de la classe JS à HTML
+document.querySelector("html").classList.add('js');
+ 
+// initialisation des variables
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+ 
+// action lorsque la "barre d'espace" ou "Entrée" est pressée
+button.addEventListener( "keydown", function( event ) {
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {
+        fileInput.focus();
+    }
+});
+ 
+// action lorsque le label est cliqué
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});
+ 
+// affiche un retour visuel dès que input:file change
+fileInput.addEventListener( "change", function( event ) {  
+    the_return.innerHTML = this.value;  
+});
+</script>
+
+<script type="text/javascript">
+// Champ pour le diner de lundi 
+function create_champ_dlundi(i) {
+var i2 = i + 1;
+document.getElementById('dlundi'+i).innerHTML = '<input id="dlundi'+i+'" type="text" name="dlundi['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
+document.getElementById('dlundi'+i).innerHTML += (i <= 10) ? '<span id="dlundi'+i2+'"><a href="javascript:create_champ_dlundi('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
 }
 // ajout de la classe JS à HTML
 document.querySelector("html").classList.add('js');
