@@ -123,7 +123,9 @@ if(empty($_POST['valide']))
         <div class="autocomplete" style="width:400px;">
           <table width=120%>
             <tr>
-              <td><span id="ingredient1"><a href="javascript:create_champ_ingredient(1)"><br>Ajouter un ingrédient</a></span></td>
+              <td width=100> </td>
+              <td width=23> </td>
+              <td width=100><span id="ingredient1"><a href="javascript:create_champ_ingredient(1)"><br>Ajouter un ingrédient</a></span></td>
             </tr>
           </table>
         </div>  
@@ -131,9 +133,11 @@ if(empty($_POST['valide']))
         <div class="autocomplete" style="width:400px;">
           <table  width=120%>
             <tr> 
+           
               <td width=100><span id="quantite1"><a href="javascript:create_champ_aliment(1)"> </a> </span>  </td>
               <td width=23><span id="unite1"><a href="javascript:create_champ_aliment(1)"></a> </span></td>
               <td width=100><span id="aliment1"><a href="javascript:create_champ_aliment(1)"> Ajouter un aliment  </a> </span></td>
+              
             </tr> 
           </table>
         </div> 
