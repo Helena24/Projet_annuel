@@ -118,26 +118,36 @@ if(empty($_POST['valide']))
       <label for="my-file" class="input-file-trigger" tabindex="0">Select a file...</label>
       </div>-->
 
+       <!-- Champs pour les aliments qui vont se créer si on appuie sur ajouter un champ -->
+       <div class="autocomplete" style="width:400px;">
+          <table border=4 cellspacing=4 cellpadding=4 width=80%>
+             <tr>
+              <td><span id="quantite1"><a href="javascript:create_champ_aliment(1)"></a></span></td>
+              <td><span id="unite1"><a href="javascript:create_champ_aliment(1)"></a></span></td>
+              <td><span id="aliment1"><a href="javascript:create_champ_aliment(1)"><br>Ajouter un aliment</a></span></td>
+            </tr> 
+          
+          </table>
+
+          
+        </div>
+
       <!-- Champs pour les ingrédients qui vont se créer si on appuie sur ajouter un champ -->
       <form autocomplete="off" action="Add.recette.php">
         <div class="autocomplete" style="width:400px;">
           <table>
             <tr>
-              <td><span id="ingredient1"><a href="javascript:create_champ_ingredient(1)">Ajouter un ingrédient</a></span></td>
+              <td><span id="ingredient1"><a href="javascript:create_champ_ingredient(1)"><br>Ajouter un ingrédient</a></span></td>
             </tr>
+
+           
+
+
+
           </table>
         </div>
   
-        <!-- Champs pour les aliments qui vont se créer si on appuie sur ajouter un champ -->
-        <div class="autocomplete" style="width:400px;">
-          <table>
-            <tr>
-              <td><span id="quantite1"><a href="javascript:create_champ_aliment(1)"></a></span></td>
-              <td><span id="unite1"><a href="javascript:create_champ_aliment(1)"></a></span></td>
-              <td><span id="aliment1"><a href="javascript:create_champ_aliment(1)">Ajouter un aliment</a></span></td>
-            </tr>
-          </table>
-        </div>
+       
         <button type="submit" value="Ajouter cette recette" name="ajouterRecette">Ajouter cette recette</button>
       </form>
     </form>
