@@ -54,6 +54,15 @@
 			</ul>
 		</li>
 
+		<li><a href="#">Ajouter</a>
+			<ul>
+				<li><a href="nv_recette.php">Recette</a></li>
+				<li><a href="nv_smoothie.php">Smoothie</a></li>
+				<li><a href="nv_aliment.php">Aliment</a></li>
+				<li><a href="nv_ingredient.php">Ingrédient</a></li>
+			</ul>
+		</li>
+
 		<li><a href="Formulaire_Ajout.php">Nouveau client </a> </li>
 	</ul>
 </html>
