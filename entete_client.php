@@ -35,6 +35,10 @@
     <li><a href="#">Alimentation</a>
 		<ul>
 			<li><a href="tab_equivalence.php">Equivalences</a></li>
+			<li><a href="visualisation_aliment.php">Aliments</a></li>
+			<li><a href="liste_recettes.php">Recettes</a></li>
+			<li><a href="liste_smoothies.php">Smoothies</a></li>
+			<li><a href="liste_ingredients.php">Ingrédients</a></li>
 			<li><a href="#">Aliments non souhaités</a></li>
 			<li><a href="#">Demandes</a></li>
 		</ul>

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-<?php include("entete.php"); ?>
-<?php include("police.php"); ?>
+<?php include("Functions.php"); ?>
 <?php include("Connect.php"); ?>
 <head>
 <title>Suppression Aliment</title>
 </head> 
 <body>
 
-<table border=1 cellspacing=4 cellpadding=4 class="semainier">
+<table class="content-table">
         <tr>
             <th>Nom</th>
             <th>Catégorie</th>

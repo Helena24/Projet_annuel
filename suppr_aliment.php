@@ -7,7 +7,7 @@
 </head> 
 <body>
 
-<table border=1 cellspacing=4 cellpadding=4 class="semainier">
+<table class="content-table">
         <tr>
             <th>Nom</th>
             <th>Catégorie</th>
@@ -15,7 +15,7 @@
             <th>Protéines</th>
             <th>Glucides</th>
             <th>Lipides</th>
-            <th>Supprimer</th>
+            <th></th>
         </tr>
 
 <?php
