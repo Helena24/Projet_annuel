@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html>
 <?php include("Functions.php");?>
 <?php include("Connect.php"); ?>
+<html>
 <head>
-<title>Ajout ingrédient</title>
+    <title>Ajout ingrédient</title>
 </head> 
 <body>
-
-<h2> Pour ajouter un ingrédient remplissez les champs suivants : </h2>
-<form method="POST" action= "Add.ingredient.php" enctype="multipart/form-data">
-    <fieldset>
-        Ingrédient                     <input name="nomIngredient" type="text" required ><br>
-        <br> <input name="add" type="submit" value="Ajouter cet ingrédient"/>
-    </fieldset>
-</form>
+<div class="wrapper">
+    <section class="ajout-container">
+        <div>
+            <!-- Formulaire permettant l'ajout d'un ingredient-->
+            <form method="POST" action= "Add.ingredient.php" enctype="multipart/form-data">
+                <fieldset style = "border:0">
+                    <input name="nomIngredient" type="text"  placeholder="Nom de l'ingrédient" required="required">
+                    <button name="add" type="submit" value="Ajouter cet ingrédient">Ajouter cet ingrédient</button>
+                </fieldset>
+            </form> 
+        </div>
+    </section>   
+</div>
 </body>
-
-
-
-
-
-
 </html>
