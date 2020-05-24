@@ -105,10 +105,15 @@ fileInput.addEventListener( "change", function( event ) {
 if(empty($_POST['valide']))
 {
 ?>
+<div class="wrapper">
+  <section class="ajout-container">
+    <div>
+
+
 <p class="file-return"></p>
   <!-- Champs pour le nom edu smoothie -->
 <form method="POST" action= "Add.nvsmoothie.php" enctype="multipart/form-data"> 
-  <input id="nomSmoothie" type="text" name="nomSmoothie" placeholder="Nom du smoothie"> 
+  <input id="nomSmoothie" type="text" name="nomSmoothie" placeholder="Nom du smoothie" required="required"> 
   <!-- Champs pour les ingrédients qui vont se créer si on appuie sur ajouter un champ -->
   <form autocomplete="off" action="Add.recette.php">
       <div class="autocomplete" style="width:400px;">
@@ -129,9 +134,13 @@ if(empty($_POST['valide']))
           </tr>
         </table>
       </div>
-      <input type="submit" value="Ajouter ce Smoothie" name="ajouterSmoothie"/>
+      <button type="submit" value="Ajouter ce Smoothie" name="ajouterSmoothie">Ajouter ce smoothie</button>
   </form>
 </form>
+
+</div>
+</section>
+</div>
 
 <?php
 }
