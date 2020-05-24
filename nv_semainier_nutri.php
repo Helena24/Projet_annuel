@@ -6,10 +6,25 @@ include("Functions.php");
 include("Connect.php");
 ?>
 <script type="text/javascript">
-function create_champ(i) {
+function create_champ_pdlundi(i) {
 var i2 = i + 1;
-document.getElementById('champ'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="champ['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
-document.getElementById('champ'+i).innerHTML += (i <= 10) ? '<span id="champ'+i2+'"><a href="javascript:create_champ('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
+document.getElementById('pdlundi'+i).innerHTML = '<input id="collundi'+i+'" type="text" name="pdlundi['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
+document.getElementById('pdlundi'+i).innerHTML += (i <= 10) ? '<span id="pdlundi'+i2+'"><a href="javascript:create_champ_pdlundi('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
+var countries = $(document).ready(function () {
+    let countries = null;
+    $.get('Add.recette.php')
+        .done(function (data) {
+            countries = JSON.parse(data);
+            autocomplete(document.getElementById('myInput'+i), countries); 
+
+        });
+
+  })
+}
+function create_champ_collundi(i) {
+var i2 = i + 1;
+document.getElementById('collundi'+i).innerHTML = '<input id="collundi'+i+'" type="text" name="collundi['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
+document.getElementById('collundi'+i).innerHTML += (i <= 10) ? '<span id="collundi'+i2+'"><a href="javascript:create_champ_collundi('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
 var countries = $(document).ready(function () {
     let countries = null;
     $.get('Add.recette.php')
@@ -48,7 +63,7 @@ fileInput.addEventListener( "change", function( event ) {
 });
 </script>
 
-
+<form id="semainierNutri" action="">
 
 <h2>Nouveau semainier:</h2>
 
@@ -70,20 +85,21 @@ fileInput.addEventListener( "change", function( event ) {
 </div>
 
 <div class="tab">Lundi:
-    <p>
-    <select name="typeRepasLundi">
-    <option value="Petitdejeuner">Petit-déjeuner</option>
-    <option value="Collation1">Collation 1</option>
-    <option value="Dejeuner">Dejeuner</option>
-    <option value="Collation1">Collation 2</option>
-    <option value="Diner">Diner</option>
-    </select>
-    </p>
-    <form autocomplete="off" action="Add.recette.php">
-        <div class="autocomplete" style="width:400px;">
-            <p><span id="champ1"><a href="javascript:create_champ(1)">Ajouter un aliment, recette ou smoothie</a></span></p>
-        </div>
-    </form>
+    <p>Petit-déjeuner</p>
+    <!--<form autocomplete="off" action="Add.recette.php">
+        <div class="autocomplete" style="width:400px;">-->
+            <p><span id="pdlundi1"><a href="javascript:create_champ_pdlundi(1)">Ajouter un aliment, recette ou smoothie</a></span></p>
+        <!--</div>
+   </form>-->
+</div>
+
+<div class="tab">Lundi:
+    <p>Collation 1</p>
+    <!--<form autocomplete="off" action="Add.recette.php">
+        <div class="autocomplete" style="width:400px;">-->
+            <p><span id="collundi1"><a href="javascript:create_champ_collundi(1)">Ajouter un aliment, recette ou smoothie</a></span></p>
+        <!--</div>
+   </form>-->
 </div>
 
 <div class="tab">Login Info:
@@ -106,7 +122,7 @@ fileInput.addEventListener( "change", function( event ) {
   <span class="step"></span>
 </div>
 
-
+</form>
 
 <script>
 
