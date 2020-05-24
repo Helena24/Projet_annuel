@@ -28,7 +28,7 @@
 	<ul id="menu-deroulant">
 		<li><a>Semainiers</a>
 			<ul>
-				<li><a href="Semainier_nutri.php">Nouveau semainier </a></li>
+				<li><a href="nv_semainier_nutri.php">Nouveau semainier </a></li>
 				<li><a href="#">Visualiser les semainiers</a></li>
 			</ul>
 		</li>

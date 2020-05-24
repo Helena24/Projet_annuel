@@ -203,39 +203,42 @@ fileInput.addEventListener( "change", function( event ) {
             <p><span id="pdlundi1"><a href="javascript:create_champ_pdlundi(1)">Ajouter un aliment, recette ou smoothie</a></span></p>
         <!--</div>
    </form>-->
-   <p>Collation 1</p>
+</div>
+
+<div class="tab">Lundi:
+<p>Collation 1</p>
     <!--<form autocomplete="off" action="Add.recette.php">
         <div class="autocomplete" style="width:400px;">-->
             <p><span id="collundi1"><a href="javascript:create_champ_collundi(1)">Ajouter un aliment, recette ou smoothie</a></span></p>
         <!--</div>
    </form>-->
-   <p>Déjeuner</p>
+</div>
+
+<div class="tab">Lundi:
+<p>Déjeuner</p>
     <!--<form autocomplete="off" action="Add.recette.php">
         <div class="autocomplete" style="width:400px;">-->
             <p><span id="dejlundi1"><a href="javascript:create_champ_dejlundi(1)">Ajouter un aliment, recette ou smoothie</a></span></p>
         <!--</div>
    </form>-->
-   <p>Collation 2</p>
+</div>
+
+<div class="tab">Lundi:
+<p>Collation 2</p>
     <!--<form autocomplete="off" action="Add.recette.php">
         <div class="autocomplete" style="width:400px;">-->
             <p><span id="colbislundi1"><a href="javascript:create_champ_colbislundi(1)">Ajouter un aliment, recette ou smoothie</a></span></p>
         <!--</div>
    </form>-->
-   <p>Dîner</p>
+</div>
+
+<div class="tab">Lundi:
+<p>Dîner</p>
     <!--<form autocomplete="off" action="Add.recette.php">
         <div class="autocomplete" style="width:400px;">-->
             <p><span id="dlundi1"><a href="javascript:create_champ_dlundi(1)">Ajouter un aliment, recette ou smoothie</a></span></p>
         <!--</div>
    </form>-->
-</div>
-
-<div class="tab">Lundi:
-
-</div>
-
-<div class="tab">Login Info:
-  <p><input placeholder="Username..." oninput="this.className = ''"></p>
-  <p><input placeholder="Password..." oninput="this.className = ''"></p>
 </div>
 
 <div style="overflow:auto;">
@@ -247,6 +250,11 @@ fileInput.addEventListener( "change", function( event ) {
 
 <!-- Circles which indicates the steps of the form: -->
 <div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
   <span class="step"></span>
   <span class="step"></span>
   <span class="step"></span>
