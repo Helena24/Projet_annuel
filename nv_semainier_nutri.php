@@ -5,13 +5,33 @@
 include("Functions.php");
 include("Connect.php");
 ?>
+<!--------------------------------> 
+<!--------------------------------> 
+<!--------------------------------> 
+<!--------------------------------> 
+<!-- Pour créer tous les champs --> 
+<!--------------------------------> 
+<!--------------------------------> 
+<!--------------------------------> 
+<!--------------------------------> 
+
 <script type="text/javascript">
 // Champ pour le petit-déjeuner de lundi
-function create_champ_pdlundi(i) {
+function create_champ_pdlundis(i) {
 var i2 = i + 1;
-document.getElementById('pdlundi'+i).innerHTML = '<input id="pdlundi'+i+'" type="text" name="pdlundi['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
-document.getElementById('pdlundi'+i).innerHTML += (i <= 10) ? '<span id="pdlundi'+i2+'"><a href="javascript:create_champ_pdlundi('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
+document.getElementById('pdlundis'+i).innerHTML = '<input id="pdlundis'+i+'" type="text" name="pdlundis['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
+document.getElementById('pdlundis'+i).innerHTML += (i <= 10) ? '<span id="pdlundis'+i2+'"><a href="javascript:create_champ_pdlundis('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
 }
+/*function create_champ_pdlundir(i) {
+var i2 = i + 1;
+document.getElementById('pdlundir'+i).innerHTML = '<input id="pdlundir'+i+'" type="text" name="pdlundir['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
+document.getElementById('pdlundir'+i).innerHTML += (i <= 10) ? '<span id="pdlundir'+i2+'"><a href="javascript:create_champ_pdlundir('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
+}
+function create_champ_pdlundia(i) {
+var i2 = i + 1;
+document.getElementById('pdlundia'+i).innerHTML = '<input id="pdlundia'+i+'" type="text" name="pdlundia['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
+document.getElementById('pdlundia'+i).innerHTML += (i <= 10) ? '<span id="pdlundia'+i2+'"><a href="javascript:create_champ_pdlundia('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
+}*/
 // ajout de la classe JS à HTML
 document.querySelector("html").classList.add('js');
  
@@ -175,6 +195,16 @@ fileInput.addEventListener( "change", function( event ) {
 });
 </script>
 
+<!--------------------------------> 
+<!--------------------------------> 
+<!--------------------------------> 
+<!--------------------------------> 
+<!--- Pour entrer les valeurs ----> 
+<!--------------------------------> 
+<!--------------------------------> 
+<!--------------------------------> 
+<!--------------------------------> 
+
 <form id="semainierNutri" action="">
 
 <h2>Nouveau semainier:</h2>
@@ -200,7 +230,10 @@ fileInput.addEventListener( "change", function( event ) {
     <p>Petit-déjeuner</p>
     <!--<form autocomplete="off" action="Add.recette.php">
         <div class="autocomplete" style="width:400px;">-->
-            <p><span id="pdlundi1"><a href="javascript:create_champ_pdlundi(1)">Ajouter un aliment, recette ou smoothie</a></span></p>
+            <p><span id="pdlundi1s"><a href="javascript:create_champ_pdlundis(1)"></a></span></p>
+            <!--<p><span id="pdlundi1s"><a href="javascript:create_champ_pdlundis(1)"></a></span></p>
+            <p><span id="pdlundi1a"><a href="javascript:create_champ_pdlundia(1)"></a></span></p>-->
+
         <!--</div>
    </form>-->
 </div>
