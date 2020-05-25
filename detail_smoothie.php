@@ -59,7 +59,7 @@ while ($infosmoothie = $smoothie->fetch())
 
                     ?>
                     Voici le déroulé de la recette : <br>
-                    <?php echo $inforecette['DESCRIPTION_SMOOTHIE']; ?>
+                    <?php echo $infosmoothie['DESCRIPTION_SMOOTHIE']; ?>
                     <?php
                     }
                     $smoothie->closeCursor(); // Termine le traitement de la requête

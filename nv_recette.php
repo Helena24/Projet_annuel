@@ -143,10 +143,11 @@ if(empty($_POST['valide']))
         </div> 
 
       
-  
+        <input id="derouleRecette" type="text" name="derouleRecette" placeholder="Description des étapes de la recette" required="required"> 
        
         <button type="submit" value="Ajouter cette recette" name="ajouterRecette">Ajouter cette recette</button>
       </form>
+
     </form>
   </div>
 </section>

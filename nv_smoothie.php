@@ -133,6 +133,7 @@ if(empty($_POST['valide']))
             <td><span id="aliment1"><a href="javascript:create_champ_aliment(1)">Ajouter un aliment</a></span></td>
           </tr>
         </table>
+        <input id="derouleSmoothie" type="text" name="derouleSmoothie" placeholder="Description de la recette du smoothie" required="required"> 
       </div>
       <button type="submit" value="Ajouter ce Smoothie" name="ajouterSmoothie">Ajouter ce smoothie</button>
   </form>

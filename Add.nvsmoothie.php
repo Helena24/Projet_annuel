@@ -17,8 +17,10 @@ include("Connect.php");
 if(isset($_POST['ajouterSmoothie']))
 {
     $nomSmoothie=$_POST['nomSmoothie'];
-	$Requete = $connect->prepare('INSERT INTO SMOOTHIES (NOM_SMOOTHIE) VALUES(:nomSmoothie)');
-	$Requete->bindValue(":nomSmoothie",$nomSmoothie, PDO::PARAM_STR);
+    $derouleSmoothie=$_POST['derouleSmoothie'];
+	$Requete = $connect->prepare('INSERT INTO SMOOTHIES (NOM_SMOOTHIE, DESCRIPTION_SMOOTHIE) VALUES(:nomSmoothie, :derouleSmoothie)');
+    $Requete->bindValue(":nomSmoothie",$nomSmoothie, PDO::PARAM_STR);
+    $Requete->bindValue(":derouleSmoothie",$derouleSmoothie, PDO::PARAM_STR);
     $Requete->execute();
     echo "Smoothie ajouté";
 }

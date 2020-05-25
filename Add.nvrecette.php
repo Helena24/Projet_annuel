@@ -20,10 +20,12 @@ if(isset($_POST['ajouterRecette']))
 {
     $nomRecette=$_POST['nomRecette'];
     $nbPart=$_POST['nbPart'];
+    $derouleRecette=$_POST['derouleRecette'];
 
-	$Requete = $connect->prepare('INSERT INTO RECETTES (NOM_RECETTE, NOMBRE_PART_RECETTE) VALUES(:nomRecette, :nbPart)');
+	$Requete = $connect->prepare('INSERT INTO RECETTES (NOM_RECETTE, NOMBRE_PART_RECETTE, DESCRIPTION_RECETTE) VALUES(:nomRecette, :nbPart, :derouleRecette)');
 	$Requete->bindValue(":nomRecette",$nomRecette, PDO::PARAM_STR);
-	$Requete->bindValue(":nbPart",$nbPart, PDO::PARAM_STR);
+    $Requete->bindValue(":nbPart",$nbPart, PDO::PARAM_STR);
+    $Requete->bindValue(":derouleRecette",$derouleRecette, PDO::PARAM_STR);
     $Requete->execute();
     echo "Recette ajoutée";
 }
