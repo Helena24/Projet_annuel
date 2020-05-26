@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
-<?php include("entete.php"); ?>
-<?php include("police.php"); ?>
+<?php include("Functions.php"); ?>
+<?php include("Connect.php"); ?>
 <head>
-<title> Ajout Client</title>
-<!--  <link rel="stylesheet" media="screen" href="Style.css"> -->
+<title> Ajout Smoothie</title>
 </head>
 
 <body>
      
 
 <?php
-include("Connect.php");
+
 
 
 
@@ -27,7 +26,6 @@ if(isset($_POST['ajouterRecette']))
     $Requete->bindValue(":nbPart",$nbPart, PDO::PARAM_STR);
     $Requete->bindValue(":derouleRecette",$derouleRecette, PDO::PARAM_STR);
     $Requete->execute();
-    echo "Recette ajoutée";
 }
 if(isset($_POST['ajouterRecette']))
 {
@@ -36,7 +34,6 @@ if(isset($_POST['ajouterRecette']))
     $Requete->execute();
     $resultat=$Requete->fetch();
     $idRecette = $resultat['ID_RECETTE'];
-    echo $resultat['ID_RECETTE'];
 
     foreach($_POST['aliment'] as $aliment)
     {
@@ -44,7 +41,6 @@ if(isset($_POST['ajouterRecette']))
         VALUES("'.$resultat['ID_RECETTE'].'",
         (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT="'.$aliment.'"))');
         $RequeteInsertA->execute();
-        echo "Aliment ajouté";
 
 
         foreach($_POST['quantite'] as $quantiteAliment)
@@ -54,7 +50,6 @@ if(isset($_POST['ajouterRecette']))
             WHERE ID_RECETTE = '$idRecette'
             AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
             $RequeteUpdateQ->execute();
-            echo "Ingrédienljpiojpojpoj";
         }
         foreach($_POST['unite'] as $uniteAliment)
         {
@@ -63,7 +58,6 @@ if(isset($_POST['ajouterRecette']))
             WHERE ID_RECETTE = '$idRecette'
             AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
             $RequeteUpdateU->execute();
-            echo "quantite";
         }
     }
     
@@ -73,12 +67,15 @@ if(isset($_POST['ajouterRecette']))
         VALUES("'.$resultat['ID_RECETTE'].'",
         (SELECT ID_INGREDIENT FROM INGREDIENTS WHERE NOM_INGREDIENT="'.$ingredient.'"))');
         $RequeteInsertI->execute();
-        echo "Ingrédient ajouté";
 
     }
 
   
 }
+$message = "Recette ajoutée";
+echo '<script type="text/javascript">window.alert("'.$message.'");
+window.location.replace("nv_recette.php");
+</script>'; 
 ?>
 
 

@@ -37,7 +37,10 @@ if(isset($_POST['add']))
 }
 
 
-
+$message = "Aliment ajouté";
+echo '<script type="text/javascript">window.alert("'.$message.'");
+window.location.replace("nv_aliment.php");
+</script>'; 
 
 ?>
 

@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html>
-<?php include("entete.php"); ?>
-<?php include("police.php");?>
+<?php include("Functions.php"); ?>
+<?php include("Connect.php");?>
 <head>
-<title> Ajout Client</title>
-<!--  <link rel="stylesheet" media="screen" href="Style.css"> -->
+<title> Ajout Smoothie</title>
 </head>
 
 <body>
      
 
 <?php
-include("Connect.php");
 
 
 if(isset($_POST['ajouterSmoothie']))
@@ -22,7 +20,6 @@ if(isset($_POST['ajouterSmoothie']))
     $Requete->bindValue(":nomSmoothie",$nomSmoothie, PDO::PARAM_STR);
     $Requete->bindValue(":derouleSmoothie",$derouleSmoothie, PDO::PARAM_STR);
     $Requete->execute();
-    echo "Smoothie ajouté";
 }
 if(isset($_POST['ajouterSmoothie']))
 {
@@ -31,7 +28,6 @@ if(isset($_POST['ajouterSmoothie']))
     $Requete->execute();
     $resultat=$Requete->fetch();
     $idSmoothie = $resultat['ID_SMOOTHIE'];
-    echo $resultat['ID_SMOOTHIE'];
     
     foreach($_POST['ingredient'] as $ingredient)
     {
@@ -39,7 +35,6 @@ if(isset($_POST['ajouterSmoothie']))
         VALUES("'.$resultat['ID_SMOOTHIE'].'",
         (SELECT ID_INGREDIENT FROM INGREDIENTS WHERE NOM_INGREDIENT="'.$ingredient.'"))');
         $RequeteInsertI->execute();
-        echo "Ingrédient ajouté";
 
     }
 }
@@ -50,7 +45,6 @@ if(isset($_POST['ajouterSmoothie']))
     $Requete->execute();
     $resultat=$Requete->fetch();
     $idSmoothie = $resultat['ID_SMOOTHIE'];
-    echo $resultat['ID_SMOOTHIE'];
 
 
     foreach($_POST['aliment'] as $aliment)
@@ -59,7 +53,6 @@ if(isset($_POST['ajouterSmoothie']))
         VALUES("'.$resultat['ID_SMOOTHIE'].'",
         (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT="'.$aliment.'"))');
         $RequeteInsertS->execute();
-        echo "Aliment ajouté";
 
 
         foreach($_POST['quantite'] as $quantiteAliment)
@@ -69,7 +62,6 @@ if(isset($_POST['ajouterSmoothie']))
             WHERE ID_SMOOTHIE = '$idSmoothie'
             AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
             $RequeteUpdateQ->execute();
-            echo "quantite";
         }
         foreach($_POST['unite'] as $uniteAliment)
         {
@@ -78,10 +70,14 @@ if(isset($_POST['ajouterSmoothie']))
             WHERE ID_SMOOTHIE = '$idSmoothie'
             AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
             $RequeteUpdateU->execute();
-            echo "unite";
         }
     }
 }
+
+$message = "Smoothie ajouté";
+echo '<script type="text/javascript">window.alert("'.$message.'");
+window.location.replace("nv_smoothie.php");
+</script>'; 
 ?>
 
 
