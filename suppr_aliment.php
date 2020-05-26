@@ -32,7 +32,7 @@ while ($donnees = $reponse->fetch())
     <td><?php echo $donnees['GLUCIDE_ALIMENT']; ?></td>
     <td><?php echo $donnees['LIPIDE_ALIMENT']; ?></td>
     <td><form method="post" action="Delete.aliment.php">
-   	<input type="hidden" name="id" value="<?php echo $donnees['ID_ALIMENT'] ?>"/>
+   	<input type="text" name="id" value="<?php echo $donnees['ID_ALIMENT'] ?>"/>
    	<input type="submit" name="supprimer" class="delete" value="Supprimer" /></td>
     </tr>
 <?php
