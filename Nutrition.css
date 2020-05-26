@@ -366,12 +366,35 @@ section.login-container{
 }
 
 
+section.ajout-mesures-container {
+  
+  margin-top: 30px;
+ margin-left: 50px;
+  margin-right: 400px;
+  margin-bottom: 100px;
+ 
+
+}
+
+
+
+#bloc_2 {
+  width: auto;
+  float:right;
+  position:absolute;
+  top:230px;
+  left:800px;
+
+}
+
+
+
 
 /*
 Le div directement sous la section nous permet de créer une boite avec une couleur d’arrière-plan
 et une bordure.
 */
-section.login-container > div{
+section.login-container > div {
   width: 450px;
   margin: auto;
   padding: 20px;
@@ -381,6 +404,19 @@ section.login-container > div{
   border-radius: 5px;
 }
 
+section.ajout-mesures-container> div{
+  width: 400px;
+
+  margin-top: 20px;
+  margin-left: 0px;
+  margin-right: 200px;
+  
+  padding: 20px;
+  text-align: center;
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
 
 /*
@@ -391,7 +427,11 @@ section.login-container form{
   flex-direction: column;
 }
 
+section.ajout-mesures-container form{
+  display: flex;
+  flex-direction: column;
 
+}
 
 /*
 Nous voulons que les champs du formulaire prennent toute la largeur.
