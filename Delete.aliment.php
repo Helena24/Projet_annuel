@@ -1,16 +1,31 @@
 <?php
 include("Functions.php");
 include("Connect.php");
-if(isset($_POST['supprimer']));
 
-$id_el = $_POST['id'];
+//préparation de la requete
+$reponse = $connect->prepare('DELETE FROM ALIMENTS WHERE ID_ALIMENT=:id');
 
-$requete = $connect->prepare("delete  FROM ALIMENTS  where ID_ALIMENT= '$id_el'");	//suppression dans bdd
-$requete->bindValue(1, $id_el, PDO::PARAM_STR);
-$requete -> execute();
+//liaison du parametre
+$reponse->bindValue(':id', $_GET['idAliment'], PDO::PARAM_INT);
 
+//execution de la requete 
+$executeIsOk = $reponse->execute();
 
-header('Location: Accueil.php');
-exit();
+if($executeIsOk){
+    $message = 'Aliment supprimé';
+}else{
+    $message = 'Echec de la suppression';
+}
 
+/*if(isset($_POST['supprimer'])){
+
+    $id_el = $_POST['id'];
+
+    $requete = $connect->prepare("DELETE FROM ALIMENTS WHERE ID_ALIMENT= '$id_el'");	//suppression dans bdd
+    $requete->bindValue(1, $id_el, PDO::PARAM_STR);
+    $requete -> execute();
+
+    header('Location: Accueil.php');
+    exit();
+    }*/
 ?>
