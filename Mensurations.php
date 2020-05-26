@@ -36,7 +36,7 @@
         </form>
     </div>
         
-    <div id="bloc_2" style=" overflow-y: scroll;">
+    <div id="bloc_2" style="width:500px; overflow-y: scroll;">
         <table border=1 cellspacing=4 cellpadding=4 class="content-table">
                 <tr>
                     <th>Date</th>
