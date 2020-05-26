@@ -39,7 +39,7 @@
 				<li><a href="suppr_aliment.php">Aliments</a></li>
 				<li><a href="liste_recettes.php">Recettes</a></li>
 				<li><a href="liste_smoothies.php">Smoothies</a></li>
-				<li><a href="liste_ingredients.php">Ingrédients</a></li>
+				<li><a href="suppr_ingredient.php">Ingrédients</a></li>
 				<li><a href="#">Demandes clients </a></li>
 				</ul>
 			</li>

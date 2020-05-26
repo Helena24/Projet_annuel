@@ -25,18 +25,14 @@ while ($donnees = $reponse->fetch())
 {
 ?>
     <tr>
-    <td><?php echo $donnees['NOM_ALIMENT']; ?></td>
-    <td><?php echo $donnees['CATEGORIE_ALIMENT']; ?></td>
-    <td><?php echo $donnees['CALORIE_ALIMENT']; ?></td>
-    <td><?php echo $donnees['PROTEINE_ALIMENT']; ?></td>
-    <td><?php echo $donnees['GLUCIDE_ALIMENT']; ?></td>
-    <td><?php echo $donnees['LIPIDE_ALIMENT']; ?></td>
-    <td><a href="Delete.aliment.php?idAliment=<?= $donnees['ID_ALIMENT']?>">Supprimer</a>
-        <!--<form method="post" action="Delete.aliment.php">
-            <input type="text" name="id" value="<?php echo $donnees['ID_ALIMENT'] ?>"/>
-            <input type="submit" name="supprimer" class="delete" value="supprimer" />
-        </form>-->
-    </td>
+        <td><?php echo $donnees['NOM_ALIMENT']; ?></td>
+        <td><?php echo $donnees['CATEGORIE_ALIMENT']; ?></td>
+        <td><?php echo $donnees['CALORIE_ALIMENT']; ?></td>
+        <td><?php echo $donnees['PROTEINE_ALIMENT']; ?></td>
+        <td><?php echo $donnees['GLUCIDE_ALIMENT']; ?></td>
+        <td><?php echo $donnees['LIPIDE_ALIMENT']; ?></td>
+        <td><a href="Delete.aliment.php?idAliment=<?= $donnees['ID_ALIMENT']?>">Supprimer</a>
+        </td>
     </tr>
 <?php
 }
