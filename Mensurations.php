@@ -1,228 +1,215 @@
 <!DOCTYPE html>
-<html>
 <?php include("Functions.php");?>
 <?php include("Connect.php");?>
-
+<html>
 <head>
     <title>Mensurations</title>
+    <link rel="stylesheet" media="screen" href="Nutrition.css">
 </head>
 
 
-<h3>Veuillez remplir attentivement chacun des champs ci dessous</h3>
+<div style="display :flex; flex-direction:wrap; padding-left: 150px; padding-top: 30px;">
 
-
-<div style="display :flex; flex-direction:wrap; padding-left: 150px">
-
-<form method="POST" action= "Add.mensurations.php">
-    <label for="client">Client : </label><br>
-    <select name="Client">
-    <?php
-        $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT, PRENOM_CLIENT FROM CLIENTS');
-        while ($donnees = $reponse->fetch())
-        {
-          echo '<option value="' . $donnees['ID_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT'] . '</option>';
-        }  
-                       
-    ?></select><br>
-
-   
-    <label for="DateM">Date :</label><br>
-    <input type=date name="DateM" required /><br>
-    <label for="Taille">Taille (en cm) :</label><br>
-    <input name="Taille" required /><br>
-    <label for="Poids">Poids (en kg) :</label><br>
-    <input name="Poids" required /><br>
-    <label for="epaules">Tour d'épaules (en cm) :</label><br>
-    <input name="epaules" required /><br>
-    <label for="poitrine">Tour de poitrine (en cm) :</label><br>
-    <input name="poitrine" required /><br>
-    <label for="bras">Tour de bras (en cm) :</label><br>
-    <input name="bras" required /><br>
-    <label for="poignet">Tour de poignet (en cm) :</label><br>
-    <input name="poignet" required /><br>
-    <label for="tourtaille">Tour de taille (en cm) :</label><br>
-    <input name="tourtaille" required /><br>
-    <label for="hanche">Tour de hanche (en cm) :</label><br>
-    <input name="hanche" required /><br>
-    <label for="cuisse">Tour de cuisse (en cm) :</label><br>
-    <input name="cuisse" required /><br>
-    <label for="mollet">Tour de mollet (en cm) :</label><br>
-    <input name="mollet" required /><br>
-
-    <br> <input type="submit" name="enregistrer" value="Enregistrer"/>
-
-</form>
-
-
-<div style="width:600px; overflow-y: scroll; padding-left:600px;">
-<table border=1 cellspacing=4 cellpadding=4 class="semainier">
-        <tr>
-            <th>Date</th>
-            <?php
-            $reponse = $connect->query('SELECT DATE_MENSURATION FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
+    <form method="POST" action= "Add.mensurations.php">
+        <label for="client">Client : </label><br>
+        <select name="Client">
+        <?php
+            $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT, PRENOM_CLIENT FROM CLIENTS');
             while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['DATE_MENSURATION']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Identifiant Client</th>
-            <?php
-            $reponse = $connect->query('SELECT * FROM MENSURATIONS NATURAL JOIN CLIENTS ORDER BY DATE_MENSURATION DESC');
-            while ($donnees = $reponse->fetch())
-            {
-                ?>
-                <td><?php echo $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT']; ?></td>
+                {
+                echo '<option value="' . $donnees['ID_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT'] . '</option>';
+                }                  
+        ?></select><br>
+
+    
+        <input type='date' name="DateM" required /><br>
+        <input name="Taille"  type='number' placeholder='Taille (en cm)' required /><br>
+        <input name="Poids"  type='number' placeholder='Poids (en Kg)'required /><br>
+        <input name="epaules" required type='number' placeholder="Tour d'épaules (en cm)"><br>
+        <input name="poitrine" required type='number' placeholder="Tour de poitrine (en cm)"><br>
+        <input name="bras" required type='number' placeholder="Tour de bras (en cm)"/><br>
+        <input name="poignet" required type='number' placeholder="Tour de poignet (en cm)"/><br>
+        <input name="tourtaille" required type='number' placeholder="Tour de taille (en cm)"/><br>
+        <input name="hanche" required type='number' placeholder="Tour de hanche (en cm)"/><br>
+        <input name="cuisse" required type='number' placeholder="Tour de cuisse (en cm)"/><br>
+        <input name="mollet" required type='number' placeholder="Tour de mollet (en cm)"/><br>
+        <button type="submit" name="enregistrer" value="Enregistrer"> Enregistrer </button>
+    </form>
+        
+
+
+<div style="width:500px; overflow-y: scroll; padding-left:400px;">
+    <table border=1 cellspacing=4 cellpadding=4 class="content-table">
+            <tr>
+                <th>Date</th>
                 <?php
-            }
-            $reponse->closeCursor();
-            ?>
-        </tr>    
-        <tr>
-            <th>Taille</th>
-            <?php
-            $reponse = $connect->query('SELECT TAILLE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['TAILLE_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Poids</th>
-            <?php
-            $reponse = $connect->query('SELECT POIDS_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['POIDS_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Tour d'épaules</th>
-            <?php
-            $reponse = $connect->query('SELECT TOUR_EPAULE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['TOUR_EPAULE_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Tour de poitrine</th>
-            <?php
-            $reponse = $connect->query('SELECT TOUR_POITRINE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['TOUR_POITRINE_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Tour de bras</th>
-            <?php
-            $reponse = $connect->query('SELECT TOUR_BRAS_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['TOUR_BRAS_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Tour de poignet</th>
-            <?php
-            $reponse = $connect->query('SELECT TOUR_POIGNET_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['TOUR_POIGNET_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Tour de taille</th>
-            <?php
-            $reponse = $connect->query('SELECT TOUR_TAILLE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['TOUR_TAILLE_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Tour de hanche</th>
-            <?php
-            $reponse = $connect->query('SELECT TOUR_HANCHE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['TOUR_HANCHE_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Tour de cuisse</th>
-            <?php
-            $reponse = $connect->query('SELECT TOUR_CUISSE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['TOUR_CUISSE_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
-        <tr>
-            <th>Tour de mollets</th>
-            <?php
-            $reponse = $connect->query('SELECT TOUR_MOLLET_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
-            // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
-            ?>
-            <td><?php echo $donnees['TOUR_MOLLET_CLIENT']; ?></td>
-            <?php
-            }
-            $reponse->closeCursor(); // Termine le traitement de la requête
-            ?>
-        </tr>
+                $reponse = $connect->query('SELECT DATE_MENSURATION FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['DATE_MENSURATION']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Identifiant Client</th>
+                <?php
+                $reponse = $connect->query('SELECT * FROM MENSURATIONS NATURAL JOIN CLIENTS ORDER BY DATE_MENSURATION DESC');
+                while ($donnees = $reponse->fetch())
+                {
+                    ?>
+                    <td><?php echo $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT']; ?></td>
+                    <?php
+                }
+                $reponse->closeCursor();
+                ?>
+            </tr>    
+            <tr>
+                <th>Taille</th>
+                <?php
+                $reponse = $connect->query('SELECT TAILLE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['TAILLE_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Poids</th>
+                <?php
+                $reponse = $connect->query('SELECT POIDS_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['POIDS_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Tour d'épaules</th>
+                <?php
+                $reponse = $connect->query('SELECT TOUR_EPAULE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['TOUR_EPAULE_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Tour de poitrine</th>
+                <?php
+                $reponse = $connect->query('SELECT TOUR_POITRINE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['TOUR_POITRINE_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Tour de bras</th>
+                <?php
+                $reponse = $connect->query('SELECT TOUR_BRAS_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['TOUR_BRAS_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Tour de poignet</th>
+                <?php
+                $reponse = $connect->query('SELECT TOUR_POIGNET_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['TOUR_POIGNET_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Tour de taille</th>
+                <?php
+                $reponse = $connect->query('SELECT TOUR_TAILLE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['TOUR_TAILLE_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Tour de hanche</th>
+                <?php
+                $reponse = $connect->query('SELECT TOUR_HANCHE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['TOUR_HANCHE_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Tour de cuisse</th>
+                <?php
+                $reponse = $connect->query('SELECT TOUR_CUISSE_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['TOUR_CUISSE_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+            <tr>
+                <th>Tour de mollets</th>
+                <?php
+                $reponse = $connect->query('SELECT TOUR_MOLLET_CLIENT FROM MENSURATIONS ORDER BY DATE_MENSURATION DESC');
+                // On affiche chaque entrée une à une
+                while ($donnees = $reponse->fetch())
+                {
+                ?>
+                <td><?php echo $donnees['TOUR_MOLLET_CLIENT']; ?></td>
+                <?php
+                }
+                $reponse->closeCursor(); // Termine le traitement de la requête
+                ?>
+            </tr>
+    </table>
+</div>
+</div>
     
 </body>
 </html>

@@ -34,6 +34,7 @@
         </div>
 
         <div id="bloc_2">
+        <div style="width:500px; overflow-y: scroll; ">
             <table  cellspacing=4 cellpadding=4 class="content-table">
             <tr>
                 <th>Date</th>
@@ -175,6 +176,7 @@
                 ?>
             </tr>
             </table>
+            </div> 
         </div>
     </section>   
 </body>

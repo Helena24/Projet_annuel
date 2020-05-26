@@ -1,15 +1,14 @@
 <?php
 include("Functions.php");
 include("Connect.php");
+if(isset($_POST['supprimer']));
 
-//préparation de la requete
-$reponse = $connect->prepare('DELETE FROM ALIMENTS WHERE ID_ALIMENT=:id');
+$id_el = $_POST['id'];
 
-//liaison du parametre
-$reponse->bindValue(':id', $_GET['idAliment'], PDO::PARAM_STR);
+$requete = $connect->prepare("delete  FROM ALIMENTS  where ID_ALIMENT= '$id_el'");	//suppression dans bdd
+$requete->bindValue(1, $id_el, PDO::PARAM_STR);
+$requete -> execute();
 
-//execution de la requete 
-$executeIsOk = $reponse->execute();
 
 // booleen pour savoi si ça a fonctionné
 if($executeIsOk){
@@ -22,4 +21,7 @@ if($executeIsOk){
  echo '<script type="text/javascript">window.alert("'.$message.'");
  window.location.replace("suppr_aliment.php");
  </script>'; 
+header('Location: Accueil.php');
+exit();
+
 ?>
