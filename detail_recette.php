@@ -2,10 +2,6 @@
 <html>
 <?php include("Functions.php"); ?>
 <?php include("Connect.php"); ?>
-<!-- Récupérer l'id de la recette sélectionnée pour voir le détail --> 
-<?php //if(isset($_POST['detail']));
-//$id_el = $_POST['id']; 
-?>
 
 <head>
 <title>Recette</title>
