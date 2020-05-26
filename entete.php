@@ -67,6 +67,11 @@
 			</ul>
 		</li>
 
-		<li><a href="Formulaire_Ajout.php">Nouveau client </a> </li>
+		<li><a href="#">Clients</a> 
+		<ul>
+				<li><a href="Formulaire_Ajout.php">Ajouter un client</a></li>
+				<li><a href="liste_clients.php">Liste des clients</a></li>
+			</ul>
+		</li>
 	</ul>
 </html>
