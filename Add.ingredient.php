@@ -18,6 +18,10 @@ if(isset($_POST['add']))
 	$Requete->bindValue(":nomIngredient",$nomIngredient, PDO::PARAM_STR);
 	$Requete->execute();
 }
+$message = "Ingrédient ajouté";
+echo '<script type="text/javascript">window.alert("'.$message.'");
+window.location.replace("nv_ingredient.php");
+</script>'; 
 
 ?>
 

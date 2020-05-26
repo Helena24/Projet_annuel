@@ -21,9 +21,7 @@ while ($donnees = $reponse->fetch())
 ?>
     <tr>
     <td><?php echo $donnees['NOM_SMOOTHIE']; ?></td>
-    <td><form method="post" action="detail_smoothie.php">
-   	<input type="hidden" name="id" value="<?php echo $donnees['ID_SMOOTHIE'] ?>"/>
-   	<input type="submit" name="detail" value="Détails" /></td>
+    <td><td><a href="detail_smoothie.php?idSmoothie=<?= $donnees['ID_SMOOTHIE']?>">Détails</a></td></td>
     </tr>
 <?php
 }
