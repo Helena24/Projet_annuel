@@ -39,10 +39,13 @@ if(isset($_POST['save']))
 	$Requete->execute();
 }
 
+
+$message = "Mesures ajoutées";
+echo '<script type="text/javascript">window.alert("'.$message.'");
+window.location.replace("Mesures.php");
+</script>'; 
+
 ?>
 
-<h3>L'ajout des nouvelles mesures balances à bien était réalisé</h3>
-
-<input type="button" onclick="window.location.href = 'Mesures.php';" value="Retour à la page précédente"/>
 
 </html>

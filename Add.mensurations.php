@@ -44,9 +44,12 @@ if(isset($_POST['enregistrer']))
 }
 
 
+$message = "Mensurations ajoutées";
+echo '<script type="text/javascript">window.alert("'.$message.'");
+window.location.replace("Mensurations.php");
+</script>'; 
 ?>
 
-<h3>L'ajout des nouvelles mensurations à bien était réalisé</h3>
 
-<input type="button" onclick="window.location.href = 'Mensurations.php';" value="Retour à la page précédente"/>
+
 </html>
