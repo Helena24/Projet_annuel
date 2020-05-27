@@ -18,7 +18,7 @@
         </tr>
 
 <?php
-$reponse = $connect->query('SELECT * FROM CLIENTS INNER JOIN ADRESSE ON CLIENTS.ID_CLIENT = ADRESSE.ID_ADRESSE');
+$reponse = $connect->query('SELECT * FROM CLIENTS INNER JOIN ADRESSE ON CLIENTS.ID_CLIENT = ADRESSE.ID_CLIENT');
 // On affiche chaque entrée une à une
 while ($donnees = $reponse->fetch())
 {

@@ -44,7 +44,6 @@ while ($inforecette = $reponse->fetch())
                     <?php echo $infoaliment['QTE_ALIMENT_RECETTE']; ?>
                     <?php echo $infoaliment['UNITE_ALIMENT_RECETTE']; ?>
                     <?php echo $infoaliment['NOM_ALIMENT']; ?>
-                    <?php $caloriestotales = $caloriestotales + (($infoaliment['QTE_ALIMENT_RECETTE']/100) * $infoaliment['CALORIE_ALIMENT']); ?>
                     <br>
                     <?php
                     }
@@ -61,6 +60,7 @@ while ($inforecette = $reponse->fetch())
                     while ($infoingredient = $ingredient->fetch())
                     {?>
                     <?php echo $infoingredient['NOM_INGREDIENT']; ?>
+                    <br>
                     <?php
                     }
 

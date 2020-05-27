@@ -17,10 +17,16 @@
                             <option value="Fruit">Fruit</option>
                             <option value="Légume">Légume</option>
                             <option value="Viande">Viande</option>
+                            <option value="Charcuterie">Charcuterie</option>
                             <option value="Poisson">Poisson</option>
                             <option value="Oeuf">Oeuf</option>
+                            <option value="Lait">Lait</option>
                             <option value="Fromage">Fromage</option>
+                            <option value="Graisseanimale">Matiere grasse animale</option>
+                            <option value="Huilemargarine">Huile et margarine</option>
+                            <option value="Cereales">Cereales</option>
                             <option value="Legumineuses">Légumineuses</option>
+                            <option value="Sucre">Sucre et produit sucre</option>
                         </select>
                         <input name="calorieAliment" type="number" placeholder="Calories" required="required">
                         <input name="proteineAliment" type="number" placeholder="Protéines" required="required"> 
