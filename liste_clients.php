@@ -22,6 +22,7 @@ $reponse = $connect->query('SELECT * FROM CLIENTS INNER JOIN ADRESSE ON CLIENTS.
 // On affiche chaque entrée une à une
 while ($donnees = $reponse->fetch())
 {
+    if($donnees['MAIL_CLIENT'] != "victor.janneteau@laposte.net"){
     ?>
         <tr>
         <td><?php echo $donnees['NOM_CLIENT']; ?></td>
@@ -33,6 +34,7 @@ while ($donnees = $reponse->fetch())
         </tr>
     <?php
     }
+}
     $reponse->closeCursor(); // Termine le traitement de la requête
     ?>
 
