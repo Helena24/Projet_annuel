@@ -1,3 +1,12 @@
+<!-------------------------------->
+<!-- Page qui permet d'afficher -->
+<!-- un calendrier --------------->
+<!-------------------------------->
+
+<!-- Nous pensions utiliser cette page pour afficher le semainier côté utilisateur
+L'utilisateur pourra alors choisir une date et son menu s'affichera 
+Le css lié est Calendrier.css -->
+
 <!DOCTYPE html>
 <html>
 <head>
