@@ -1,8 +1,22 @@
+<!-------------------------------->
+<!-- Page qui affiche ------------>
+<!-- le formulaire d'ajout des --->
+<!--  aliments ------------------->
+<!-------------------------------->
+
 <!DOCTYPE html>
-<?php include("Functions.php");?>
-<?php include("Connect.php"); ?>
+<html>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 <html>
 <head>
+    <!-- Nom de l'onglet -->
     <title> Ajout Aliment</title>
 </head> 
 <body>
@@ -33,7 +47,6 @@
                         <input name="glucideAliment" type="number" placeholder="Glucides" required="required">
                         <input name="lipideAliment" type="number" placeholder="Lipides" required="required" > 
                         <button name="add" type="submit" value="Ajouter cet aliment">Ajouter cet aliment</button>
-                        
                     </fieldset>  
                 </form>
             </div>

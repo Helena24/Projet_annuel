@@ -1,6 +1,19 @@
+<!-------------------------------->
+<!-- Page qui affiche ------------>
+<!-- le formulaire d'ajout des --->
+<!--  recettes  ------------------>
+<!-------------------------------->
+
 <!DOCTYPE html>
-<?php include("Functions.php");?>
-<?php include("Connect.php"); ?>
+<html>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 <html>
 <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
 <head>
@@ -8,6 +21,7 @@
 </head>     
 
 <script type="text/javascript">
+  // fonction qui permet de créer les nouveaux champs aliments si on clique sur le lien 
   function create_champ_aliment(i) {
     var i2 = i + 1;
     document.getElementById('quantite'+i).innerHTML = '<input id="quantite" type="number" name="quantite['+i+']" placeholder="Quantité" required="required">';
@@ -18,6 +32,7 @@
     document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')">Ajouter un aliment</a></span>' : '';
     var countries = $(document).ready(function () {
         let countries = null;
+        // auto completions
         $.get('Add.recette.php')
             .done(function (data) {
                 countries = JSON.parse(data);
@@ -56,12 +71,14 @@
 </script>
 
 <script type="text/javascript">
+// fonction pour créer de nouveaux champs ingrédients si on clique sur le lien 
 function create_champ_ingredient(i) {
 var i2 = i + 1;
 document.getElementById('ingredient'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="ingredient['+i+']" placeholder="Ingredient" required="required">';
 document.getElementById('ingredient'+i).innerHTML += (i <= 10) ? '<span id="ingredient'+i2+'"><a href="javascript:create_champ_ingredient('+i2+')">Ajouter un ingredient</a></span>' : '';
 var countries = $(document).ready(function () {
     let countries = null;
+    // autocomplete 
     $.get('Add.recette.php')
         .done(function (data) {
             countries = JSON.parse(data);
@@ -113,6 +130,7 @@ if(empty($_POST['valide']))
       <input id="nbPart" type="number" name="nbPart" placeholder="Nombre de parts de la recette" required="required">
 
       <!-- Choisir un fichier pour l'image de la recette  
+      l'ajout de l'image n'a pas été fait
       <div class="input-file-container">
       <input class="input-file" id="photoRecette" type="file">
       <label for="my-file" class="input-file-trigger" tabindex="0">Select a file...</label>
@@ -125,6 +143,7 @@ if(empty($_POST['valide']))
             <tr>
               <td width=100> </td>
               <td width=23> </td>
+              <!-- Champs pour les ingrédients qui vont se créer si on appuie sur ajouter un champ -->
               <td width=100><span id="ingredient1"><a href="javascript:create_champ_ingredient(1)"><br>Ajouter un ingrédient</a></span></td>
             </tr>
           </table>

@@ -1,10 +1,22 @@
+<!-------------------------------->
+<!-- Page qui affiche ------------>
+<!-- le formulaire d'ajout des --->
+<!--  semainiers nutritionnels---->
+<!-------------------------------->
+<!-- Cette page n'a pas été terminée aucune requete php n'est liée------------>
+<!---------------------------------------------------------------------------->
+
 <!DOCTYPE html>
 <html>
-
 <?php 
-include("Functions.php");
-include("Connect.php");
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
 ?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
+
 <!--------------------------------> 
 <!--------------------------------> 
 <!--------------------------------> 
@@ -22,16 +34,6 @@ var i2 = i + 1;
 document.getElementById('pdlundis'+i).innerHTML = '<input id="pdlundis'+i+'" type="text" name="pdlundis['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
 document.getElementById('pdlundis'+i).innerHTML += (i <= 10) ? '<span id="pdlundis'+i2+'"><a href="javascript:create_champ_pdlundis('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
 }
-/*function create_champ_pdlundir(i) {
-var i2 = i + 1;
-document.getElementById('pdlundir'+i).innerHTML = '<input id="pdlundir'+i+'" type="text" name="pdlundir['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
-document.getElementById('pdlundir'+i).innerHTML += (i <= 10) ? '<span id="pdlundir'+i2+'"><a href="javascript:create_champ_pdlundir('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
-}
-function create_champ_pdlundia(i) {
-var i2 = i + 1;
-document.getElementById('pdlundia'+i).innerHTML = '<input id="pdlundia'+i+'" type="text" name="pdlundia['+i+']" placeholder="Aliment, recette ou smoothie à ajouter">';
-document.getElementById('pdlundia'+i).innerHTML += (i <= 10) ? '<span id="pdlundia'+i2+'"><a href="javascript:create_champ_pdlundia('+i2+')">Ajouter un autre aliment, repas ou smoothie</a></span>' : '';
-}*/
 // ajout de la classe JS à HTML
 document.querySelector("html").classList.add('js');
  
@@ -216,6 +218,7 @@ fileInput.addEventListener( "change", function( event ) {
     $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT, PRENOM_CLIENT FROM CLIENTS');
     while ($donnees = $reponse->fetch())
     {
+      // Selection du client
     echo '<option value="' . $donnees['ID_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT'] . '</option>';
     }              
     ?>
@@ -223,8 +226,11 @@ fileInput.addEventListener( "change", function( event ) {
 </div>
 
 <div class="tab">Date de début:
+  <!-- Choix de la date de début -->
     <p><input name="dateDebsemainier" placeholder="AAAA/MM/JJ" type="date"></p>
 </div>
+<!-- L'auto complete n'a pas été activé pour ce formulaire pour se faire enlever les commentaires
+une page d'autocomplete a été créée pour les semainiers Autocomplete.semainiers.php -->$_POST
 
 <div class="tab">Lundi:
     <p>Petit-déjeuner</p>

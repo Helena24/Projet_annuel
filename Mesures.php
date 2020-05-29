@@ -68,7 +68,7 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
                     {
                     ?>
                 <td><?php 
-                // affichage 
+                // affichage des dates
                 echo $donnees['DATE_MESURES']; ?></td>
                 <?php
                 }
@@ -78,11 +78,15 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
             <tr>
                 <th>Identifiant Client</th>
                 <?php
+                // requete pour recuperer les clients
                 $reponse = $connect->query('SELECT * FROM MESURES NATURAL JOIN CLIENTS ORDER BY DATE_MESURES DESC');
                 while ($donnees = $reponse->fetch())
                 {
                     ?>
-                    <td><?php echo $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT']; ?></td>
+                    <td><?php 
+                    // affichage des clients
+                    echo $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT']; 
+                    ?></td>
                     <?php
                 }
                 $reponse->closeCursor();
@@ -91,12 +95,16 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
             <tr>
                 <th>Pourcentage masse graisseuse</th>
                 <?php
+                // requete pour recuperer les pourcentage masse graisseuse
                 $reponse = $connect->query('SELECT POURCENTAGE_MASSE_GRAISSEUSE FROM MESURES ORDER BY DATE_MESURES DESC');
                 // On affiche chaque entrée une à une
                 while ($donnees = $reponse->fetch())
                 {
                 ?>
-                <td><?php echo $donnees['POURCENTAGE_MASSE_GRAISSEUSE']; ?></td>
+                <td><?php 
+                // affichage des pourcentages masse graisseuse
+                echo $donnees['POURCENTAGE_MASSE_GRAISSEUSE']; 
+                ?></td>
                 <?php
                 }
                 $reponse->closeCursor(); // Termine le traitement de la requête
@@ -105,12 +113,16 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
             <tr>
                 <th>Masse</th>
                 <?php
+                // requete pour recuperer les masses
                 $reponse = $connect->query('SELECT MASSE FROM MESURES ORDER BY DATE_MESURES DESC');
                 // On affiche chaque entrée une à une
                 while ($donnees = $reponse->fetch())
                 {
                 ?>
-                <td><?php echo $donnees['MASSE']; ?></td>
+                <td><?php 
+                // affichage des masses
+                echo $donnees['MASSE']; 
+                ?></td>
                 <?php
                 }
                 $reponse->closeCursor(); // Termine le traitement de la requête
@@ -119,12 +131,16 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
             <tr>
                 <th>Pourcentage eau corps</th>
                 <?php
+                // requete pour recuperer les pourcentage eau corps
                 $reponse = $connect->query('SELECT POURCENTAGE_EAU_CORPS FROM MESURES ORDER BY DATE_MESURES DESC');
                 // On affiche chaque entrée une à une
                 while ($donnees = $reponse->fetch())
                 {
                 ?>
-                <td><?php echo $donnees['POURCENTAGE_EAU_CORPS']; ?></td>
+                <td><?php 
+                // affichage des pourcentage eau corps
+                echo $donnees['POURCENTAGE_EAU_CORPS']; 
+                ?></td>
                 <?php
                 }
                 $reponse->closeCursor(); // Termine le traitement de la requête
@@ -133,12 +149,16 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
             <tr>
                 <th>Graisse viscérale</th>
                 <?php
+                // requete pour recuperer les graisses viscerales
                 $reponse = $connect->query('SELECT GRAISSE_VISCERALE FROM MESURES ORDER BY DATE_MESURES DESC');
                 // On affiche chaque entrée une à une
                 while ($donnees = $reponse->fetch())
                 {
                 ?>
-                <td><?php echo $donnees['GRAISSE_VISCERALE']; ?></td>
+                <td><?php 
+                // affichage des graisses viscerales
+                echo $donnees['GRAISSE_VISCERALE']; 
+                ?></td>
                 <?php
                 }
                 $reponse->closeCursor(); // Termine le traitement de la requête
@@ -147,12 +167,16 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
             <tr>
                 <th>Masse osseuse</th>
                 <?php
+                // requete pour recuperer les masses osseuses
                 $reponse = $connect->query('SELECT MASSE_OSSEUSE FROM MESURES ORDER BY DATE_MESURES DESC');
                 // On affiche chaque entrée une à une
                 while ($donnees = $reponse->fetch())
                 {
                 ?>
-                <td><?php echo $donnees['MASSE_OSSEUSE']; ?></td>
+                <td><?php 
+                // affichage des masses osseuses
+                echo $donnees['MASSE_OSSEUSE']; 
+                ?></td>
                 <?php
                 }
                 $reponse->closeCursor(); // Termine le traitement de la requête
@@ -161,12 +185,16 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
             <tr>
                 <th>Masse musculaire</th>
                 <?php
+                // requete pour recuperer les masses musculaires
                 $reponse = $connect->query('SELECT MASSE_MUSCULAIRE FROM MESURES ORDER BY DATE_MESURES DESC');
                 // On affiche chaque entrée une à une
                 while ($donnees = $reponse->fetch())
                 {
                 ?>
-                <td><?php echo $donnees['MASSE_MUSCULAIRE']; ?></td>
+                <td><?php 
+                // affichage des masses musculaires
+                echo $donnees['MASSE_MUSCULAIRE']; 
+                ?></td>
                 <?php
                 }
                 $reponse->closeCursor(); // Termine le traitement de la requête
@@ -175,12 +203,16 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
             <tr>
                 <th>Indice effort</th>
                 <?php
+                // requete pour recuperer les indices d'effort
                 $reponse = $connect->query('SELECT INDICE_EFFORT FROM MESURES ORDER BY DATE_MESURES DESC');
                 // On affiche chaque entrée une à une
                 while ($donnees = $reponse->fetch())
                 {
                 ?>
-                <td><?php echo $donnees['INDICE_EFFORT']; ?></td>
+                <td><?php 
+                // affichage des indices d'efforts
+                echo $donnees['INDICE_EFFORT']; 
+                ?></td>
                 <?php
                 }
                 $reponse->closeCursor(); // Termine le traitement de la requête
@@ -189,12 +221,16 @@ en fonction du client qui a été sélectionné à gauche dans le formulaire -->
             <tr>
                 <th>Age métabolique</th>
                 <?php
+                // requete pour recuperer les ages metabolique
                 $reponse = $connect->query('SELECT AGE_METABOLIQUE FROM MESURES ORDER BY DATE_MESURES DESC');
                 // On affiche chaque entrée une à une
                 while ($donnees = $reponse->fetch())
                 {
                 ?>
-                <td><?php echo $donnees['AGE_METABOLIQUE']; ?></td>
+                <td><?php 
+                // affichage des ages metaboliques
+                echo $donnees['AGE_METABOLIQUE']; 
+                ?></td>
                 <?php
                 }
                 $reponse->closeCursor(); // Termine le traitement de la requête
