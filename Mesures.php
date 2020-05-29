@@ -1,8 +1,27 @@
+<!-------------------------------->
+<!-- Page qui affiche d'un cote--->
+<!-- le formulaire d'ajout des --->
+<!--  mesures et de l'autre------->
+<!-- un tableau avec les données-->
+<!-- stockées -------------------->
+<!-------------------------------->
+<!-- Pour améliorer cette page il serait intéressant d'afficher les données du tableau à droite 
+en fonction du client qui a été sélectionné à gauche dans le formulaire -->
+<!-------------------------------->
+
 <!DOCTYPE html>
-<?php include("Functions.php");?>
-<?php include("Connect.php"); ?>
+<html>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 <html>
 <head>
+    <!-- Nom de l'onglet -->
     <title>Mesures balances</title>
     <link rel="stylesheet" media="screen" href="Nutrition.css">
 </head>
@@ -13,13 +32,16 @@
                 <label for="client">Client : </label><br>
                 <select name="id" type="text">
                 <?php
+                    // requete pour récuperer le nom du client 
                     $reponse = $connect->query('SELECT ID_CLIENT, NOM_CLIENT, PRENOM_CLIENT FROM CLIENTS');
                     while ($donnees = $reponse->fetch())
                     {
+                    // affichafe des clients dans le select
                     echo '<option value="' . $donnees['ID_CLIENT'] . '">' . $donnees['NOM_CLIENT'] . " " . $donnees['PRENOM_CLIENT'] . '</option>';
                     }                  
                 ?></select><br>
 
+                <!-- champs du formulaire -->
                 <input type="date" name="DateB" required /><br>
                 <input name="PourcentMG" type="number" placeholder="Pourcentage de masse graisseuse" required /><br>
                 <input name="Masse" type="number" placeholder="Masse"required /><br>
@@ -39,12 +61,15 @@
             <tr>
                 <th>Date</th>
                     <?php
+                    // requete pour sélectionner les dates inversement chronologique
                     $reponse = $connect->query('SELECT DATE_MESURES FROM MESURES ORDER BY DATE_MESURES DESC');
                     // On affiche chaque entrée une à une
                     while ($donnees = $reponse->fetch())
                     {
                     ?>
-                <td><?php echo $donnees['DATE_MESURES']; ?></td>
+                <td><?php 
+                // affichage 
+                echo $donnees['DATE_MESURES']; ?></td>
                 <?php
                 }
                 $reponse->closeCursor(); // Termine le traitement de la requête
