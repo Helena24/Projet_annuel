@@ -13,6 +13,7 @@
 
 <body>
 <center>
+<!-- Lien vers les autres graphiques -->  
 <input type="button" onclick="window.location.href = 'SuiviP.php';" value="Suivi du poids"/>
 <input type="button" onclick="window.location.href = 'SuiviTE.php';" value="Suivi du tour d'epaule"/>
 <input type="button" onclick="window.location.href = 'SuiviTB.php';" value="Suivi du tour de bras"/>

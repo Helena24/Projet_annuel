@@ -1,8 +1,20 @@
-<!DOCTYPE html>
-<html>
+<!-- 
+	Page qui affiche le graphique 
+	de l'indice d'effort
+	Cette page contient les données 
+	en brut et n'est pas connecté à
+	la base de données --->
 
-<?php include("Functions.php");?>
-<?php include("Connect.php"); ?>
+	<!DOCTYPE html>
+<html>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 
 <head>	
 	<meta charset="UTF-8">
@@ -13,6 +25,7 @@
 
 <body>
 <center>
+<!-- Lien vers les autres graphiques -->  
 <input type="button" onclick="window.location.href = 'SuiviMG.php';" value="Suivi de la masse graisseuse"/>
 <input type="button" onclick="window.location.href = 'SuiviME.php';" value="Suivi de la masse d'eau dans le corps"/>
 <input type="button" onclick="window.location.href = 'SuiviGV.php';" value="Suivi de la graisse viscerale"/>

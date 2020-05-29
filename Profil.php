@@ -1,10 +1,23 @@
+<!--------------------------------->
+<!-- Page qui affiche ------------->
+<!-- les données de l'utilisateur-->
+<!--  dans un formulaire ---------->
+<!--  possibilité de modifier ----->
+<!--  tous les champs ----->
+<!--------------------------------->
+
+
 <?php
+//session active
 session_start();
+// Affichage de l'entete selon l'utilisateur
 include("Functions.php");  
 ?>
 
 <html>
 <body>
+<!-- Formulaire qui affiche toutes les données de l'utilisateur dans un tableau sous forme de formualaire --> 
+<!-- Tous les champs sont caractérisés par un nom qui permet de récupérer leurs valeurs dans la requete php -->
 <form method="post" action="Update.Client.php" enctype="multipart/form-data">
     <fieldset style = "border:0"> 
         <table class="content-table">

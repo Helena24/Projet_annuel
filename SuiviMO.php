@@ -1,8 +1,21 @@
-<!DOCTYPE html>
-<html>
+<!-- 
+	Page qui affiche le graphique 
+	du pourcentage de la masse 
+	osseuse
+	Cette page contient les données 
+	en brut et n'est pas connecté à
+	la base de données --->
 
-<?php include("Functions.php");?>
-<?php include("Connect.php"); ?>
+	<!DOCTYPE html>
+<html>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 
 <head>	
 	<meta charset="UTF-8">
@@ -13,6 +26,7 @@
 
 <body>
 <center>
+<!-- Lien vers les autres graphiques -->  
 <input type="button" onclick="window.location.href = 'SuiviMG.php';" value="Suivi de la masse graisseuse"/>
 <input type="button" onclick="window.location.href = 'SuiviME.php';" value="Suivi de la masse d'eau dans le corps"/>
 <input type="button" onclick="window.location.href = 'SuiviGV.php';" value="Suivi de la graisse viscerale"/>
@@ -23,7 +37,7 @@
 </center>
 
 
-<h2>Evolution du pourcentage de masse graisseuse</h2>
+<h2>Evolution du pourcentage de masse osseuse</h2>
 
 <center>
 <div style="width: 75%">
@@ -40,7 +54,7 @@ var chart = new Chart(ctx, {
 	data: {
 		labels: ["14/01/2020","14/02/2020","14/03/2020"],
 		datasets: [{
-			label: "Pourcentage masse graisseuse",
+			label: "Pourcentage masse osseuse",
 			backgroundColor: 'rgb(255,20,20)',
 			borderColor: 'rgb(255,20,20)',
 			data: [68,70,69],
