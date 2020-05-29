@@ -1,7 +1,19 @@
+<!-------------------------------->
+<!-- Page qui permet d'afficher -->
+<!-- les mensurations------------->
+<!-------------------------------->
+
+
 <!DOCTYPE html>
 <html>
-<?php include("Functions.php");?>
-<?php include("Connect.php"); ?>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 <head>
     <title>Visualisation de mes mesures balances</title>
 </head>

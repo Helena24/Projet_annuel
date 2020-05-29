@@ -5,7 +5,7 @@
     afficher les mensurations en fonction 
     de l'utilsateur qui est connecté --->
 
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <?php 
     // Appel de la fonction pour afficher l'entête selon l'utilisateur

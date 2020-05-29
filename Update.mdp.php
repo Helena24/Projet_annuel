@@ -1,5 +1,12 @@
+<!-- 
+    Page qui affiche le formulaire 
+    pour changer le mot de passe
+    de l'utilisateur -->
+
 <!DOCTYPE HTML>
-<?php include("Functions.php");?>
+<?php 
+// Fonction pour afficher l'entete selon l'utilisateur
+include("Functions.php");?>
 <html>
     <head>
         <meta charset="UTF8" />

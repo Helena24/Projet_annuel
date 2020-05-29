@@ -1,3 +1,9 @@
+<!-- 
+    Page qui fait la requete
+    pour la modification des données 
+    des clients et leur mot de passe--->
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -6,6 +12,8 @@
 </head>
     <body>
         <?php
+        //Utilise la fonction qui permet de générer une chaine de caractère aléatoire et l'envoi par mail automatique
+        // Cela permet de réinitialiser le mot de passe
         include 'Add.form.php';
         //Connexion a la base de donnée
         Include 'Connect.php';
