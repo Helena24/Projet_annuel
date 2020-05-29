@@ -1,6 +1,16 @@
-<!DOCTYPE html>
+<!-- 
+    Page qui affiche un fichier
+    PDF qui correspond au tableau 
+    des équivalences 
+    Le PDF affiché pour le moment 
+    ne correspond pas au tableau des équivalence --->
+
+	<!DOCTYPE html>
 <html>
-<?php include("Functions.php");?>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
     
 
     <h2>Tableau des équivalences</h2>

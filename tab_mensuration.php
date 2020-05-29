@@ -1,7 +1,20 @@
-<!DOCTYPE html>
+<!-- 
+    Page qui affiche les données des
+    mensurations dans un tableau
+    Pour améliorer cette page il faudrait 
+    afficher les mensurations en fonction 
+    de l'utilsateur qui est connecté --->
+
+	<!DOCTYPE html>
 <html>
-<?php include("Functions.php");?>
-<?php include("Connect.php"); ?>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 <head>
 <title>Visualisation mesures</title>
 </head> 
@@ -11,6 +24,7 @@
         <tr>
             <th>Date</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -25,6 +39,7 @@
         <tr>
             <th>Taille</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -39,6 +54,7 @@
         <tr>
             <th>Poids</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -53,6 +69,7 @@
         <tr>
             <th>Tour d'épaules</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -67,6 +84,7 @@
         <tr>
             <th>Tour de poitrine</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -81,6 +99,7 @@
         <tr>
             <th>Tour de bras</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -95,6 +114,7 @@
         <tr>
             <th>Tour de poignet</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -109,6 +129,7 @@
         <tr>
             <th>Tour de taille</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -123,6 +144,7 @@
         <tr>
             <th>Tour de hanche</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -137,6 +159,7 @@
         <tr>
             <th>Tour de cuisse</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -151,6 +174,7 @@
         <tr>
             <th>Tour de mollets</th>
             <?php
+            // Recuperer les données des mensurations
             $reponse = $connect->query('SELECT * FROM MENSURATIONS');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
