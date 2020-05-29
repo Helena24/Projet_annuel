@@ -1,7 +1,8 @@
 <?php
+// Appel de la page qui permet de connecter à la base de données
 include("Connect.php");
+// Permet d'avoir la session active de l'utilisateur
 session_start();
-
 
 //Fonction qui permet de générer une chaine de charactères 
 function motDePasse($longueur=5) {
