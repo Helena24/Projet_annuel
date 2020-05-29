@@ -16,7 +16,7 @@
     include("Connect.php"); 
 ?>
 <head>
-<title>Visualisation mesures</title>
+<title>Visualisation mensurations</title>
 </head> 
 <body>
 

@@ -1,7 +1,20 @@
-<!DOCTYPE html>
+<!-- 
+    Page qui affiche les données des
+    mesures dans un tableau
+    Pour améliorer cette page il faudrait 
+    afficher les mensurations en fonction 
+    de l'utilsateur qui est connecté --->
+
+	<!DOCTYPE html>
 <html>
-<?php include("Functions.php");?>
-<?php include("Connect.php"); ?>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 <head>
 <title>Visualisation mesures</title>
 </head> 
@@ -11,6 +24,7 @@
         <tr>
             <th>Date</th>
             <?php
+            // Recuperer les données des mesures
             $reponse = $connect->query('SELECT * FROM MESURES');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -25,6 +39,7 @@
         <tr>
             <th>Pourcentage masse graisseuse</th>
             <?php
+            // Recuperer les données des mesures
             $reponse = $connect->query('SELECT * FROM MESURES');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -39,6 +54,7 @@
         <tr>
             <th>Masse</th>
             <?php
+            // Recuperer les données des mesures
             $reponse = $connect->query('SELECT * FROM MESURES');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -53,6 +69,7 @@
         <tr>
             <th>Pourcentage eau corps</th>
             <?php
+            // Recuperer les données des mesures
             $reponse = $connect->query('SELECT * FROM MESURES');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -67,6 +84,7 @@
         <tr>
             <th>Graisse viscérale</th>
             <?php
+            // Recuperer les données des mesures
             $reponse = $connect->query('SELECT * FROM MESURES');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -81,6 +99,7 @@
         <tr>
             <th>Masse musculaire</th>
             <?php
+            // Recuperer les données des mesures
             $reponse = $connect->query('SELECT * FROM MESURES');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -95,6 +114,7 @@
         <tr>
             <th>Indice effort</th>
             <?php
+            // Recuperer les données des mesures
             $reponse = $connect->query('SELECT * FROM MESURES');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -109,6 +129,7 @@
         <tr>
             <th>Masse osseuse</th>
             <?php
+            // Recuperer les données des mesures
             $reponse = $connect->query('SELECT * FROM MESURES');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
@@ -123,6 +144,7 @@
         <tr>
             <th>Age métabolique</th>
             <?php
+            // Recuperer les données des mesures
             $reponse = $connect->query('SELECT * FROM MESURES');
             // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch())
