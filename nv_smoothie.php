@@ -14,7 +14,7 @@
 function create_champ_aliment(i) {
 var i2 = i + 1;
 document.getElementById('quantite'+i).innerHTML = '<input id="quantite" type="number" name="quantite['+i+']" placeholder="Quantité">';
-document.getElementById('unite'+i).innerHTML = '<SELECT name="unite['+i+']" size="1"><OPTION>g<OPTION>kg<OPTION>l<OPTION>cl<OPTION>ml</SELECT>';
+document.getElementById('unite'+i).innerHTML = '<SELECT name="unite['+i+']" size="1"><OPTION>g<OPTION>kg<OPTION>l<OPTION>cl<OPTION>ml<OPTION>unite</SELECT>';
 document.getElementById('aliment'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="aliment['+i+']" placeholder="Aliment">';
 document.getElementById('quantite'+i).innerHTML += (i <= 10) ? '<span id="quantite'+i2+'"><a href="javascript:create_champ_aliment('+i2+')"></a></span>' : '';
 document.getElementById('unite'+i).innerHTML += (i <= 10) ? '<span id="unite'+i2+'"><a href="javascript:create_champ_aliment('+i2+')"></a></span>' : '';

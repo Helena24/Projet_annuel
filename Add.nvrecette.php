@@ -5,15 +5,9 @@
 <head>
 <title> Ajout Smoothie</title>
 </head>
-
 <body>
-     
 
 <?php
-
-
-
-
 
 if(isset($_POST['ajouterRecette']))
 {
@@ -34,31 +28,44 @@ if(isset($_POST['ajouterRecette']))
     $Requete->execute();
     $resultat=$Requete->fetch();
     $idRecette = $resultat['ID_RECETTE'];
+    $compteur = 0;
+    $idAl = $array;
 
     foreach($_POST['aliment'] as $aliment)
     {
+        $compteur += 1;
         $RequeteInsertA = $connect->prepare('INSERT INTO CONTENIR (ID_RECETTE, ID_ALIMENT) 
         VALUES("'.$resultat['ID_RECETTE'].'",
         (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT="'.$aliment.'"))');
         $RequeteInsertA->execute();
+        $RecupIdAl = $connect->prepare('SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT="'.$aliment.'"');
+        $RecupIdAl->execute();
+        $idAlR=$RecupIdAl->fetch();
+        $idAl[$compteur]=$idAlR['ID_ALIMENT'];
+    }
 
+    $compteur = 0;
+ 
+    foreach($_POST['quantite'] as $quantiteAliment)
+    {
+        $compteur += 1;
+        $RequeteUpdateQ = $connect->prepare("UPDATE CONTENIR 
+        SET QTE_ALIMENT_RECETTE =  '$quantiteAliment' 
+        WHERE ID_RECETTE = '$idRecette'
+        AND ID_ALIMENT = '$idAl[$compteur]'");
+        $RequeteUpdateQ->execute();
+    }
 
-        foreach($_POST['quantite'] as $quantiteAliment)
-        {
-            $RequeteUpdateQ = $connect->prepare("UPDATE CONTENIR 
-            SET QTE_ALIMENT_RECETTE =  '$quantiteAliment' 
-            WHERE ID_RECETTE = '$idRecette'
-            AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
-            $RequeteUpdateQ->execute();
-        }
-        foreach($_POST['unite'] as $uniteAliment)
-        {
-            $RequeteUpdateU = $connect->prepare("UPDATE CONTENIR 
-            SET UNITE_ALIMENT_RECETTE =  '$uniteAliment' 
-            WHERE ID_RECETTE = '$idRecette'
-            AND ID_ALIMENT = (SELECT ID_ALIMENT FROM ALIMENTS WHERE NOM_ALIMENT='$aliment')");
-            $RequeteUpdateU->execute();
-        }
+    $compteur = 0;
+ 
+    foreach($_POST['unite'] as $uniteAliment)
+    {
+        $compteur += 1;
+        $RequeteUpdateU = $connect->prepare("UPDATE CONTENIR 
+        SET UNITE_ALIMENT_RECETTE =  '$uniteAliment' 
+        WHERE ID_RECETTE = '$idRecette'
+        AND ID_ALIMENT = '$idAl[$compteur]'");
+        $RequeteUpdateU->execute();
     }
     
     foreach($_POST['ingredient'] as $ingredient)
@@ -67,7 +74,6 @@ if(isset($_POST['ajouterRecette']))
         VALUES("'.$resultat['ID_RECETTE'].'",
         (SELECT ID_INGREDIENT FROM INGREDIENTS WHERE NOM_INGREDIENT="'.$ingredient.'"))');
         $RequeteInsertI->execute();
-
     }
 
   
