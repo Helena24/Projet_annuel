@@ -1,3 +1,10 @@
+<!-------------------------------->
+<!-- Page qui permet de faire ---->
+<!-- la requete pour ajouter un -->
+<!-- nouveau client à la base  --->
+<!-- de données ------------------>
+<!-------------------------------->
+
 <?php
 // Appel de la page qui permet de connecter à la base de données
 include("Connect.php");

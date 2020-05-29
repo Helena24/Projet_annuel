@@ -3,8 +3,7 @@
 <!-- la requete pour ajouter un -->
 <!-- nouvel aliment à la base  --->
 <!-- de données ------------------>
-
-<!------------------------------->
+<!-------------------------------->
 
 <!DOCTYPE HTML>
 <html>
