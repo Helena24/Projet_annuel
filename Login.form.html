@@ -1,7 +1,17 @@
+<!-------------------------------->
+<!-- Page qui permet d'afficher -->
+<!-- le formulaire pour se ------->
+<!-- connecter ------------------->
+<!-- avec la possibilité --------->
+<!-- de cliquer sur  ------------->
+<!-- mot de passe oublié --------->
+<!-------------------------------->
+
 <!DOCTYPE HTML>
 <html>
     <head>
         <meta charset="UTF8" />
+        <!-- Nom de l'onglet -->
         <title> Connexion </title>
         <link rel="stylesheet" media="screen" href="Nutrition.css">
     </head> 
@@ -17,11 +27,13 @@
                     
                     <form action=" Login.form.php" method="post">
                         <fieldset style = "border:0">
+                            <!-- Champs du formulaire de connexion -->
                             <input type="text" name="emailUser"  placeholder="Adresse mail utilisateur" required="required"/>
                             <input type="password" name="mdpUser" placeholder="Mot de passe" required="required" />
                             <button type="submit" value="Connexion" name="Connexion">Connexion</button>
                         </fieldset>
                     </form>
+                    <!-- Lien pour renvoyer à la page de mot de passe oublié-->
                     <a href="forgot_password.php">Mot de passe oublié ?</a>
                 </div>
             </section>
