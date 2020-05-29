@@ -1,26 +1,41 @@
+<!-------------------------------->
+<!-- Page qui permet de voir ----->
+<!-- les détails de la recette --->
+<!-- sélectionnée dans le -------->
+<!-- tableau --------------------->
+<!-------------------------------->
+
 <!DOCTYPE html>
 <html>
-<?php include("Functions.php"); ?>
-<?php include("Connect.php"); ?>
-
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 <head>
-<title>Recette</title>
+    <!-- Nom de l'onglet -->
+    <title>Recette</title>
 </head> 
 
 
 <!-- Récupérer le nom de la recette selon l'id qui a été sélectionné -->
 <?php 
-//préparation de la requete
-$reponse = $connect->prepare('SELECT * FROM RECETTES WHERE ID_RECETTE=:id');
+    //préparation de la requete
+    $reponse = $connect->prepare('SELECT * FROM RECETTES WHERE ID_RECETTE=:id');
 
-//liaison du parametre
-$reponse->bindValue(':id', $_GET['idRecette'], PDO::PARAM_STR);
+    //liaison du parametre
+    $reponse->bindValue(':id', $_GET['idRecette'], PDO::PARAM_STR);
 
-//execution de la requete 
-$reponse->execute();
-//$recette = $connect->query("SELECT * FROM RECETTES WHERE ID_RECETTE = '$id_el'");
-while ($inforecette = $reponse->fetch())
-{?>
+    //execution de la requete 
+    $reponse->execute();
+    
+    // Recuperation de toutes les informations sur la recette sélectionnée
+    while ($inforecette = $reponse->fetch())
+    {?>
+
 <!-- Affichage du nom de la recette -->
 <h2><?php echo $inforecette['NOM_RECETTE']; ?></h2>
 
@@ -29,7 +44,10 @@ while ($inforecette = $reponse->fetch())
         <section class="ajout-container">
             <div>
                 <fieldset style = "border:0"> 
-                    Cette recette est faite pour <?php echo $inforecette['NOMBRE_PART_RECETTE']; ?> personne(s) <br>
+                    Cette recette est faite pour <?php 
+                    // Nombre de parts de la recette
+                    echo $inforecette['NOMBRE_PART_RECETTE']; 
+                    ?> personne(s) <br>
                     Aliments <br>
                     <!-- Récupérer les aliments de la recette -->
                     <?php $aliment = $connect->prepare("SELECT * FROM ALIMENTS 
@@ -68,7 +86,10 @@ while ($inforecette = $reponse->fetch())
 
                     ?>
                     Voici le déroulé de la recette : <br>
-                    <?php echo $inforecette['DESCRIPTION_RECETTE']; ?>
+                    <?php 
+                    // Affichage du déroulé de la recette
+                    echo $inforecette['DESCRIPTION_RECETTE']; 
+                    ?>
                     <?php
                     }
                     $reponse->closeCursor(); // Termine le traitement de la requête

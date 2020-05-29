@@ -1,25 +1,41 @@
+<!-------------------------------->
+<!-- Page qui permet de voir ----->
+<!-- les détails du smoothie ----->
+<!-- sélectionné dans le --------->
+<!-- tableau --------------------->
+<!-------------------------------->
+
 <!DOCTYPE html>
 <html>
-<?php include("Functions.php"); ?>
-<?php include("Connect.php"); ?>
-
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 <head>
-<title>Smoothie</title>
+    <!-- Nom de l'onglet -->
+    <title>Smoothie</title>
 </head> 
 
 
 <!-- Récupérer le nom de la recette selon l'id qui a été sélectionné -->
 <?php 
-//préparation de la requete
-$reponse = $connect->prepare('SELECT * FROM SMOOTHIES WHERE ID_SMOOTHIE=:id');
 
-//liaison du parametre
-$reponse->bindValue(':id', $_GET['idSmoothie'], PDO::PARAM_STR);
+    //préparation de la requete
+    $reponse = $connect->prepare('SELECT * FROM SMOOTHIES WHERE ID_SMOOTHIE=:id');
 
-//execution de la requete 
-$reponse->execute();
-while ($infosmoothie = $reponse->fetch())
-{?>
+    //liaison du parametre
+    $reponse->bindValue(':id', $_GET['idSmoothie'], PDO::PARAM_STR);
+
+    //execution de la requete 
+    $reponse->execute();
+
+    // Recuperation de toutes les informations concernant le smoothie
+    while ($infosmoothie = $reponse->fetch())
+    {?>
 <!-- Affichage du nom de la recette -->
 <h2><?php echo $infosmoothie['NOM_SMOOTHIE']; ?></h2>
 
@@ -68,7 +84,10 @@ while ($infosmoothie = $reponse->fetch())
 
                     ?>
                     Voici le déroulé de la recette : <br>
-                    <?php echo $infosmoothie['DESCRIPTION_SMOOTHIE']; ?>
+                    <?php 
+                        // Affichage de la description du smoothie
+                        echo $infosmoothie['DESCRIPTION_SMOOTHIE']; 
+                    ?>
                     <?php
                     }
                     $reponse->closeCursor(); // Termine le traitement de la requête
