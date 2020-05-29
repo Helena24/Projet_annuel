@@ -1,8 +1,19 @@
+<!-------------------------------->
+<!-- Page qui affiche ------------>
+<!-- le formulaire d'ajout des --->
+<!--  smoothies  ------------------>
+<!-------------------------------->
+
 <!DOCTYPE html>
 <html>
-  <?php// include("Functions.php");?>
-  <?php include("Connect.php"); ?>
-  <?php include("entete.php"); ?>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
   
   <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
 
@@ -12,6 +23,7 @@
 
 <script type="text/javascript">
 function create_champ_aliment(i) {
+  // fonction pour créer les champs des aliments
 var i2 = i + 1;
 document.getElementById('quantite'+i).innerHTML = '<input id="quantite" type="number" name="quantite['+i+']" placeholder="Quantité">';
 document.getElementById('unite'+i).innerHTML = '<SELECT name="unite['+i+']" size="1"><OPTION>g<OPTION>kg<OPTION>l<OPTION>cl<OPTION>ml<OPTION>unite</SELECT>';
@@ -21,6 +33,7 @@ document.getElementById('unite'+i).innerHTML += (i <= 10) ? '<span id="unite'+i2
 document.getElementById('aliment'+i).innerHTML += (i <= 10) ? '<span id="aliment'+i2+'"><a href="javascript:create_champ_aliment('+i2+')">Ajouter un aliment</a></span>' : '';
 var countries = $(document).ready(function () {
     let countries = null;
+    // auto complete
     $.get('Add.recette.php')
         .done(function (data) {
             countries = JSON.parse(data);
@@ -59,11 +72,13 @@ fileInput.addEventListener( "change", function( event ) {
 
 <script type="text/javascript">
 function create_champ_ingredient(i) {
+  // fonction pour créer les champs des ingrédients
 var i2 = i + 1;
 document.getElementById('ingredient'+i).innerHTML = '<input id="myInput'+i+'" type="text" name="ingredient['+i+']" placeholder="Ingredient">';
 document.getElementById('ingredient'+i).innerHTML += (i <= 10) ? '<span id="ingredient'+i2+'"><a href="javascript:create_champ_ingredient('+i2+')">Ajouter un ingredient</a></span>' : '';
 var countries = $(document).ready(function () {
     let countries = null;
+    // auto complete
     $.get('Add.recette.php')
         .done(function (data) {
             countries = JSON.parse(data);
