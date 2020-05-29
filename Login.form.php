@@ -1,11 +1,26 @@
+<!-------------------------------->
+<!-- Page qui permet de faire ---->
+<!--la requete pour se connecter-->
+<!--  au site  avec récupération-->
+<!--des données de l'utilisateur-->
+<!-- connecté -------------------->
+<!-------------------------------->
+
+<!DOCTYPE html>
+<html>
 <?php 
-include("Functions.php");
-include 'Connect.php';
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
 ?>
-<!DOCTYPE HTML>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
+
 <html>
     <head>
         <meta charset="UTF8" />
+        <!-- Nom de l'onglet -->
         <title> Connexion </title>
         <link rel="stylesheet" media="screen" href="Nutrition.css">
     </head>
