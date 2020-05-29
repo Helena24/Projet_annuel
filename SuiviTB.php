@@ -1,8 +1,20 @@
-<!DOCTYPE html>
-<html>
+<!-- 
+	Page qui affiche le graphique 
+	tour de bras
+	Cette page contient les données 
+	en brut et n'est pas connecté à
+	la base de données --->
 
-<?php include("Functions.php");?>
-<?php include("Connect.php"); ?>
+	<!DOCTYPE html>
+<html>
+<?php 
+    // Appel de la fonction pour afficher l'entête selon l'utilisateur
+    include("Functions.php"); 
+?>
+<?php 
+    // Appel de la page qui permet de connecter à la base de données
+    include("Connect.php"); 
+?>
 
 <head>	
 	<meta charset="UTF-8">
@@ -41,7 +53,7 @@ var chart = new Chart(ctx, {
 	data: {
 		labels: ["14/01/2020","14/02/2020","14/03/2020"],
 		datasets: [{
-			label: "Pourcentage masse graisseuse",
+			label: "Tour de bras",
 			backgroundColor: 'rgb(255,20,20)',
 			borderColor: 'rgb(255,20,20)',
 			data: [68,70,69],
