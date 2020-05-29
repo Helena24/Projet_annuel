@@ -1,5 +1,14 @@
+<!-------------------------------->
+<!-- Page qui permet de savoir  -->
+<!-- si on affiche l'entete ------>
+<!--  admin ou utilisateur ------->
+<!-------------------------------->
+
+
 <?php
+// Session active
 session_start();
+// Police
 include("police.php");
 
 

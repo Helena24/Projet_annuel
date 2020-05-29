@@ -1,9 +1,16 @@
+<!-------------------------------->
+<!-- Page qui permet d'afficher -->
+<!-- la page si l'utilisateur ---->
+<!-- la oublié son mot de passe -->
+<!-------------------------------->
+
 <!DOCTYPE HTML>
 
 
 <html>
     <head>
         <meta charset="UTF8" />
+        <!-- Nom de l'onglet-->
         <title> Mot de passe oublié</title>
         <link rel="stylesheet" href="Nutrition.css" />
     </head>
@@ -25,6 +32,7 @@
                            
                         </fieldset>  
                     </form>
+                    <!-- Lien pour retourner à la page de connexion -->
                     <a href="Login.form.html">Retour à la page de connexion</a>
                 </div>
             </section>   

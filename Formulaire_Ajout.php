@@ -1,12 +1,21 @@
+<!-------------------------------->
+<!-- Page qui permet d'afficher -->
+<!-- le formulaire pour ajouter -->
+<!-- un nouveau client ----------->
+<!-------------------------------->
+
 <?php 
-include("Functions.php");
-session_start(); 
+    // Appel de la fonction qui permet d'afficher l'entete selon l'utilisateur
+    include("Functions.php");
+    // Session active
+    session_start(); 
 ?>
 
 <!DOCTYPE HTML>
 <html>
 <head>
     <meta charset="UTF8" />
+    <!-- Nom de l'onglet --->
     <title> Ajout Client</title>
     <link rel="stylesheet" media="screen" href="Nutrition.css">
 </head> 
