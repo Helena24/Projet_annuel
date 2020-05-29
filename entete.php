@@ -1,13 +1,19 @@
+<!-------------------------------->
+<!-- Page qui permet d'afficher -->
+<!-- l'entete de l'admin --------->
+<!-------------------------------->
+
 <!DOCTYPE html>
 <html>
     <head>
 	    <meta charset="utf-8" />
 		<link rel="stylesheet" href="Nutrition.css" />
+		<!-- Nom de l'onglet -->
         <title>Accueil</title>
     </head>
 	<header>
 		<br>
-		<!-- Changer le chemin du logo pour qu'il s'affiche -->
+		<!-- Affichage du logo -->
 		<a href="entete.php" title='Mon image' target='_blank'><img src="logo-cutout.png" alt='Mon image' height="140" width="100" id="logo" /></a>
 		
 		<!-- Affichage du nom de l'utilisateur dans l'entete-->
