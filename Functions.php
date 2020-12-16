@@ -21,7 +21,7 @@ l'adresse ci-dessous et dans la deuxième fonction
 */
 
 function is_admin (){
-    if(!empty($_SESSION['MAIL_CLIENT'] && $_SESSION['MAIL_CLIENT'] == 'administrateur@admin.fr')) {
+    if(!empty($_SESSION['MAIL_CLIENT'] && $_SESSION['MAIL_CLIENT'] == 'victor.janneteau@laposte.net')) {
         return true; //Il est admin 
     }
     else 
@@ -37,7 +37,7 @@ Elle verifie que l'adresse mail de la session active n'est pas nulle et qu'elle 
 
 */
 function is_user(){
-    if(!empty($_SESSION['MAIL_CLIENT'] && $_SESSION['MAIL_CLIENT'] != 'administrateur@admin.fr')){
+    if(!empty($_SESSION['MAIL_CLIENT'] && $_SESSION['MAIL_CLIENT'] != 'victor.janneteau@laposte.net')){
         return true; 
     }
     else 
